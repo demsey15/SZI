@@ -1,5 +1,10 @@
-package demski;
+package bohonos.demski.gorska.limiszewska.mieldzioc.logicalLayer;
 
+/**
+ * 
+ * @author Dominik Demski
+ *
+ */
 public class Coordinates {
 	
 	private int row;
@@ -22,6 +27,14 @@ public class Coordinates {
 		this.column = column;
 	}
 	
-	
-	
+	@Override
+	public boolean equals(Object o) {
+		if(this == o) return true;
+		if(o == null) return false;
+		if(this.getClass() != o.getClass()) return false;
+		
+		Coordinates o2 = (Coordinates) o;
+		
+		return row == o2.row && column == o2.column;
+	}
 }

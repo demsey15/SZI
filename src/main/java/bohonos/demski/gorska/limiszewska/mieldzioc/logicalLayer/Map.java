@@ -1,8 +1,9 @@
 /**
  * 
  */
-package demski;
+package bohonos.demski.gorska.limiszewska.mieldzioc.logicalLayer;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -54,6 +55,21 @@ public class Map {
 		map.get(coordinates.getRow()).remove(coordinates.getColumn());
 		map.get(coordinates.getRow()).add(coordinates.getColumn(), chairState);
 		return true;
+	}
+	
+	/**
+	 * Zwraca listê wspó³rzednych wszystkich sto³ów na mapie.
+	 * @return lista wspó³rzednych wszystkich sto³ów.
+	 */
+	public List<Coordinates> getAllTablesCoordinates(){
+		List<Coordinates> list = new ArrayList<Coordinates>();
+		for(int i = 0; i < MAP_HEIGHT; i++){
+			for(int j = 0; j < MAP_WIDTH; j++){
+				if(map.get(i).get(j) == TABLE)
+					list.add(new Coordinates(i, j));
+			}
+		}
+		return list;
 	}
 	
 	private boolean checkIfCoordinatesAreInMap(Coordinates coordinates){

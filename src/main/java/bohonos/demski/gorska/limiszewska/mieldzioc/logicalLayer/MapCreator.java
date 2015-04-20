@@ -1,7 +1,7 @@
 /**
  * 
  */
-package demski;
+package bohonos.demski.gorska.limiszewska.mieldzioc.logicalLayer;
 
 import java.io.IOException;
 import java.nio.file.Path;

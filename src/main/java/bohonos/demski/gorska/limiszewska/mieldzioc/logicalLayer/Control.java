@@ -1,13 +1,33 @@
-package demski;
+package bohonos.demski.gorska.limiszewska.mieldzioc.logicalLayer;
 
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.List;
+
+/**
+ * Kontroler s³u¿¹cy do komunikacji GUI z warstw¹ logiczn¹ aplikacji.
+ * Jest to singleton, kontroler ten nale¿y tworzyæ pos³uguj¹c siê metod¹
+ * getInstance(), komunikacja z warstw¹ logiczn¹ powinna siê odbywaæ
+ * TYLKO za pomoc¹ kontrolera.
+ * @author Dominik Demski
+ *
+ */
 
 public class Control {
 
 	public static final String FILE_PATH = "resources//map.txt";
 	
 	private Map map;
+	private Monitor monitor = Monitor.getInstance();
+	private Waiter waiter = Waiter.getInstance();
+	
+	private static Control instance;
+	
+	private Control(){}
+	
+	public static Control getInstance(){
+		return (instance == null)? (instance = new Control()) : instance;
+	}
 	
 	/**
 	 * Przygotowuje mapê (wype³nia j¹ sto³ami i krzes³ami na podstawie pliku o œcie¿ce
@@ -60,10 +80,40 @@ public class Control {
 	 * Zmienia stan krzes³a na zwyk³e.
 	 * @param coordinates wspó³rzêdne krzes³a
 	 * @return false, jeœli podane wspó³rzêdne wykraczaj¹ poza mapê albo pod podanymi wspó³rzednymi
-	 * nie ma krzes³a, albo nie stworzono wczeœniej mapy (za pomoc¹ metody prepareMap(),  w przeciwnym przypadku true.
+	 * nie ma krzes³a, albo nie stworzono wczeœniej mapy (za pomoc¹ metody prepareMap()),  w przeciwnym przypadku true.
 	 */
 	public boolean setChairAsSimple(Coordinates coordinates){
 		if(map == null) return false;
 		return map.setChairAs(coordinates, Map.CHAIR);
+	}
+	
+	/**
+	 * Zwraca listê wspó³rzednych wszystkich sto³ów na mapie.
+	 * @return lista wspó³rzednych wszystkich sto³ów lub null, jeœli (i tylko wtedy) nie stworzono wczesniej mapy
+	 * (za pomoc¹ metody prepareMap()).
+	 */
+	public List<Coordinates> getAllTablesCoordinates(){
+		if(map == null) return null;
+		return map.getAllTablesCoordinates();
+	}
+	
+	
+	/**
+	 * Rejestruje s³uchacza zdarzenia przemieszczenia siê kelnera (musi on implementowaæ
+	 * interfejs OnMoveListener). S³uchacz ten zostanie poinformowany o przmieszczeniu siê kelnera,
+	 * dostanie œcie¿kê (listê koordynatów), któr¹ ma przejœæ kelner, za pomoc¹ metody onMove z interfejsu
+	 * OnMoveListener.
+	 * @param listener s³uchacz
+	 */
+	public void registerOnWaiterMoveListener(OnMoveListener listener){
+		monitor.registerListener(listener);
+	}
+	
+	/**
+	 * 
+	 * @return zwraca aktualne po³o¿enie kelnera.
+	 */
+	public Coordinates getWaitersCurrentPosition() {
+		return waiter.getCurrentPosition();
 	}
 }
