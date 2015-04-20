@@ -4,4 +4,5 @@
   <artifactId>Inteligentny_kelner</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>Inteligentny kelner</name>
+  <mainClass>ViewLayer.Main</mainClass>
 </project>
