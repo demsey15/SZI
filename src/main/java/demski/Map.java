@@ -6,6 +6,7 @@ package demski;
 import java.util.List;
 
 /**
+ * Klasa reprezentuj¹ca mapê z ró¿nymi krzes³ami i sto³ami.
  * @author Dominik Demski
  *
  */
@@ -27,6 +28,37 @@ public class Map {
 		this.map = map;
 	}
 	
+	/**
+	 * Zwraca id obiektu znajduj¹cego siê pod wskazanymi wspó³rzêdnymi na mapie.
+	 * @param coordinates wspó³rzedne obiektu.
+	 * @return zwraca id obiektu (patrz sta³e w klasie Map) lub -1, jeœli podane wspó³rzedne wykraczaj¹
+	 * poza mapê.
+	 */
+	public int getObjectId(Coordinates coordinates){
+		if(!checkIfCoordinatesAreInMap(coordinates)) return -1;
+		
+		return map.get(coordinates.getRow()).get(coordinates.getColumn());
+	}
+	/**
+	 * Zmienia stan krzes³a na zielone, czerwone albo zwyk³e.
+	 * @param coordinates wspó³rzêdne krzes³a
+	 * @param chairState stan, w który wejœæ ma krzes³o (patrz sta³e w klasie Map).
+	 * @return false, jeœli podane wspó³rzêdne wykraczaj¹ poza mapê, albo pod podanymi wspó³rzednymi
+	 * nie ma krzes³a, w przeciwnym przypadku true.
+	 */
+	public boolean setChairAs(Coordinates coordinates, int chairState){
+		int id = getObjectId(coordinates);
+		if(id == -1) return false;
+		if(id != GREEN_CHAIR && id != RED_CHAIR && id != CHAIR) return false;
+		if(chairState != GREEN_CHAIR && chairState != RED_CHAIR && chairState != CHAIR) return false;
+		map.get(coordinates.getRow()).remove(coordinates.getColumn());
+		map.get(coordinates.getRow()).add(coordinates.getColumn(), chairState);
+		return true;
+	}
 	
+	private boolean checkIfCoordinatesAreInMap(Coordinates coordinates){
+		return (coordinates.getRow() >= 0 && coordinates.getRow() < MAP_HEIGHT &&
+				coordinates.getColumn() >= 0 && coordinates.getColumn() > MAP_WIDTH);
+	}
 	
 }
