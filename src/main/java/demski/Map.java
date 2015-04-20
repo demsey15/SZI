@@ -1,7 +1,7 @@
 /**
  * 
  */
-package bohonos.demski.gorska.limiszewska.mieldzioc;
+package demski;
 
 import java.util.List;
 
@@ -22,5 +22,11 @@ public class Map {
 
 	
 	private List<List<Integer>> map;
+	
+	public Map(List<List<Integer>> map){
+		this.map = map;
+	}
+	
+	
 	
 }
