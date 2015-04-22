@@ -1,0 +1,60 @@
+Kotlet schabowy;kotlet schabowy, ziemniaki, surówka;2;2;300;15
+Zupa pomidorowa;zupa pomidorowa;0;3;200;10
+Rosó³;rosó³;0;3;200;10
+Shoarma;miêso z kurczaka, frytki, surówka, zestaw sosów;2;2;300;20
+Wódka;Wyborowa;0;0;4;1
+Wódka;Dêbowa;0;0;4;1
+Wódka;Absolut;0;0;4;1
+Wódka;Sobieski;0;0;4;1
+Wódka;Baczewski;0;0;4;1
+Wódka;Luksusowa;0;0;4;1
+Wódka;Stock;0;0;4;1
+Wódka;¯ubrówka z³ota;0;0;4;1
+Wódka;Chopin;0;0;4;1
+Wódka;Pan Tadeusz;0;0;4;1
+Wódka;Finlandia;0;0;4;1
+Wódka;Smirnoff;0;0;4;1
+Wódka;Nemiroff;0;0;4;1
+Wódka;Belvedere;0;0;4;1
+Whiskey;Jack Daniels z lodem;0;0;22;1
+Whiskey;Jim Beam z lodem;0;0;22;1
+Whiskey;Bushmills z lodem;0;0;22;1
+Whiskey;Jameson z lodem;0;0;22;1
+Whiskey;Wild Turkey z lodem;0;0;22;1
+Whiskey;Blanton's z lodem;0;0;22;1
+Whisky;Chivas Regal z lodem;0;0;22;1
+Whisky;Ballantine's z lodem;0;0;22;1
+Whisky;Ardberg z lodem;0;0;22;1
+Whisky;Ardmore z lodem;0;0;22;1
+Whisky;Arran z lodem;0;0;22;1
+Whisky;Glenfiddich z lodem;0;0;22;1
+Wino;Komandos zielony;0;0;5;1
+Wino;Cherry wiœniowe;0;0;5;1
+Wino;Pisane patykiem;0;0;5;1
+Wino;Amarena;0;0;5;1
+Wino;Keleris;0;0;5;1
+Wino;Leœny dzban;0;0;5;1
+Wino;Komandos czerwony;0;0;5;1
+Wino;Byk;0;0;5;1
+Wino;Bieszczady;0;0;5;1
+Rum;Angostura;0;0;25;1
+Rum;Baccardi;0;0;25;1
+Rum;Matusalem;0;0;25;1
+Rum;Rebellion;0;0;25;1
+Tequila;Olmeca;0;0;4;1
+Tequila;Don Diego;0;0;4;1
+Tequila;Herradura;0;0;4;1
+Tequila;Sauza;0;0;4;1
+Tequila;Scorpion;0;0;4;1
+Tequila;Sierra;0;0;4;1
+Piwo;Ciechan;0;0;20;1
+Piwo;Mi³os³aw;0;0;20;1
+Piwo;Fortuna;0;0;20;1
+Piwo;KoŸlak;0;0;20;1
+Piwo;Czarny Smok;0;0;20;1
+Piwo;Mocny Full;0;0;20;1
+Piwo;Noteckie;0;0;20;1
+Piwo;Czarnkowskie;0;0;20;1
+Piwo;Amber;0;0;20;1
+Piwo;Kiper;0;0;20;1
+Piwo;Karpackie;0;0;20;1
