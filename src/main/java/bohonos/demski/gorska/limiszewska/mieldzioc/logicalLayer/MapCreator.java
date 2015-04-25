@@ -5,6 +5,7 @@ package bohonos.demski.gorska.limiszewska.mieldzioc.logicalLayer;
 
 import java.io.IOException;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -53,6 +54,7 @@ public class MapCreator {
 				}
 				else columns.add(number);
 			}
+			map.add(columns);
 		}
 		in.close();
 	}
@@ -100,7 +102,23 @@ public class MapCreator {
 		}
 		return true;	
 	}
-	
-	
+
+	public static void main(String[] args){
+		MapCreator mapCreator = new MapCreator();
+		try {
+			mapCreator.loadMapFromFile(Paths.get(Control.FILE_PATH));
+			mapCreator.createMapWithChairs();
+			List<List<Integer>> map = mapCreator.getMap();
+
+			for(List<Integer> l : map){
+				for(Integer i : l){
+					System.out.print(i + " ");
+				}
+				System.out.println();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 }

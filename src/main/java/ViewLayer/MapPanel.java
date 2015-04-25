@@ -38,7 +38,7 @@ public class MapPanel extends JPanel {
         control = Control.getInstance();
         try {
             control.prepareMap();
-            //wspolrzedneNaMapie =  control.getAllTablesCoordinates();
+            wspolrzedneNaMapie =  control.getAllTablesCoordinates();
 
 
         } catch (IOException e) {
