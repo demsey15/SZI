@@ -14,7 +14,7 @@ import java.util.*;
 
 //Panel odpowiedzialny za wyœwietlenie mapy
 
-public class MapPanel extends JPanel {
+public class MapPanel extends JPanel implements Runnable{
 
     int szerokosc;
     int wysokosc;
@@ -22,7 +22,12 @@ public class MapPanel extends JPanel {
     int wysokoscPola;
     Control control;
     java.util.List<Coordinates> wspolrzedneNaMapie;
-    ImageIcon table, floor, green, grey, red;
+    ImageIcon table, floor, green, grey, red, waiter;
+    int waiterXpos, waiterYpos; //pozycja w px
+    public Coordinates waiterCoordinates  = new Coordinates(0,0); //pozycja na mapie
+
+    private Thread runner = null;
+    private int krok = 1;
 
 
     public MapPanel(int szerokosc, int wysokosc){
@@ -33,6 +38,9 @@ public class MapPanel extends JPanel {
         szerokoscPola = calculateHeightForIcon();
         wysokoscPola = calculateHeightForIcon();
 
+        waiterXpos = 0;
+        waiterYpos = 0;
+
 
         this.setLayout(null);
 
@@ -41,8 +49,6 @@ public class MapPanel extends JPanel {
         try {
             control.prepareMap();
             wspolrzedneNaMapie =  control.getAllTablesCoordinates();
-
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -54,25 +60,22 @@ public class MapPanel extends JPanel {
         green = new ImageIcon("resources\\green.png");
         grey = new ImageIcon("resources\\grey.png");
         red = new ImageIcon("resources\\red.png");
+        waiter = new ImageIcon("resources\\waiter.png");
+
     }
 
 
     public void paintComponent(Graphics g)
     {
         super.paintComponent(g);
+        g.drawImage(waiter.getImage(), waiterXpos, waiterYpos, szerokoscPola, wysokoscPola, null);
 
-
-
-        g.drawImage(table.getImage(), 0, 0, calculateWidthForIcon(), calculateHeightForIcon(), null);
-        //przesuwanie : w prawo, w dol
-
-        /*for ( Coordinates c : wspolrzedneNaMapie ) {
-
-            //wrog.paintIcon(this, g, obliczX(p.podajPolozenieXPostaci()), obliczY(p.podajPolozenieYPostaci()));
-            g.drawImage(wrog.getImage(), obliczX(p.podajPolozenieXPostaci()), obliczY(p.podajPolozenieYPostaci()), pXX, pYY, null);
+        for ( Coordinates c : wspolrzedneNaMapie ) {
+            g.drawImage(selectIcon(control.getObjectId(c)).getImage(), calculateWidthPosition(c.getColumn()), calculateHeightPosition(c.getRow()), szerokoscPola, wysokoscPola, null);
+            System.out.print(control.getObjectId(c));
         }
 
-        */
+
 
     }
 
@@ -116,6 +119,59 @@ public class MapPanel extends JPanel {
 
         }
     }
+
+    void play()
+    {
+        if (runner==null)
+        {
+            runner=new Thread(this);
+            runner.start();
+        }
+    }
+
+    void stop()
+    {
+        if (runner!=null)
+        {
+            runner=null;
+        }
+    }
+
+
+    public void run() {
+        Thread ten=Thread.currentThread();
+        while (runner==ten)
+        {
+            int bx = calculateHeightPosition(waiterCoordinates.getRow());
+            int by = calculateWidthPosition(waiterCoordinates.getColumn());
+            System.out.println("Dziala");
+
+            if ( waiterXpos < bx ) { waiterXpos = waiterXpos + krok; }
+            if ( waiterXpos > bx ) { waiterXpos = waiterXpos - krok; }
+            if ( waiterYpos < by ) { waiterYpos = waiterYpos + krok; }
+            if ( waiterYpos > by ) { waiterYpos = waiterYpos - krok; }
+
+
+            try
+            {
+                Thread.sleep(100); //ustawianie predkosci ruchu bohatera
+                System.out.print("Czekam");
+                repaint();
+            }
+            catch (InterruptedException e)
+            {
+                System.out.print("przerwano");
+            }
+
+            if ( waiterXpos == bx && waiterYpos == by) { this.stop(); }
+        }
+
+
+    }
+
+
+
+
 
 
 }

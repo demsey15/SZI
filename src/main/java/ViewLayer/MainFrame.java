@@ -33,6 +33,10 @@ public class MainFrame extends JFrame {
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setLayout(new BorderLayout());
 
+		//Mapa
+		MapPanel mapPanel = new MapPanel(szerokosc,wysokosc);
+		add(mapPanel, BorderLayout.CENTER);
+
 		//gorny panel
 		northPanel = new JPanel();
 		northPanel.setLayout(new BorderLayout());//Layout(northPanel, BoxLayout.X_AXIS));
@@ -46,7 +50,7 @@ public class MainFrame extends JFrame {
 		northPanel.add(title, BorderLayout.WEST);
 
 		//ustawienia algorytmow
-		settingsPanel = new SettingsFrame();
+		settingsPanel = new SettingsFrame(mapPanel);
 		northPanel.add(settingsPanel, BorderLayout.CENTER);
 
 		add(northPanel, BorderLayout.PAGE_START);
@@ -77,9 +81,7 @@ public class MainFrame extends JFrame {
 		menuPanel = new MenuPanel(listaMenu, szerokosc,wysokosc);
 		add(menuPanel, BorderLayout.EAST);
 
-		//Mapa
-		MapPanel mapPanel = new MapPanel(szerokosc,wysokosc);
-		add(mapPanel, BorderLayout.CENTER);
+
 
 
 		validate();

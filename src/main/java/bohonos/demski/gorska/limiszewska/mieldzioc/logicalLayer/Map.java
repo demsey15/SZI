@@ -76,5 +76,7 @@ public class Map {
 		return (coordinates.getRow() >= 0 && coordinates.getRow() < MAP_HEIGHT &&
 				coordinates.getColumn() >= 0 && coordinates.getColumn() > MAP_WIDTH);
 	}
+
+
 	
 }
