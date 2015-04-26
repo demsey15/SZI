@@ -22,6 +22,8 @@ public class MapPanel extends JPanel {
     int wysokoscPola;
     Control control;
     java.util.List<Coordinates> wspolrzedneNaMapie;
+    ImageIcon table, floor, green, grey, red;
+
 
     public MapPanel(int szerokosc, int wysokosc){
 
@@ -46,6 +48,12 @@ public class MapPanel extends JPanel {
         }
 
         this.setBackground(Color.white);
+
+        table = new ImageIcon("resources\\table.png");
+        floor = new ImageIcon("resources\\floor.png");
+        green = new ImageIcon("resources\\green.png");
+        grey = new ImageIcon("resources\\grey.png");
+        red = new ImageIcon("resources\\red.png");
     }
 
 
@@ -53,11 +61,7 @@ public class MapPanel extends JPanel {
     {
         super.paintComponent(g);
 
-        ImageIcon table = new ImageIcon("resources\\table.png");
-        ImageIcon floor = new ImageIcon("resources\\floor.png");
-        ImageIcon green = new ImageIcon("resources\\green.png");
-        ImageIcon grey = new ImageIcon("resources\\grey.png");
-        ImageIcon red = new ImageIcon("resources\\red.png");
+
 
         g.drawImage(table.getImage(), 0, 0, calculateWidthForIcon(), calculateHeightForIcon(), null);
         //przesuwanie : w prawo, w dol
@@ -93,4 +97,25 @@ public class MapPanel extends JPanel {
     public int calculateWidthPosition(int row){
         return row * szerokoscPola;
     }
+
+    private ImageIcon selectIcon(int number){
+        switch (number) {
+            /*
+            public static final int FREE_FIELD = 0;
+            public static final int TABLE = 1;
+            public static final int GREEN_CHAIR = 2;
+            public static final int RED_CHAIR = 3;
+            public static final int CHAIR = 4;
+            */
+            //chair - jaki to obrazek?
+            case 0: return floor;
+            case 1: return table;
+            case 2: return green;
+            case 3: return red;
+            default: return floor;
+
+        }
+    }
+
+
 }
