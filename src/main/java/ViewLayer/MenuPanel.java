@@ -22,7 +22,8 @@ public class MenuPanel extends JPanel {
     public MenuPanel(String[][] list, int screenWidth, int screenHigth){
 
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        this.setPreferredSize(new Dimension(screenWidth/8, screenHigth));
+        this.setPreferredSize(new Dimension(screenWidth/8+screenWidth/18, screenHigth/2));
+        this.setBackground(Color.white);
 
         title = new JLabel("MENU:");
         this.add(title);
