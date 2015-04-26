@@ -74,7 +74,7 @@ public class Map {
 	
 	private boolean checkIfCoordinatesAreInMap(Coordinates coordinates){
 		return (coordinates.getRow() >= 0 && coordinates.getRow() < MAP_HEIGHT &&
-				coordinates.getColumn() >= 0 && coordinates.getColumn() > MAP_WIDTH);
+				coordinates.getColumn() >= 0 && coordinates.getColumn() < MAP_WIDTH);
 	}
 
 

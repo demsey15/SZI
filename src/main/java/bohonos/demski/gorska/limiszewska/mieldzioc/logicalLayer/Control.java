@@ -116,4 +116,14 @@ public class Control {
 	public Coordinates getWaitersCurrentPosition() {
 		return waiter.getCurrentPosition();
 	}
+
+	public static void main(String[] args){
+		Control control = Control.getInstance();
+		try {
+			control.prepareMap();
+			System.out.println(control.getObjectId(new Coordinates(2, 2)));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }
