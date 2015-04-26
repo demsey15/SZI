@@ -77,6 +77,10 @@ public class Map {
 				coordinates.getColumn() >= 0 && coordinates.getColumn() < MAP_WIDTH);
 	}
 
+	public List<List<Integer>> getMap(){
+		return map;
+	}
+
 
 	
 }
