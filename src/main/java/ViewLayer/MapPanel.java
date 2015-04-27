@@ -74,6 +74,7 @@ public class MapPanel extends JPanel implements Runnable{
 
         for ( Coordinates c : wspolrzedneNaMapie ) {
             g.drawImage(selectIcon(control.getObjectId(c)).getImage(), calculateWidthPosition(c.getColumn()), calculateHeightPosition(c.getRow()), szerokoscPola, wysokoscPola, null);
+            System.out.println("Coordinates: ");
             System.out.print(control.getObjectId(c));
         }
 
@@ -115,6 +116,7 @@ public class MapPanel extends JPanel implements Runnable{
             case 1: return table;
             case 2: return green;
             case 3: return red;
+            case 4: return green;
             default: return floor;
 
         }
