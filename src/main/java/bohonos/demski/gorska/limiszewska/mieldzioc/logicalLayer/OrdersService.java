@@ -111,5 +111,30 @@ public class OrdersService {
     public void removeOrder(int index){
         orders.remove(index);
     }
+    
+    /**
+     * Metoda zwraca tablicê dwuwymiarow¹, która zawiera informacje o numerze zamówienia i zawartoœci zamówienia
+     * @return orderList;
+     */
+    public String[][] getOrdersList(){
+        String[][] orderList = new String [orders.size()][2];
+        for (int i=0; i<orders.size();i++){
+            orderList[i][0] = Integer.toString(i+1);
+            orderList[i][1] = orders.get(i).getValue().getName() + orders.get(i).getValue().getIngredients() ;
+        }
+        return orderList;
+    }
 
+    /**
+     *  Metoda zwraca tablicê dwuwymiarow¹, która zawiera informacje o pozycji posi³ku w menu i zawartoœci tej pozycji
+     * @return menuList;
+     */
+    public String[][] getMenuList(){
+        String[][] menuList = new String [menu.size()][2];
+        for (int i=0; i<menu.size();i++){
+            menuList[i][0] = Integer.toString(i+1);
+            menuList[i][1] = menu.get(i).getName() +" "+ menu.get(i).getIngredients() ;
+        }
+        return menuList;
+    }
 }
