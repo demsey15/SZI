@@ -1,6 +1,8 @@
 package ViewLayer;
-
+import bohonos.demski.gorska.limiszewska.mieldzioc.logicalLayer.Control;
+import bohonos.demski.gorska.limiszewska.mieldzioc.logicalLayer.Map;
 import java.awt.*;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.*;
@@ -17,28 +19,42 @@ public class MainFrame extends JFrame {
 	OrdersPanel handedOnPlatePanel;
 	MenuPanel menuPanel;
 	SettingsFrame settingsPanel;
+	MapPanel mapPanel;
 
 	public MainFrame(){
-		
+
 		obliczWielkoscOkna();
-		setSize(szerokosc, wysokosc);
+		this.pack();
+		this.setAlwaysOnTop(true);
+		//setSize(szerokosc, wysokosc);
+		//setSize(szerokosc/8 *2 + mapPanel.wysokoscPola*21, wysokosc);
+
+		System.out.print("Szerokosc to: " + szerokosc);
 		setVisible(true);
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setLayout(new BorderLayout());
+		setBackground(Color.white);
+
+		//Mapa
+		MapPanel mapPanel = new MapPanel(szerokosc,wysokosc);
+		add(mapPanel, BorderLayout.CENTER);
 
 		//gorny panel
 		northPanel = new JPanel();
-		northPanel.setLayout(new BoxLayout(northPanel, BoxLayout.X_AXIS));
+		northPanel.setLayout(new BorderLayout());//Layout(northPanel, BoxLayout.X_AXIS));
+		northPanel.setPreferredSize(new Dimension(szerokosc,wysokosc/16));
+		northPanel.setBackground(Color.white);
 		add(northPanel, BorderLayout.EAST);
 
 		//tytul
 		JLabel title = new JLabel(" INTELIGENTNY KELNER");
 		title.setFont(new Font("Serif", Font.BOLD, 36));
-		northPanel.add(title);
+		title.setPreferredSize(new Dimension(szerokosc / 3, wysokosc / 16));
+		northPanel.add(title, BorderLayout.WEST);
 
 		//ustawienia algorytmow
-		settingsPanel = new SettingsFrame();
-		northPanel.add(settingsPanel);
+		settingsPanel = new SettingsFrame(mapPanel);
+		northPanel.add(settingsPanel, BorderLayout.CENTER);
 
 		add(northPanel, BorderLayout.PAGE_START);
 
@@ -48,7 +64,7 @@ public class MainFrame extends JFrame {
 
 		//utworzenie przykladowej listy zamowien
 		String [][] orderList = {{"Zamowienie 1", "1"}, {"Zamowienie 2", "2"}};
-		newOrdersPanel = new OrdersPanel(orderList, "Zamowienia:");
+		newOrdersPanel = new OrdersPanel(orderList, "Zamowienia:", szerokosc, wysokosc);
 		leftPanel.add(newOrdersPanel);
 
 		//przetestowanie odswie¿alnoœci listy zamowien
@@ -56,19 +72,19 @@ public class MainFrame extends JFrame {
 		newOrdersPanel.setOrdersList(orderList2);
 
 		//lista gotowych posilkow
-		readyMealPanel = new OrdersPanel(orderList2, "Gotowe do zabrania:");
+		readyMealPanel = new OrdersPanel(orderList2, "Gotowe do zabrania:", szerokosc, wysokosc);
 		leftPanel.add(readyMealPanel);
 
 		//lsita posilkow na tacy kelnera
-		handedOnPlatePanel = new OrdersPanel(orderList, "Na tacy kelnera:");
+		handedOnPlatePanel = new OrdersPanel(orderList, "Na tacy kelnera:", szerokosc, wysokosc);
 		leftPanel.add(handedOnPlatePanel);
 
 		//Menu
 		String [][] listaMenu = {{"Danie 1"}, {"Danie 2"}, {"Danie 3"}, {"Danie 4"}, {"Danie 5"}};
-		menuPanel = new MenuPanel(listaMenu);
+		menuPanel = new MenuPanel(listaMenu, szerokosc,wysokosc);
 		add(menuPanel, BorderLayout.EAST);
 
-
+		pack();
 		validate();
 
 	}

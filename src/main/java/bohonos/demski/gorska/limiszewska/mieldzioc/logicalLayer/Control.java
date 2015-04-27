@@ -96,6 +96,16 @@ public class Control {
 		if(map == null) return null;
 		return map.getAllTablesCoordinates();
 	}
+
+	public List<Coordinates> getAllCoordinates(){
+		if(map == null) return null;
+		return map.getAllCoordinates();
+	}
+
+	public List<List<Integer>> getMap(){
+		if(map == null) return null;
+		return map.getMap();
+	}
 	
 	
 	/**
@@ -115,5 +125,16 @@ public class Control {
 	 */
 	public Coordinates getWaitersCurrentPosition() {
 		return waiter.getCurrentPosition();
+	}
+
+	public static void main(String[] args){
+		Control control = Control.getInstance();
+		try {
+			control.prepareMap();
+			System.out.println(control.getObjectId(new Coordinates(2, 2)));
+			System.out.println(control.getObjectId(new Coordinates(2, 3)));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

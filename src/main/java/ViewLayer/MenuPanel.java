@@ -2,6 +2,7 @@ package ViewLayer;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 
 /**
  * Created by Agnieszka on 2015-04-21.
@@ -18,9 +19,11 @@ public class MenuPanel extends JPanel {
 
     private JLabel title;
 
-    public MenuPanel(String[][] list){
+    public MenuPanel(String[][] list, int screenWidth, int screenHigth){
 
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        this.setPreferredSize(new Dimension(screenWidth/8+screenWidth/18, screenHigth/2));
+        this.setBackground(Color.white);
 
         title = new JLabel("MENU:");
         this.add(title);

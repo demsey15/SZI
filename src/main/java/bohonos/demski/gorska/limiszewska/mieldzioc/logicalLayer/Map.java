@@ -71,10 +71,27 @@ public class Map {
 		}
 		return list;
 	}
+
+	public List<Coordinates> getAllCoordinates(){
+		List<Coordinates> list = new ArrayList<Coordinates>();
+		for(int i = 0; i < MAP_HEIGHT; i++){
+			for(int j = 0; j < MAP_WIDTH; j++){
+				//if(map.get(i).get(j) == TABLE)
+					list.add(new Coordinates(i, j));
+			}
+		}
+		return list;
+	}
 	
 	private boolean checkIfCoordinatesAreInMap(Coordinates coordinates){
 		return (coordinates.getRow() >= 0 && coordinates.getRow() < MAP_HEIGHT &&
-				coordinates.getColumn() >= 0 && coordinates.getColumn() > MAP_WIDTH);
+				coordinates.getColumn() >= 0 && coordinates.getColumn() < MAP_WIDTH);
 	}
+
+	public List<List<Integer>> getMap(){
+		return map;
+	}
+
+
 	
 }
