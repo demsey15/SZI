@@ -23,15 +23,17 @@ public class MainFrame extends JFrame {
 
 	public MainFrame(){
 
-
-
-
-
 		obliczWielkoscOkna();
-		setSize(szerokosc, wysokosc);
+		this.pack();
+		this.setAlwaysOnTop(true);
+		//setSize(szerokosc, wysokosc);
+		//setSize(szerokosc/8 *2 + mapPanel.wysokoscPola*21, wysokosc);
+
+		System.out.print("Szerokosc to: " + szerokosc);
 		setVisible(true);
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setLayout(new BorderLayout());
+		setBackground(Color.white);
 
 		//Mapa
 		MapPanel mapPanel = new MapPanel(szerokosc,wysokosc);
@@ -40,13 +42,14 @@ public class MainFrame extends JFrame {
 		//gorny panel
 		northPanel = new JPanel();
 		northPanel.setLayout(new BorderLayout());//Layout(northPanel, BoxLayout.X_AXIS));
-		northPanel.setPreferredSize(new Dimension(szerokosc,wysokosc/15));
+		northPanel.setPreferredSize(new Dimension(szerokosc,wysokosc/16));
+		northPanel.setBackground(Color.white);
 		add(northPanel, BorderLayout.EAST);
 
 		//tytul
 		JLabel title = new JLabel(" INTELIGENTNY KELNER");
 		title.setFont(new Font("Serif", Font.BOLD, 36));
-		title.setPreferredSize(new Dimension(szerokosc/2, wysokosc/15));
+		title.setPreferredSize(new Dimension(szerokosc / 3, wysokosc / 16));
 		northPanel.add(title, BorderLayout.WEST);
 
 		//ustawienia algorytmow
@@ -81,9 +84,7 @@ public class MainFrame extends JFrame {
 		menuPanel = new MenuPanel(listaMenu, szerokosc,wysokosc);
 		add(menuPanel, BorderLayout.EAST);
 
-
-
-
+		pack();
 		validate();
 
 	}

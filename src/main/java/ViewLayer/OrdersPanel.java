@@ -28,7 +28,8 @@ public class OrdersPanel extends JPanel {
     public OrdersPanel(String[][] list, String panelTitle, int screenWidth, int screenHight){
 
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        this.setPreferredSize(new Dimension(screenWidth / 8, screenHight));
+        this.setPreferredSize(new Dimension(screenWidth /8 + screenWidth/18, screenHight/2));
+        this.setBackground(Color.white);
 
         title = new JLabel(panelTitle);
         this.add(title);

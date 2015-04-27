@@ -97,6 +97,11 @@ public class Control {
 		return map.getAllTablesCoordinates();
 	}
 
+	public List<Coordinates> getAllCoordinates(){
+		if(map == null) return null;
+		return map.getAllCoordinates();
+	}
+
 	public List<List<Integer>> getMap(){
 		if(map == null) return null;
 		return map.getMap();

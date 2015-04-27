@@ -38,6 +38,8 @@ public class MapPanel extends JPanel implements Runnable{
         szerokoscPola = calculateHeightForIcon();
         wysokoscPola = calculateHeightForIcon();
 
+        setPreferredSize(new Dimension(szerokoscPola*21, wysokoscPola*17));
+
         waiterXpos = 0;
         waiterYpos = 0;
 
@@ -48,7 +50,7 @@ public class MapPanel extends JPanel implements Runnable{
         control = Control.getInstance();
         try {
             control.prepareMap();
-            wspolrzedneNaMapie =  control.getAllTablesCoordinates();
+            wspolrzedneNaMapie =  control.getAllCoordinates();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -68,37 +70,36 @@ public class MapPanel extends JPanel implements Runnable{
     public void paintComponent(Graphics g)
     {
         super.paintComponent(g);
-        g.drawImage(waiter.getImage(), waiterXpos, waiterYpos, szerokoscPola, wysokoscPola, null);
+
 
         for ( Coordinates c : wspolrzedneNaMapie ) {
             g.drawImage(selectIcon(control.getObjectId(c)).getImage(), calculateWidthPosition(c.getColumn()), calculateHeightPosition(c.getRow()), szerokoscPola, wysokoscPola, null);
+            System.out.println("Coordinates: ");
             System.out.print(control.getObjectId(c));
         }
 
+        g.drawImage(waiter.getImage(), waiterXpos, waiterYpos, szerokoscPola, wysokoscPola, null);
 
 
     }
 
     public int calculateHeightForIcon(){
-        return szerokosc * 6 / 8 / 21;
+        return szerokosc * 5 / 8 / 21;
         //szerokosc - szerokosc ekranu
-        //6/8 - taka czesc pola ma ma panel mapy
+        //5/8 - taka czesc pola ma ma panel mapy
         // /21, bo mamy 21 obiektow w jednym wierszu mapy
     }
 
-    public int calculateWidthForIcon(){
-        return szerokosc * 6 / 8 / 21;
-        //szerokosc - szerokosc ekranu
-        //6/8 - taka czesc pola ma ma panel mapy
-        // /21, bo mamy 21 obiektow w jednym wierszu mapyreturn 0;
-    }
+    /*public int calculateWidthForIcon(){
+        return wysokosc * 14 / 15 / 17 ; // * 6 / 8 / 21;
+    }*/
 
     public int calculateHeightPosition(int column){
-        return column * wysokoscPola;
+        return column * wysokoscPola ;//+ (wysokosc * 14 / 15 - 17 * wysokoscPola) /3;
     }
 
     public int calculateWidthPosition(int row){
-        return row * szerokoscPola;
+        return row * szerokoscPola  ;// + (szerokosc * 6 / 8 - szerokoscPola * 21) / 2;
     }
 
     private ImageIcon selectIcon(int number){
@@ -115,6 +116,7 @@ public class MapPanel extends JPanel implements Runnable{
             case 1: return table;
             case 2: return green;
             case 3: return red;
+            case 4: return green;
             default: return floor;
 
         }
@@ -144,7 +146,7 @@ public class MapPanel extends JPanel implements Runnable{
         {
             int bx = calculateHeightPosition(waiterCoordinates.getRow());
             int by = calculateWidthPosition(waiterCoordinates.getColumn());
-            System.out.println("Dziala");
+
 
             if ( waiterXpos < bx ) { waiterXpos = waiterXpos + krok; }
             if ( waiterXpos > bx ) { waiterXpos = waiterXpos - krok; }
@@ -155,7 +157,6 @@ public class MapPanel extends JPanel implements Runnable{
             try
             {
                 Thread.sleep(100); //ustawianie predkosci ruchu bohatera
-                System.out.print("Czekam");
                 repaint();
             }
             catch (InterruptedException e)
