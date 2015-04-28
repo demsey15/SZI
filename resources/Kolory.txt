@@ -1,0 +1,4 @@
+Kolory w formacie RGB:
+pod³oga - (240,235,180)
+kratka - (180,120,50)
+stó³ - (160,100,40)
