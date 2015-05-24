@@ -62,6 +62,22 @@ public class Control {
 		}
 		else return  Map.FREE_FIELD;
 	}
+
+	/**
+	 * Zwraca numer sto³u stoj¹cego pod zadanymi wspó³rzêdnymi.
+	 * @param coordinates wspó³rzêdne sto³u.
+	 * @return numer sto³u, -1, jeœli nie stworzono wczeœniej mapy, -2, jeœli podane wspó³rzêdne wykraczaj¹ poza mapê,
+	 * -3 jeœli pod danymi wspó³rzêdnymi nie ma sto³u.
+	 */
+	public int getTableNumber(Coordinates coordinates){
+		if(map == null) return -1;
+		Object o = map.getObjectId(coordinates);
+		if(o == null) return -2;
+		if(o instanceof Table){
+			return ((Table) o).getTableNumber();
+		}
+		else return -3;
+	}
 	
 	/**
 	 * Zmienia stan krzes³a na czerwone.
