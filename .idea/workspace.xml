@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3cfe7f72-7b71-4c41-8462-2dc155165e1c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/Control.java" afterPath="$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/Control.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/Map.java" afterPath="$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/Map.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/MapCreator.java" afterPath="$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/MapCreator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/Seat.java" afterPath="$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/Seat.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-    </list>
+    <list default="true" id="3cfe7f72-7b71-4c41-8462-2dc155165e1c" name="Default" comment="" />
     <ignored path="Inteligentny_kelner.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -147,8 +141,8 @@
       <file leaf-file-name="Control.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/Control.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9399293">
-              <caret line="148" column="1" selection-start-line="148" selection-start-column="1" selection-end-line="148" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.63957596">
+              <caret line="138" column="43" selection-start-line="138" selection-start-column="43" selection-end-line="138" selection-end-column="43" />
               <folding>
                 <element signature="e#728#729#0" expanded="true" />
                 <element signature="e#799#800#0" expanded="true" />
@@ -1035,8 +1029,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/Control.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9399293">
-          <caret line="148" column="1" selection-start-line="148" selection-start-column="1" selection-end-line="148" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.63957596">
+          <caret line="138" column="43" selection-start-line="138" selection-start-column="43" selection-end-line="138" selection-end-column="43" />
           <folding>
             <element signature="e#728#729#0" expanded="true" />
             <element signature="e#799#800#0" expanded="true" />
