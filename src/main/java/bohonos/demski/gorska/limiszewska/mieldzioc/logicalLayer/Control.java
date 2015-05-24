@@ -51,7 +51,16 @@ public class Control {
 	 */
 	public int getObjectId(Coordinates coordinates){
 		if(map == null) return -2;
-		return map.getObjectId(coordinates);
+		Object o =  map.getObjectId(coordinates);
+
+		if(o == null) return -1;
+		if(o instanceof Table){
+			return Map.TABLE;
+		}
+		else if(o instanceof Seat){
+			return  ((Seat) o).getState();
+		}
+		else return  Map.FREE_FIELD;
 	}
 	
 	/**
@@ -102,7 +111,7 @@ public class Control {
 		return map.getAllCoordinates();
 	}
 
-	public List<List<Integer>> getMap(){
+	public List<List<Object>> getMap(){
 		if(map == null) return null;
 		return map.getMap();
 	}

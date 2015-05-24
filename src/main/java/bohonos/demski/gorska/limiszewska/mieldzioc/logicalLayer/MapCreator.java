@@ -16,7 +16,7 @@ import java.util.Scanner;
  */
 public class MapCreator {
 	
-	private List<List<Integer>> map; //numer wiersza <numery kolumn>
+	private List<List<Object>> map; //numer wiersza <numery kolumn>
 	private final int TABLE = 1;
 	private final int NOTHING = 0;
 	
@@ -26,11 +26,11 @@ public class MapCreator {
 	 * @throws IOException wyj¹tek zostaje wyrzucony, jeœli nie ma pliku o podanej œcie¿ce.
 	 */
 	public void loadMapFromFile(Path path) throws IOException{
-		 map = new ArrayList<List<Integer>>(Map.MAP_HEIGHT);
+		 map = new ArrayList<List<Object>>(Map.MAP_HEIGHT);
 		Scanner in = new Scanner(path);
-		
+		int tableNumber = 1;
 		for(int i = 0; i < Map.MAP_HEIGHT; i++){
-			List<Integer> columns = new ArrayList<Integer>(Map.MAP_WIDTH);
+			List<Object> columns = new ArrayList<Object>(Map.MAP_WIDTH);
 			if(! in.hasNextLine()){ 
 				in.close();
 				map = null;
@@ -52,14 +52,23 @@ public class MapCreator {
 							+ "tylko " + TABLE + " i " + NOTHING + "(b³¹d w wierszu: " + (i + 1) +
 							" kolumnie: " + (j + 1));
 				}
-				else columns.add(number);
+				else{
+					Object toAdd;
+					if(number == TABLE){
+						toAdd = new Table(tableNumber, new Coordinates(i, j));
+					}
+					else{
+						toAdd = NOTHING;
+					}
+						columns.add(toAdd);
+				}
 			}
 			map.add(columns);
 		}
 		in.close();
 	}
 	
-	public List<List<Integer>> getMap() {
+	public List<List<Object>> getMap() {
 		return map;
 	}
 
@@ -72,28 +81,36 @@ public class MapCreator {
 		
 		for(int i = 0; i < map.size(); i++){
 			for(int j = 0; j < map.get(i).size(); j++){
-				if(map.get(i).get(j) == TABLE){
+				if(map.get(i).get(j) instanceof Table){
 					if(i - 1 >= 0){    //je¿eli istnieje mapa w górê
-						if(map.get(i - 1).get(j) != TABLE){  //je¿eli tam nie ma sto³u
+						if(! (map.get(i - 1).get(j) instanceof Table)){  //je¿eli tam nie ma sto³u
 							map.get(i - 1).remove(j);
-							map.get(i - 1).add(j, Map.CHAIR);
+							Seat seat = new Seat(new Coordinates(i - 1, j));
+							seat.setState(Map.CHAIR);
+							map.get(i - 1).add(j, seat);
 						}
 						if(i + 1 < Map.MAP_HEIGHT){  //w dó³
-							if(map.get(i + 1).get(j) != TABLE){  //je¿eli tam nie ma sto³u
+							if(! (map.get(i + 1).get(j) instanceof Table)){  //je¿eli tam nie ma sto³u
 								map.get(i + 1).remove(j);
-								map.get(i + 1).add(j, Map.CHAIR);
+								Seat seat = new Seat(new Coordinates(i + 1, j));
+								seat.setState(Map.CHAIR);
+								map.get(i + 1).add(j, seat);
 							}
 						}
 						if(j - 1 >= 0){   // w lewo
-							if(map.get(i).get(j - 1) != TABLE){  //je¿eli tam nie ma sto³u
+							if(! (map.get(i).get(j - 1) instanceof Table)){  //je¿eli tam nie ma sto³u
 								map.get(i).remove(j - 1);
-								map.get(i).add(j - 1, Map.CHAIR);
+								Seat seat = new Seat(new Coordinates(i, j - 1));
+								seat.setState(Map.CHAIR);
+								map.get(i).add(j - 1, seat);
 							}
 						}
 						if(j + 1 < Map.MAP_WIDTH){   // w prawo
-							if(map.get(i).get(j + 1) != TABLE){  //je¿eli tam nie ma sto³u
+							if(! (map.get(i).get(j + 1) instanceof Table)){  //je¿eli tam nie ma sto³u
 								map.get(i).remove(j + 1);
-								map.get(i).add(j + 1, Map.CHAIR);
+								Seat seat = new Seat(new Coordinates(i, j + 1));
+								seat.setState(Map.CHAIR);
+								map.get(i).add(j + 1, seat);
 							}
 						}
 					}
@@ -103,14 +120,15 @@ public class MapCreator {
 		return true;	
 	}
 
-	public static void main(String[] args){
+	public static void main(String[] args) {
+		/*
 		MapCreator mapCreator = new MapCreator();
 		try {
 			mapCreator.loadMapFromFile(Paths.get(Control.FILE_PATH));
 			mapCreator.createMapWithChairs();
-			List<List<Integer>> map = mapCreator.getMap();
+			List<List<Object>> map = mapCreator.getMap();
 
-			for(List<Integer> l : map){
+			for(List<Object> l : map){
 				for(Integer i : l){
 					System.out.print(i + " ");
 				}
@@ -120,5 +138,6 @@ public class MapCreator {
 			e.printStackTrace();
 		}
 	}
-
+	*/
+	}
 }

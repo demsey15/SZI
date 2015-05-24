@@ -23,9 +23,9 @@ public class Map {
 	public static final int MAP_HEIGHT = 17;
 
 	
-	private List<List<Integer>> map;
+	private List<List<Object>> map;
 	
-	public Map(List<List<Integer>> map){
+	public Map(List<List<Object>> map){
 		this.map = map;
 	}
 	
@@ -35,8 +35,8 @@ public class Map {
 	 * @return zwraca id obiektu (patrz sta³e w klasie Map) lub -1, jeœli podane wspó³rzedne wykraczaj¹
 	 * poza mapê.
 	 */
-	public int getObjectId(Coordinates coordinates){
-		if(!checkIfCoordinatesAreInMap(coordinates)) return -1;
+	public Object getObjectId(Coordinates coordinates){
+		if(!checkIfCoordinatesAreInMap(coordinates)) return null;
 		
 		return map.get(coordinates.getRow()).get(coordinates.getColumn());
 	}
@@ -48,12 +48,14 @@ public class Map {
 	 * nie ma krzes³a, w przeciwnym przypadku true.
 	 */
 	public boolean setChairAs(Coordinates coordinates, int chairState){
-		int id = getObjectId(coordinates);
-		if(id == -1) return false;
-		if(id != GREEN_CHAIR && id != RED_CHAIR && id != CHAIR) return false;
+		Object id = getObjectId(coordinates);
+		if(id == null) return false;
+		if(! (id instanceof Seat)) return false;
+	//	if(id != GREEN_CHAIR && id != RED_CHAIR && id != CHAIR) return false;
 		if(chairState != GREEN_CHAIR && chairState != RED_CHAIR && chairState != CHAIR) return false;
-		map.get(coordinates.getRow()).remove(coordinates.getColumn());
-		map.get(coordinates.getRow()).add(coordinates.getColumn(), chairState);
+		//map.get(coordinates.getRow()).remove(coordinates.getColumn());
+		//map.get(coordinates.getRow()).add(coordinates.getColumn(), chairState);
+		((Seat) id).setState(chairState);
 		return true;
 	}
 	
@@ -65,7 +67,7 @@ public class Map {
 		List<Coordinates> list = new ArrayList<Coordinates>();
 		for(int i = 0; i < MAP_HEIGHT; i++){
 			for(int j = 0; j < MAP_WIDTH; j++){
-				if(map.get(i).get(j) == TABLE)
+				if(map.get(i).get(j) instanceof Table)
 					list.add(new Coordinates(i, j));
 			}
 		}
@@ -88,7 +90,7 @@ public class Map {
 				coordinates.getColumn() >= 0 && coordinates.getColumn() < MAP_WIDTH);
 	}
 
-	public List<List<Integer>> getMap(){
+	public List<List<Object>> getMap(){
 		return map;
 	}
 

@@ -8,6 +8,21 @@ public class Seat {
     //Koordynaty
     protected Coordinates coords;
 
+    private int state;  //stan krzes³a
+
+    public int getState() {
+        return state;
+    }
+
+    /**
+     * @author Dominik Demski
+     * @param state
+
+     */
+    public void setState(int state) {
+        this.state = state;
+    }
+
     public Seat ( Coordinates coords ) {
         this.coords = coords;
     }
