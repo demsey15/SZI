@@ -1,5 +1,7 @@
 package ViewLayer;
 
+
+
 import bohonos.demski.gorska.limiszewska.mieldzioc.logicalLayer.Control;
 import bohonos.demski.gorska.limiszewska.mieldzioc.logicalLayer.Coordinates;
 
@@ -22,6 +24,7 @@ public class MapPanel extends JPanel implements Runnable{
     int wysokoscPola;
     Control control;
     java.util.List<Coordinates> wspolrzedneNaMapie;
+    java.util.List<ImageIcon> numeryStolikow;
     ImageIcon table, floor, green, grey, red, waiter;
     int waiterXpos, waiterYpos; //pozycja w px
     public Coordinates waiterCoordinates  = new Coordinates(0,0); //pozycja na mapie
@@ -64,6 +67,11 @@ public class MapPanel extends JPanel implements Runnable{
         red = new ImageIcon("resources\\red.png");
         waiter = new ImageIcon("resources\\waiter.png");
 
+        numeryStolikow = new ArrayList<ImageIcon>();
+        for (int i = 1; i <= 20; i++){
+            numeryStolikow.add(new ImageIcon("resources\\nr" + Integer.toString(i) +".png"));
+        }
+
     }
 
 
@@ -74,8 +82,14 @@ public class MapPanel extends JPanel implements Runnable{
 
         for ( Coordinates c : wspolrzedneNaMapie ) {
             g.drawImage(selectIcon(control.getObjectId(c)).getImage(), calculateWidthPosition(c.getColumn()), calculateHeightPosition(c.getRow()), szerokoscPola, wysokoscPola, null);
-            System.out.println("Coordinates: ");
-            System.out.print(control.getObjectId(c));
+            //System.out.print("GetObjectId(c)" + control.getObjectId(c));
+            int nr = control.getTableNumber(c);
+            System.out.print("Nr stolika: " + nr + "\n");
+            if (nr>=1) {
+                g.drawImage(numeryStolikow.get(nr - 1).getImage(), calculateWidthPosition(c.getColumn()), calculateHeightPosition(c.getRow()), szerokoscPola, wysokoscPola, null);
+            }
+            //System.out.println("Coordinates: ");
+            //System.out.print(control.getObjectId(c));
         }
 
         g.drawImage(waiter.getImage(), waiterXpos, waiterYpos, szerokoscPola, wysokoscPola, null);
