@@ -55,20 +55,55 @@ public class ShortestPaths {
         Set<Coordinates> checked = new HashSet<Coordinates>(400);
         Set<Coordinates> toCheck = new HashSet<Coordinates>(400);
         Set<Coordinates> nextToCheck = new HashSet<Coordinates>(400);
+        int currentPathLength = 0;
         
         for (int i=0; i<17; i++) {
             for (int j=0; j<21; j++) {
                 if (graph[i][j]==0) {
                    localGraph[i][j]=-1;
+                   checked.add(new Coordinates(i,j));
                 }
                 if (graph[i][j]==1) {
                     localGraph[i][j]=200;
                 }
             }
         }
+        
         localGraph[places.get(source).getRow()][places.get(source).getColumn()] = 0;
         toCheck.add(places.get(source));
         
+        while (checked.size()<=357) {
+            currentPathLength++;
+            for (Coordinates coord : toCheck) {
+                if (coord.getTop()!=null) {
+                    if (localGraph[coord.getTop().getRow()][coord.getTop().getColumn()]==200) {
+                        localGraph[coord.getTop().getRow()][coord.getTop().getColumn()]=currentPathLength;
+                        nextToCheck.add(coord.getTop());
+                    }     
+                }
+                if (coord.getBottom()!=null) {
+                    if (localGraph[coord.getBottom().getRow()][coord.getBottom().getColumn()]==200) {
+                        localGraph[coord.getBottom().getRow()][coord.getBottom().getColumn()]=currentPathLength;
+                        nextToCheck.add(coord.getBottom());
+                    }     
+                }
+                if (coord.getLeft()!=null) {
+                    if (localGraph[coord.getLeft().getRow()][coord.getLeft().getColumn()]==200) {
+                        localGraph[coord.getLeft().getRow()][coord.getLeft().getColumn()]=currentPathLength;
+                        nextToCheck.add(coord.getLeft());
+                    }     
+                }
+                if (coord.getRight()!=null) {
+                    if (localGraph[coord.getRight().getRow()][coord.getRight().getColumn()]==200) {
+                        localGraph[coord.getRight().getRow()][coord.getRight().getColumn()]=currentPathLength;
+                        nextToCheck.add(coord.getRight());
+                    }     
+                }
+            }
+            checked.addAll(toCheck);
+            toCheck = nextToCheck;
+            nextToCheck.clear();
+        }
         return null; //to do
     }
     
