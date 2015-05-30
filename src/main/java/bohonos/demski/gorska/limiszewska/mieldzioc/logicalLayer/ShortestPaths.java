@@ -56,6 +56,7 @@ public class ShortestPaths {
         Set<Coordinates> toCheck = new HashSet<Coordinates>(400);
         Set<Coordinates> nextToCheck = new HashSet<Coordinates>(400);
         int currentPathLength = 0;
+        ArrayList<ArrayList<Coordinates>> localPaths = new ArrayList<ArrayList<Coordinates>>();
         
         for (int i=0; i<17; i++) {
             for (int j=0; j<21; j++) {
@@ -72,7 +73,7 @@ public class ShortestPaths {
         localGraph[places.get(source).getRow()][places.get(source).getColumn()] = 0;
         toCheck.add(places.get(source));
         
-        while (checked.size()<=357) {
+        while (checked.size()<357) {
             currentPathLength++;
             for (Coordinates coord : toCheck) {
                 if (coord.getTop()!=null) {
@@ -104,7 +105,46 @@ public class ShortestPaths {
             toCheck = nextToCheck;
             nextToCheck.clear();
         }
-        return null; //to do
+        for (int j=0; j<=places.size(); j++) {
+            Coordinates coord = places.get(j);
+            int pathLength = localGraph[coord.getRow()][coord.getColumn()];
+            ArrayList<Coordinates> localPath = new ArrayList<Coordinates>();
+            localPath.add(pathLength, coord);
+            for (int i = pathLength; i>0; i--) {
+                if (coord.getTop()!=null){
+                    if (localGraph[coord.getTop().getRow()][coord.getTop().getColumn()]==i-1) {
+                        coord = coord.getTop();
+                        localPath.add(i-1, coord);
+                    }
+                }
+                else {
+                    if (coord.getLeft()!=null){
+                        if (localGraph[coord.getLeft().getRow()][coord.getLeft().getColumn()]==i-1) {
+                            coord = coord.getLeft();
+                            localPath.add(i-1, coord);
+                        }
+                    }
+                    else {
+                        if (coord.getBottom()!=null){
+                            if (localGraph[coord.getBottom().getRow()][coord.getBottom().getColumn()]==i-1) {
+                                coord = coord.getBottom();
+                                localPath.add(i-1, coord);
+                            }
+                        }
+                        else {
+                            if (coord.getRight()!=null){
+                                if (localGraph[coord.getRight().getRow()][coord.getRight().getColumn()]==i-1) {
+                                    coord = coord.getRight();
+                                    localPath.add(i-1, coord);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            localPaths.add(j, localPath);
+        }
+        return localPaths;
     }
     
     /**
