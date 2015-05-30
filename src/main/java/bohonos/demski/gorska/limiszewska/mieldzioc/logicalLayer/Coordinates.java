@@ -26,6 +26,27 @@ public class Coordinates {
 	public void setColumn(int column) {
 		this.column = column;
 	}
+        
+        //poni¿sze metody zwracaj¹ s¹siednie pola (o ile mieszcz¹ siê na planszy)
+        public Coordinates getTop() {
+            if (row>0) return new Coordinates(row-1, column);
+            return null;
+        }
+	
+        public Coordinates getBottom() {
+            if (row<16) return new Coordinates(row+1, column);
+            return null;
+        }
+	
+        public Coordinates getLeft() {
+            if (column>0) return new Coordinates(row, column-1);
+            return null;
+        }
+	
+        public Coordinates getRight() {
+            if (column<20) return new Coordinates(row, column+1);
+            return null;
+        }
 	
 	@Override
 	public boolean equals(Object o) {
