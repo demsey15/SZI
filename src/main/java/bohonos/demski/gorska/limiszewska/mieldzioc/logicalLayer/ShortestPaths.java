@@ -1,7 +1,9 @@
 package bohonos.demski.gorska.limiszewska.mieldzioc.logicalLayer;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  *
@@ -11,7 +13,7 @@ public class ShortestPaths {
     
     private ArrayList<ArrayList<ArrayList<Coordinates>>> paths = new ArrayList<ArrayList<ArrayList<Coordinates>>>();
     private ArrayList<Coordinates> places = new ArrayList<Coordinates>();
-    private int[][] graph = new int[19][23];
+    private int[][] graph = new int[17][21];
     private int numberOfTables;
     
     
@@ -19,11 +21,13 @@ public class ShortestPaths {
         
         numberOfTables = tables.size();
         
-        for (int i=1; i<=17; i++) {
-            for (int j=1; j<=21; j++) {
+        for (int i=0; i<17; i++) {
+            for (int j=0; j<21; j++) {
                 graph[i][j]=1;
             }
         }
+        
+        places.add(0, new Coordinates(0,0));
         
         for (int i=0; i<tables.size(); i++) {
             graph[tables.get(i).getCoords().getRow()][tables.get(i).getCoords().getColumn()] = 0;
@@ -46,6 +50,24 @@ public class ShortestPaths {
      * @return najkrótsze œcie¿ki
      */
     private ArrayList<ArrayList<Coordinates>> dijkstraAlgorithm(int source) {
+        
+        int[][] localGraph = new int[17][21];
+        Set<Coordinates> checked = new HashSet<Coordinates>(400);
+        Set<Coordinates> toCheck = new HashSet<Coordinates>(400);
+        Set<Coordinates> nextToCheck = new HashSet<Coordinates>(400);
+        
+        for (int i=0; i<17; i++) {
+            for (int j=0; j<21; j++) {
+                if (graph[i][j]==0) {
+                   localGraph[i][j]=-1;
+                }
+                if (graph[i][j]==1) {
+                    localGraph[i][j]=200;
+                }
+            }
+        }
+        localGraph[places.get(source).getRow()][places.get(source).getColumn()] = 0;
+        toCheck.add(places.get(source));
         
         return null; //to do
     }
