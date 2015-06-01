@@ -167,4 +167,31 @@ public class ShortestPaths {
         return paths.get(source).get(destination).size();
     }
     
+    /**
+     * drukuje wszystkie œcie¿ki z podanego miejsca pocz¿tkowego i ich d³ugoœci
+     * @param source miejsce pocz¹tkowe
+     */
+    public void printPathsFrom(int source) {
+        int placesNumber = places.size();
+        int pathLength;
+        for (int i = 0; i <= placesNumber; i++) {
+            pathLength = paths.get(source).get(i).size();
+            System.out.print("Sciezka z " + source + " do " + i + " : ");
+            for (int j = 0; j <= pathLength; j++) {
+                System.out.print(" (" + paths.get(source).get(i).get(j).getColumn() + "," + paths.get(source).get(i).get(j).getRow() + ")");
+            }
+            System.out.println(" dlugosc sciezki: " + pathLength);
+        }
+    }
+    
+    /**
+     * drukuje wszystkie œcie¿ki
+     */
+    public void printAllPaths() {
+        int placesNumber = places.size();
+        for (int i = 0; i <= placesNumber; i++) {
+            printPathsFrom(i);
+        }
+    }
+    
 }
