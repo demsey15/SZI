@@ -18,7 +18,7 @@ public class FindProperOrder {
         private double[][] distanceMatrix;
 
         private final int POPULATION_SIZE = 1000;
-        private final int NUMBER_OF_EVOLUTION = 10000;
+        private final int NUMBER_OF_EVOLUTION = 5000;
 
         public FindProperOrder() {
             List<Coordinates> allTables = control.getAllTablesCoordinates();

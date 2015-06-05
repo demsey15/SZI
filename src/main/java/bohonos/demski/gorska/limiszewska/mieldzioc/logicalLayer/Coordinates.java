@@ -47,7 +47,12 @@ public class Coordinates {
             if (column<20) return new Coordinates(row, column+1);
             return null;
         }
-	
+
+	@Override
+	public String toString() {
+		return "(" + row + ", " + column + ")";
+	}
+
 	@Override
 	public boolean equals(Object o) {
 		if(this == o) return true;

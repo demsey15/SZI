@@ -103,7 +103,7 @@ public class Map {
 		return list;
 	}
 	
-	private boolean checkIfCoordinatesAreInMap(Coordinates coordinates){
+	public static boolean checkIfCoordinatesAreInMap(Coordinates coordinates){
 		return (coordinates.getRow() >= 0 && coordinates.getRow() < MAP_HEIGHT &&
 				coordinates.getColumn() >= 0 && coordinates.getColumn() < MAP_WIDTH);
 	}

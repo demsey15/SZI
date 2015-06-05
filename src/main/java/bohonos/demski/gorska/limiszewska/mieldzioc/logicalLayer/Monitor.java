@@ -3,6 +3,7 @@
  */
 package bohonos.demski.gorska.limiszewska.mieldzioc.logicalLayer;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,7 +12,7 @@ import java.util.List;
  * i informuj¹ca ich o przemieszczeniu siê.
  */
 public class Monitor {
-	private List<OnMoveListener> listeners;
+	private List<OnMoveListener> listeners = new ArrayList<OnMoveListener>();
 	
 	/**
 	 * Rejestruje s³uchacza zdarzenia przemieszczenia siê kelnera (musi on implementowaæ
