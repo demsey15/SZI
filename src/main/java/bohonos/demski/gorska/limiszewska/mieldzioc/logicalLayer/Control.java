@@ -78,6 +78,16 @@ public class Control {
 		}
 		else return -3;
 	}
+
+
+	/**
+	 * Zwraca koordynaty sto³u o zadanym numerze.
+	 * @param tableNumber numer sto³u
+	 * @return koordynaty sto³u o zadanym numerze, null, jeœli nie ma sto³u o takim numerze
+	 */
+	public Coordinates getCoordinatesForTableNumber(int tableNumber){
+		return map.getCoordinatesForTableNumber(tableNumber);
+	}
 	
 	/**
 	 * Zmienia stan krzes³a na czerwone.

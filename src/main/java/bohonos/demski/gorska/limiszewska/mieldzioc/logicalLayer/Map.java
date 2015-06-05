@@ -74,6 +74,24 @@ public class Map {
 		return list;
 	}
 
+	/**
+	 * Zwraca koordynaty sto³u o zadanym numerze.
+	 * @param tableNumber numer sto³u
+	 * @return koordynaty sto³u o zadanym numerze, null, jeœli nie ma sto³u o takim numerze
+	 */
+	public Coordinates getCoordinatesForTableNumber(int tableNumber){
+		List<Coordinates> tables = getAllTablesCoordinates();
+
+		for(Coordinates coordinates : tables){
+			Table table = (Table) getObjectId(coordinates);
+
+			if(table.getTableNumber() == tableNumber){
+				return coordinates;
+			}
+		}
+		return null;
+	}
+
 	public List<Coordinates> getAllCoordinates(){
 		List<Coordinates> list = new ArrayList<Coordinates>();
 		for(int i = 0; i < MAP_HEIGHT; i++){
