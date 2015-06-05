@@ -19,25 +19,27 @@ import java.util.Map.Entry;
 import java.util.Random;
 
 /**
- *Klasa obs³uguj¹ca zamówienia klientów w restauracji 
+ *Klasa obs³uguj¹ca zamówienia klientów w restauracji
  * @author Delirus
  */
 public class OrdersService {
     private final List<Meal> menu = new ArrayList<Meal>(); // menu naszej restauracji
     private final List<Entry<Integer, Meal>> orders = new ArrayList<Entry<Integer, Meal>>(); //lista zamówieñ, kluczem jest numer stolika - Integer, a wartoœci¹ zamówienie
+    private final List<Entry<Integer, Meal>> tray = new ArrayList<Entry<Integer, Meal>>(); //taca z posi³kami kelnera
+    private final List<Entry<Integer, Meal>> readyMeals = new ArrayList<Entry<Integer, Meal>>(); // zrobione posi³ki przez kuchniê
     public static final String FILE_PATH = "menu.txt";
     public OrdersService() throws IOException{
         initList();
     }
-    
+
     /**
      * Zwraca nasze menu.
-     * @return menu 
+     * @return menu
      */
     public List<Meal> getMenu(){
         return menu;
     }
-    
+
     /**
      * Metoda zwraca obecn¹ listê zamówieñ.
      * @return zwraca liste zamówieñ
@@ -45,32 +47,32 @@ public class OrdersService {
     public List<Entry<Integer, Meal>> getOrders(){
         return orders;
     }
-    
-    
+
+
     /**
      * Inicjalizuje odczyt dañ z pliku tekstowego do menu.
-     * @throws IOException 
+     * @throws IOException
      */
     private void initList() throws IOException{
         FileReader fileReader = new FileReader(FILE_PATH);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
-        
+
         try {
             String textLine = bufferedReader.readLine();
             do {
                 //System.out.println(textLine);
                 addMeal(textLine);
-                textLine = bufferedReader.readLine();      
+                textLine = bufferedReader.readLine();
             } while(textLine != null);
         }
         finally{
             bufferedReader.close();
         }
     }
-   
+
     /**
      * Dodaje posi³ek do menu naszej wyœmienitej restauracji.
-     * @param line 
+     * @param line
      */
     private void addMeal(String line){
         String text[] = null;
@@ -83,10 +85,10 @@ public class OrdersService {
         meal = new Meal(text[0],text[1],w,x,y,z);
         menu.add(meal);
     }
-            
+
     /**
-     * Metoda sk³ada zamówienia, jest wykonywana dla pojedynczej osoby. Losuje liczbê zamówieñ pojedynczej osoby, a nastêpnie losuje ró¿ne dania dla tej osoby. 
-     * @param table 
+     * Metoda sk³ada zamówienia, jest wykonywana dla pojedynczej osoby. Losuje liczbê zamówieñ pojedynczej osoby, a nastêpnie losuje ró¿ne dania dla tej osoby.
+     * @param table
      */
     public void makeOrder(int table){
         Random r = new Random();
@@ -106,21 +108,21 @@ public class OrdersService {
 
     /**
      * Metoda usuwa zamówienie o indeksie index z listy zamówieñ, tzn., ¿e zamówienie o numerze index zosta³o zrealizowane.
-     * @param index 
+     * @param index
      */
     public void removeOrder(int index){
         orders.remove(index);
     }
-    
+
     /**
-     * Metoda zwraca tablicê dwuwymiarow¹, która zawiera informacje o numerze zamówienia i zawartoœci zamówienia
+     * Metoda zwraca tablicê dwuwymiarow¹, która zawiera informacje o sk³adzie zamówienia oraz o numerze stolika, do którego ma byæ dostarczone to zamówienie
      * @return orderList;
      */
     public String[][] getOrdersList(){
         String[][] orderList = new String [orders.size()][2];
         for (int i=0; i<orders.size();i++){
-            orderList[i][0] = Integer.toString(i+1);
-            orderList[i][1] = orders.get(i).getValue().getName() + orders.get(i).getValue().getIngredients() ;
+            orderList[i][1] = Integer.toString(orders.get(i).getKey());
+            orderList[i][0] = orders.get(i).getValue().getName() + orders.get(i).getValue().getIngredients() ;
         }
         return orderList;
     }
@@ -136,5 +138,37 @@ public class OrdersService {
             menuList[i][1] = menu.get(i).getName() +" "+ menu.get(i).getIngredients() ;
         }
         return menuList;
+    }
+
+    /**
+     * Metoda dodaje posi³ek do listy, która zawiera obecn¹ zawartoœæ posi³ków kelnera.
+     * @param food
+     */
+    public void addMealToTray(Entry<Integer, Meal> food){
+        tray.add(food);
+    }
+
+    /**
+     * Metoda usuwa i-ty posi³ek z listy posi³ków znajduj¹cych siê na tacy. Wywo³ywana po dostarczeniu odpowiedniego posi³ku do odpowiedniego stolika.
+     * @param i
+     */
+    public void removeMealFromtray(int i){
+        tray.remove(i);
+    }
+
+    /**
+     * Metoda dodaje posi³ek do listy przygotwanych posi³ków, które czekaj¹ na dostarczenie.
+     * @param food
+     */
+    public void addReadyMeals(Entry<Integer, Meal> food){
+        readyMeals.add(food);
+    }
+
+    /**
+     * Metoda usuwa wybrany posi³ek z listy przygotwanych posi³ków, po tym jak kelner umieœci³ go na tacy.
+     * @param food
+     */
+    public void removeReadyMeals(Entry<Integer, Meal> food){
+        readyMeals.remove(food);
     }
 }
