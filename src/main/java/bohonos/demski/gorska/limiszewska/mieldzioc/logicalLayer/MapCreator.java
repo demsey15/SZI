@@ -56,6 +56,7 @@ public class MapCreator {
 					Object toAdd;
 					if(number == TABLE){
 						toAdd = new Table(tableNumber, new Coordinates(i, j));
+						tableNumber++;
 					}
 					else{
 						toAdd = NOTHING;

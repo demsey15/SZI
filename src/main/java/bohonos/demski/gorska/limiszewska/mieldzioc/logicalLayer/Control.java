@@ -73,7 +73,7 @@ public class Control {
 		if(map == null) return -1;
 		Object o = map.getObjectId(coordinates);
 		if(o == null) return -2;
-		if(o instanceof Table){
+		if(getObjectId(coordinates) == Map.TABLE){
 			return ((Table) o).getTableNumber();
 		}
 		else return -3;
