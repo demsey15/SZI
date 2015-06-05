@@ -28,7 +28,7 @@ public class MapCreator {
 	public void loadMapFromFile(Path path) throws IOException{
 		 map = new ArrayList<List<Object>>(Map.MAP_HEIGHT);
 		Scanner in = new Scanner(path);
-		int tableNumber = 1;
+		int tableNumber = 1;											//sto³y s¹ numerowane zawsze od jedynki
 		for(int i = 0; i < Map.MAP_HEIGHT; i++){
 			List<Object> columns = new ArrayList<Object>(Map.MAP_WIDTH);
 			if(! in.hasNextLine()){ 
