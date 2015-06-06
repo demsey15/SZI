@@ -16,6 +16,12 @@ import java.util.Set;
  */
 public class FindBestCircuit {
     
+    /**
+     * optymalizuje trasê kelnera
+     * @param sPaths lista najkrótszych œcie¿ek pomiêdzy poszczególnymi stolikami i miejscem startowym
+     * @param vert stoliki, które nale¿y odwiedziæ
+     * @return lista stolików (na pierwszym i ostatnim miejscu znajduje siê pozycja pocz¹tkowa)
+     */
     public ArrayList<Integer> getOrderList(ShortestPaths sPaths, Set<Integer> vert) {
         
         ShortestPaths shortestPaths = sPaths;
@@ -24,20 +30,55 @@ public class FindBestCircuit {
         HashMap<Integer,HashMap<Integer,Integer>> availablePaths = new HashMap<Integer,HashMap<Integer,Integer>>();
         Set<Integer> visited = new HashSet<Integer>();
         Set<Integer> toVisit = new HashSet<Integer>();
+        int next[] = new int[numberOfVertices];
+        next[0] = 0;
+        int shortestPathSource = 0;
+        int shortestPathDestination = 0;
+        int shortestPathLength;
+        ArrayList<Integer> outputList = new ArrayList<Integer>();
+        int currentVertex = 0;
+        
+        outputList.add(0);
+        
+        toVisit.addAll(vertices);
         
         visited.add(0);
         availablePaths.put(0, new HashMap<Integer,Integer>());
-        for (int i=1; i<=numberOfVertices; i++) {
-            availablePaths.get(0).put(i, shortestPaths.getPathLength(0, i));
+        for (int vertex : toVisit) {
+            availablePaths.get(0).put(vertex, shortestPaths.getPathLength(0, vertex));
         }
         
-        toVisit.addAll(vertices);
-        toVisit.remove(0);
+        while (toVisit.isEmpty()==false) {
+            shortestPathLength = 200;
+            for (int source : visited) {
+                for (int destination : availablePaths.get(source).keySet()) {
+                    if (availablePaths.get(source).get(destination)<shortestPathLength) {
+                        shortestPathLength = availablePaths.get(source).get(destination);
+                        shortestPathSource = source;
+                        shortestPathDestination = destination;
+                    }
+                }
+            }
+            next[shortestPathDestination] = next[shortestPathSource];
+            next[shortestPathSource] = shortestPathDestination;
+            visited.add(shortestPathDestination);
+            toVisit.remove(shortestPathDestination);
+            for (int vertex : visited) {
+                availablePaths.get(vertex).remove(shortestPathDestination);
+            }
+            availablePaths.put(shortestPathDestination, new HashMap<Integer,Integer>());
+            for (int vertex : toVisit) {
+                availablePaths.get(shortestPathDestination).put(vertex, shortestPaths.getPathLength(shortestPathDestination, vertex));
+            }
+        }
         
         
+        do {
+            currentVertex=next[currentVertex];
+            outputList.add(currentVertex);
+        } while (currentVertex != 0);
         
-        return null; //to do
+        return outputList;
     }
-    
     
 }
