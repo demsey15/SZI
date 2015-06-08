@@ -117,6 +117,8 @@ public class OrdersService {
      */
     public void addOrder(Order order){
         orders.add(order);
+        OrdersPanel orders = MainFrame.getInstance().getNewOrdersPanel();
+        orders.setOrdersList(this.getOrdersToDisplay());
     }
     public void addCurrentCreatingMeal(Order order) {currentCreatingMeals.add(order);}
     public void removeCurrentCreatingMeal(Order order) {currentCreatingMeals.remove(order);}
@@ -249,6 +251,7 @@ public class OrdersService {
      */
     public void addMealToTray(Order food){
         tray.add(food);
+        MainFrame.getInstance().getHandedOnPlatePanel().setOrdersList(getTrayMealsToDisplay());
     }
 
     /**
