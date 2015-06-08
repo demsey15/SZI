@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10c76344-3146-4b6a-8adc-3915e97ab653" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ViewLayer/MapPanel.java" afterPath="$PROJECT_DIR$/src/main/java/ViewLayer/MapPanel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/OrdersService.java" afterPath="$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/OrdersService.java" />
     </list>
     <ignored path="Inteligentny_kelner.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,18 +47,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OrdersService.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="OrdersService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/OrdersService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="29" column="17" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
+            <state vertical-scroll-proportion="6.869863">
+              <caret line="236" column="18" selection-start-line="236" selection-start-column="18" selection-end-line="236" selection-end-column="18" />
               <folding>
-                <element signature="e#0#5710#0" expanded="true" />
+                <element signature="e#0#8873#0" expanded="true" />
                 <element signature="imports" expanded="true" />
-                <element signature="e#705#711#0" expanded="true" />
-                <element signature="e#999#1021#0" expanded="true" />
-                <element signature="e#1123#1145#0" expanded="true" />
-                <element signature="e#3055#3064#0" expanded="true" />
+                <element signature="e#635#641#0" expanded="true" />
+                <element signature="e#914#937#0" expanded="true" />
+                <element signature="e#1260#1282#0" expanded="true" />
+                <element signature="e#1384#1406#0" expanded="true" />
+                <element signature="e#1933#1934#0" expanded="true" />
+                <element signature="e#1960#1961#0" expanded="true" />
+                <element signature="e#2194#2195#0" expanded="true" />
+                <element signature="e#2223#2224#0" expanded="true" />
+                <element signature="e#3668#3677#0" expanded="true" />
+                <element signature="e#8115#8116#0" expanded="true" />
+                <element signature="e#8145#8146#0" expanded="true" />
+                <element signature="e#8372#8373#0" expanded="true" />
+                <element signature="e#8402#8403#0" expanded="true" />
+                <element signature="e#8589#8590#0" expanded="true" />
+                <element signature="e#8625#8626#0" expanded="true" />
+                <element signature="e#8829#8830#0" expanded="true" />
+                <element signature="e#8868#8869#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -99,11 +112,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MapPanel.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MapPanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ViewLayer/MapPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.62157536">
-              <caret line="60" column="33" selection-start-line="60" selection-start-column="33" selection-end-line="60" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -180,9 +193,9 @@
         <option value="$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/IWalker.java" />
         <option value="$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/geneticAlgorithm/PathFinder.java" />
         <option value="$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/geneticAlgorithm/FindProperOrder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/OrdersService.java" />
         <option value="$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/Control.java" />
         <option value="$PROJECT_DIR$/src/main/java/ViewLayer/MapPanel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/OrdersService.java" />
       </list>
     </option>
   </component>
@@ -745,12 +758,25 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="61" column="16" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="16" />
           <folding>
-            <element signature="e#0#5710#0" expanded="true" />
+            <element signature="e#0#8873#0" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#705#711#0" expanded="true" />
-            <element signature="e#999#1021#0" expanded="true" />
-            <element signature="e#1123#1145#0" expanded="true" />
-            <element signature="e#3055#3064#0" expanded="true" />
+            <element signature="e#635#641#0" expanded="true" />
+            <element signature="e#914#937#0" expanded="true" />
+            <element signature="e#1260#1282#0" expanded="true" />
+            <element signature="e#1384#1406#0" expanded="true" />
+            <element signature="e#1933#1934#0" expanded="true" />
+            <element signature="e#1960#1961#0" expanded="true" />
+            <element signature="e#2194#2195#0" expanded="true" />
+            <element signature="e#2223#2224#0" expanded="true" />
+            <element signature="e#3668#3677#0" expanded="true" />
+            <element signature="e#8115#8116#0" expanded="true" />
+            <element signature="e#8145#8146#0" expanded="true" />
+            <element signature="e#8372#8373#0" expanded="true" />
+            <element signature="e#8402#8403#0" expanded="true" />
+            <element signature="e#8589#8590#0" expanded="true" />
+            <element signature="e#8625#8626#0" expanded="true" />
+            <element signature="e#8829#8830#0" expanded="true" />
+            <element signature="e#8868#8869#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -949,21 +975,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/OrdersService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="17" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#5710#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#705#711#0" expanded="true" />
-            <element signature="e#999#1021#0" expanded="true" />
-            <element signature="e#1123#1145#0" expanded="true" />
-            <element signature="e#3055#3064#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/OnMoveListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -985,9 +996,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ViewLayer/MapPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.62157536">
-          <caret line="60" column="33" selection-start-line="60" selection-start-column="33" selection-end-line="60" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/OrdersService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="6.869863">
+          <caret line="236" column="18" selection-start-line="236" selection-start-column="18" selection-end-line="236" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#8873#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#635#641#0" expanded="true" />
+            <element signature="e#914#937#0" expanded="true" />
+            <element signature="e#1260#1282#0" expanded="true" />
+            <element signature="e#1384#1406#0" expanded="true" />
+            <element signature="e#1933#1934#0" expanded="true" />
+            <element signature="e#1960#1961#0" expanded="true" />
+            <element signature="e#2194#2195#0" expanded="true" />
+            <element signature="e#2223#2224#0" expanded="true" />
+            <element signature="e#3668#3677#0" expanded="true" />
+            <element signature="e#8115#8116#0" expanded="true" />
+            <element signature="e#8145#8146#0" expanded="true" />
+            <element signature="e#8372#8373#0" expanded="true" />
+            <element signature="e#8402#8403#0" expanded="true" />
+            <element signature="e#8589#8590#0" expanded="true" />
+            <element signature="e#8625#8626#0" expanded="true" />
+            <element signature="e#8829#8830#0" expanded="true" />
+            <element signature="e#8868#8869#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
