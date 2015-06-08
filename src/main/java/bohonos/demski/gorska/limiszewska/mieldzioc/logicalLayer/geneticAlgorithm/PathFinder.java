@@ -279,7 +279,7 @@ public class PathFinder implements IWalker{
         try {
             control.prepareMap();
             PathFinder f = new PathFinder();
-            f.goThroughTables(Arrays.asList(new Integer[]{1, 2, 15, 18, 4, 6, 8, 10, 7}));
+            f.goThroughTables(Arrays.asList(new Integer[]{1, 2, 3}));
         } catch (IOException e) {
             e.printStackTrace();
         }
