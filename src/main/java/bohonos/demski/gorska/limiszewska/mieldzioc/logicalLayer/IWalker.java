@@ -8,7 +8,7 @@ import java.util.List;
 public interface IWalker {
     /**
      * Metoda, ktora w odpowieniej kolejnosci przemieszcza kelnera przez wszystkie stoly i zdejmuje
-     * potrawy dostarczone do danego stolika z listy zamowionych potraw i listy potraw na tacy kelnera.
+     * potrawy dostarczone do danego stolika listy potraw na tacy kelnera.
      * @param tablesToGoThrow lista numerow stolow, ktore nalezy odwiedzic.
      */
     void goThroughTables(List<Integer> tablesToGoThrow);

@@ -231,7 +231,11 @@ public class PathFinder implements IWalker{
             System.out.println("Sciezka: " + Arrays.toString(path.toArray()));
             try {
                 Thread.sleep(3000);
-                //TUTAJ DODAJ ZDEJMOWANIE POTRAW Z LISTY STOLIKA Z i-tej POZYCJI
+                try {
+                    OrdersService.getInstance().removeMealForTableFromTray(i);  //zdejmij dostarczone potrawy z listy potraw na tacy kelnera
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();

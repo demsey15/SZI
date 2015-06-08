@@ -12,6 +12,7 @@ package bohonos.demski.gorska.limiszewska.mieldzioc.logicalLayer;
 import ViewLayer.MainFrame;
 import ViewLayer.OrdersPanel;
 import ViewLayer.ReadyMealPanel;
+import com.rits.cloning.Cloner;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -105,7 +106,7 @@ public class OrdersService {
      */
     public List<Order> getOrders(){
         synchronized (orders){
-            return null;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            return (new Cloner()).deepClone(orders);
         }
     }
 
