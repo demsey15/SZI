@@ -3,6 +3,7 @@ package bohonos.demski.gorska.limiszewska.mieldzioc.logicalLayer;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Kontroler s³u¿¹cy do komunikacji GUI z warstw¹ logiczn¹ aplikacji.
@@ -15,7 +16,8 @@ import java.util.List;
 
 public class Control {
 
-	public static final String FILE_PATH = "resources//map1.txt";
+	private static final String FILE_PATH = "resources//map";
+	private static final int AMOUNTS_OF_MAPS  = 3;
 	
 	private Map map;
 	private Monitor monitor = Monitor.getInstance();
@@ -37,7 +39,8 @@ public class Control {
 	 */
 	public boolean prepareMap() throws IOException{
 		MapCreator creator = new MapCreator();
-		creator.loadMapFromFile(Paths.get(FILE_PATH));
+		int mapNumber = (new Random()).nextInt(AMOUNTS_OF_MAPS) + 1;  //losujê mapê od 1 do 3
+		creator.loadMapFromFile(Paths.get(FILE_PATH + mapNumber + ".txt"));
 		if(!creator.createMapWithChairs()) return false;
 		map = new Map(creator.getMap());
 		return true;

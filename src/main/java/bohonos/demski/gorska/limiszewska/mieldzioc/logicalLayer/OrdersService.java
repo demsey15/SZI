@@ -144,7 +144,7 @@ public class OrdersService {
             Random tableRandom = new Random();
             Control control = Control.getInstance();
             int maxTables = control.getAllTablesCoordinates().size();
-            table = tableRandom.nextInt(maxTables-1)+1;
+            table = tableRandom.nextInt(maxTables)+1;
             boolean vip;
             /*if (table%2 == 0 && table > 15 ) {
                 vip = true;
