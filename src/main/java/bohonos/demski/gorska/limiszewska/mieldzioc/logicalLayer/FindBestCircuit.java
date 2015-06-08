@@ -80,5 +80,17 @@ public class FindBestCircuit {
         
         return outputList;
     }
-    
+
+    /**
+     * drukuje listê kolejnych wierzcho³ków
+     * @param list lista wygenerowana metod¹ getOrderList()
+     */
+    public void printListOfPlaces(ArrayList<Integer> list) {
+        System.out.println("");
+        for (int i : list) {
+            System.out.print(list.get(i) + " ");
+        }
+        System.out.println("");
+    }
+
 }

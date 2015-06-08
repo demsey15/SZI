@@ -200,5 +200,17 @@ public class ShortestPaths {
             printPathsFrom(i);
         }
     }
+
+    /**
+     * drukuje ca³y graf
+     */
+    public void printGrapf() {
+        for (int i=0; i<17; i++) {
+            for (int j=0; j<21; j++) {
+                System.out.print(graph[i][j] + " ");
+            }
+            System.out.println("");
+        }
+    }
     
 }

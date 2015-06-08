@@ -283,6 +283,8 @@ public class OrdersService {
             return trayList;
         }
     }
+
+
     /**
      * Inicjalizuje odczyt dañ z pliku tekstowego do menu.
      * @throws IOException
