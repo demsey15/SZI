@@ -2,6 +2,7 @@ package ViewLayer;
 
 import bohonos.demski.gorska.limiszewska.mieldzioc.logicalLayer.IfWaiterGoThread;
 import bohonos.demski.gorska.limiszewska.mieldzioc.logicalLayer.OrdersFactory;
+import bohonos.demski.gorska.limiszewska.mieldzioc.logicalLayer.decisionTree.CurrentCreatingMeal;
 
 import javax.swing.*;
 import java.awt.*;
@@ -56,8 +57,15 @@ public class SettingsFrame extends JPanel {
         start.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (getSelectedAlgorithms().equals("Andrzej") || getSelectedAlgorithms().equals("Dominik")){
-                    threads.execute(new OrdersFactory());
-                    //threads.execute(new CurrentCreatingMeal());
+                    threads.execute(new OrdersFactory()); //sluzy do losowania zamowien
+                    //---------------------------------------------------------------------
+                    //takie sobie przyjmuje zalozenie ze mam 5 dzialajacych kucharzy
+                    threads.execute(new CurrentCreatingMeal());
+                    threads.execute(new CurrentCreatingMeal());
+                    threads.execute(new CurrentCreatingMeal());
+                    threads.execute(new CurrentCreatingMeal());
+                    threads.execute(new CurrentCreatingMeal());
+                    //---------------------------------------------------------------------
                     threads.execute(new IfWaiterGoThread());
                 }
 

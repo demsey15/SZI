@@ -48,14 +48,19 @@ public class Order {
         return meal;
     }
 
-    public boolean equals(Order order){
-        if ((this.tableNumber == order.tableNumber) &&
-                (this.meal.equals(order.meal)) &&
-                (this.orderTime == order.orderTime) &&
-                (this.VIP == order.VIP)) {
+    public boolean equals(Object order){
+        if (!(order instanceof Order)) return false;
+        if ((this.tableNumber == ((Order) order).tableNumber) &&
+                (this.meal.equals(((Order)order).meal)) &&
+                (this.orderTime == ((Order)order).orderTime) &&
+                (this.VIP == ((Order)order).VIP)) {
             return true;
         }
         return false;
+    }
+
+    public int hashCode(){
+        return (int) orderTime;
     }
 
 }

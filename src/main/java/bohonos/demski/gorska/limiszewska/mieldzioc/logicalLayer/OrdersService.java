@@ -33,6 +33,7 @@ public class OrdersService {
 
     private final List<Order> orders = Collections.synchronizedList(new ArrayList<Order>()); //lista zamówieñ - zrobione przez Dominika
     private final List<Order> readyMeals = Collections.synchronizedList(new ArrayList<Order>()); // zrobione posi³ki przez kuchniê - zrobione przez Dominika
+    private final List<Order> currentCreatingMeals = Collections.synchronizedList(new ArrayList<Order>()); // aktualnie przygotowywane posi³ki
     private final List<Order> tray = Collections.synchronizedList(new ArrayList<Order>()); //taca z posi³kami kelnera - zrobione przez Dominika
 
     private OrdersService() throws IOException{
@@ -117,6 +118,13 @@ public class OrdersService {
     public void addOrder(Order order){
         orders.add(order);
     }
+    public void addCurrentCreatingMeal(Order order) {currentCreatingMeals.add(order);}
+    public void removeCurrentCreatingMeal(Order order) {currentCreatingMeals.remove(order);}
+    public List<Order> getCurrentCreatingMeals(){
+        synchronized (currentCreatingMeals){
+            return (new Cloner()).deepClone(currentCreatingMeals);
+        }
+    }
 
     /**
      * Metoda sk³ada zamówienia, jest wykonywana dla pojedynczej osoby. Losuje liczbê zamówieñ pojedynczej osoby, a nastêpnie losuje ró¿ne dania dla tej osoby.
@@ -145,12 +153,12 @@ public class OrdersService {
             int maxTables = control.getAllTablesCoordinates().size();
             table = tableRandom.nextInt(maxTables)+1;
             boolean vip;
-            /*if (table%2 == 0 && table > 15 ) {
+            if (table%2 == 0 && table > 15 ) {
                 vip = true;
             }else {
                 vip = false;
-            }*/
-            vip = true;
+            }
+            //vip = true;
 
             Calendar cal = Calendar.getInstance();
             long currentTime = cal.getTimeInMillis();
@@ -169,10 +177,21 @@ public class OrdersService {
      * @param index
      */
     public void removeOrder(int index){
-        orders.remove(index);
-        OrdersPanel orders = MainFrame.getInstance().getNewOrdersPanel();
-        orders.setOrdersList(this.getOrdersToDisplay());
+        synchronized (orders) {
+            orders.remove(index);
+            OrdersPanel orders = MainFrame.getInstance().getNewOrdersPanel();
+            orders.setOrdersList(this.getOrdersToDisplay());
+        }
     }
+
+    public void removeOrder(Order order){
+        synchronized (orders) {
+            orders.remove(order);
+            OrdersPanel orders = MainFrame.getInstance().getNewOrdersPanel();
+            orders.setOrdersList(this.getOrdersToDisplay());
+        }
+    }
+
 
 
     public String[][] getOrdersToDisplay(){
@@ -182,7 +201,6 @@ public class OrdersService {
             for (int i = 0; i < orders.size(); i++) {
                 orderList[i][1] = String.valueOf(orders.get(i).tableNumber);
                 orderList[i][0] = orders.get(i).meal.getName() + " " + orders.get(i).meal.getIngredients();
-                System.out.print(orderList[i][0]);
             }
             return orderList;
         }
@@ -193,7 +211,13 @@ public class OrdersService {
      * @param food
      */
     public void addReadyMeals(Order food){
-        readyMeals.add(food);
+
+        synchronized (readyMeals){
+            readyMeals.add(food);
+            OrdersPanel readyMealsPanel = MainFrame.getInstance().getReadyMealPanel();
+            readyMealsPanel.setOrdersList(getReadyMealsToDisplay());
+        }
+
     }
 
     /**
@@ -206,7 +230,16 @@ public class OrdersService {
     }
 
     public String[][] getReadyMealsToDisplay() {
-        throw new UnsupportedOperationException();
+
+        synchronized (readyMeals) {
+            String[][] readyMealsList = new String[readyMeals.size()][2];
+
+            for (int i = 0; i < readyMeals.size(); i++) {
+                readyMealsList[i][1] = String.valueOf(readyMeals.get(i).tableNumber);
+                readyMealsList[i][0] = readyMeals.get(i).meal.getName() + " " + readyMeals.get(i).meal.getIngredients();
+            }
+            return readyMealsList;
+        }
     }
 
 
