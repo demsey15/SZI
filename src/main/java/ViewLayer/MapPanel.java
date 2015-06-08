@@ -4,11 +4,13 @@ package ViewLayer;
 
 import bohonos.demski.gorska.limiszewska.mieldzioc.logicalLayer.Control;
 import bohonos.demski.gorska.limiszewska.mieldzioc.logicalLayer.Coordinates;
+import bohonos.demski.gorska.limiszewska.mieldzioc.logicalLayer.OnMoveListener;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 import java.util.*;
+import java.util.List;
 
 /**
  * Created by Agnieszka on 2015-04-21.
@@ -16,7 +18,11 @@ import java.util.*;
 
 //Panel odpowiedzialny za wyœwietlenie mapy
 
-public class MapPanel extends JPanel implements Runnable{
+public class MapPanel extends JPanel implements Runnable, OnMoveListener{
+
+    public void onMove(List<Coordinates> path) {
+        //implementacja ruchu
+    }
 
     int szerokosc;
     int wysokosc;
@@ -54,6 +60,7 @@ public class MapPanel extends JPanel implements Runnable{
         try {
             control.prepareMap();
             wspolrzedneNaMapie =  control.getAllCoordinates();
+            control.registerOnWaiterMoveListener(this);
         } catch (IOException e) {
             e.printStackTrace();
         }
