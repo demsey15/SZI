@@ -9,6 +9,8 @@ package bohonos.demski.gorska.limiszewska.mieldzioc.logicalLayer;
  *
  * @author Delirus
  */
+import ViewLayer.OrdersPanel;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -154,6 +156,8 @@ public class OrdersService {
      */
     public void removeMealFromtray(int i){
         tray.remove(i);
+
+        OrdersPanel tray = MainFrame.getInsta
     }
 
     /**
