@@ -20,9 +20,19 @@ public class MainFrame extends JFrame {
 	MenuPanel menuPanel;
 	SettingsFrame settingsPanel;
 	MapPanel mapPanel;
+	static public MainFrame instance;
 
-	public MainFrame(){
+	public static MainFrame getInstance(){
+		if (instance == null){
+			return new MainFrame();
+		}else {
+			return instance;
+		}
 
+	}
+	private MainFrame(){
+
+		instance = this;
 		obliczWielkoscOkna();
 		this.pack();
 		this.setAlwaysOnTop(true);
@@ -88,12 +98,12 @@ public class MainFrame extends JFrame {
 		validate();
 
 	}
-	
+
 	public void obliczWielkoscOkna() {
 		Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
 		wysokosc = screen.height;
 		szerokosc = screen.width;
-		
+
 		if (wysokosc / 9 == szerokosc / 16) {
 			System.out.println("Proporcje siê zgadzaja");
 			setSize(szerokosc, wysokosc);
@@ -108,7 +118,19 @@ public class MainFrame extends JFrame {
 			else {
 				System.out.println("Rozdzielczosc nieprawidlowa!");
 			}
-			
+
 		}
+	}
+
+	public OrdersPanel getNewOrdersPanel(){
+		return newOrdersPanel;
+	}
+
+	public OrdersPanel getReadyMealPanel(){
+		return readyMealPanel;
+	}
+
+	public OrdersPanel getHandedOnPlatePanel(){
+		return handedOnPlatePanel;
 	}
 }
