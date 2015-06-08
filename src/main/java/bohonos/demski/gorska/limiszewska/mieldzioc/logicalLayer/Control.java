@@ -15,7 +15,7 @@ import java.util.List;
 
 public class Control {
 
-	public static final String FILE_PATH = "resources//map.txt";
+	public static final String FILE_PATH = "resources//map1.txt";
 	
 	private Map map;
 	private Monitor monitor = Monitor.getInstance();

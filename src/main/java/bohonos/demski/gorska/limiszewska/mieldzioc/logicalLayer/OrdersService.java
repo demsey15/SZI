@@ -26,7 +26,8 @@ import java.util.Random;
  */
 public class OrdersService {
     private final List<Meal> menu = new ArrayList<Meal>(); // menu naszej restauracji
-    private final List<Entry<Integer, Meal>> orders = new ArrayList<Entry<Integer, Meal>>(); //lista zamówieñ, kluczem jest numer stolika - Integer, a wartoœci¹ zamówienie
+   // private final List<Entry<Integer, Meal>> orders = new ArrayList<Entry<Integer, Meal>>(); //lista zamówieñ, kluczem jest numer stolika - Integer, a wartoœci¹ zamówienie
+    private final
     private final List<Entry<Integer, Meal>> tray = new ArrayList<Entry<Integer, Meal>>(); //taca z posi³kami kelnera
     private final List<Entry<Integer, Meal>> readyMeals = new ArrayList<Entry<Integer, Meal>>(); // zrobione posi³ki przez kuchniê
     public static final String FILE_PATH = "menu.txt";
