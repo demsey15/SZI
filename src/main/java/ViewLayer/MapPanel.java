@@ -22,6 +22,10 @@ public class MapPanel extends JPanel implements Runnable, OnMoveListener{
 
     public void onMove(List<Coordinates> path) {
         //implementacja ruchu
+        for (Coordinates c : path){
+            waiterCoordinates = c;
+            play();
+        }
     }
 
     int szerokosc;
@@ -89,14 +93,12 @@ public class MapPanel extends JPanel implements Runnable, OnMoveListener{
 
         for ( Coordinates c : wspolrzedneNaMapie ) {
             g.drawImage(selectIcon(control.getObjectId(c)).getImage(), calculateWidthPosition(c.getColumn()), calculateHeightPosition(c.getRow()), szerokoscPola, wysokoscPola, null);
-            //System.out.print("GetObjectId(c)" + control.getObjectId(c));
             int nr = control.getTableNumber(c);
-            System.out.print("Nr stolika: " + nr + "\n");
+
             if (nr>=1) {
                 g.drawImage(numeryStolikow.get(nr - 1).getImage(), calculateWidthPosition(c.getColumn()), calculateHeightPosition(c.getRow()), szerokoscPola, wysokoscPola, null);
             }
-            //System.out.println("Coordinates: ");
-            //System.out.print(control.getObjectId(c));
+
         }
 
         g.drawImage(waiter.getImage(), waiterXpos, waiterYpos, szerokoscPola, wysokoscPola, null);

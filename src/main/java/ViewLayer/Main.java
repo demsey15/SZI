@@ -14,24 +14,6 @@ public class Main {
         MainFrame okno = MainFrame.getInstance();
 
 
-        //testy randomów - author Marta
-        System.out.println("");
-        System.out.println("TESTY");
-
-        Coordinates a = new Coordinates(2,3);
-
-
-        Table m = new Table(1, a);
-        for (Integer i=0; i<10; i++){
-
-            try {
-                m.randOrder();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-        }
-
     }
 
 }

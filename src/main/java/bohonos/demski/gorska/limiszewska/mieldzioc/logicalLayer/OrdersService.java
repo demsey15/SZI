@@ -11,7 +11,6 @@ package bohonos.demski.gorska.limiszewska.mieldzioc.logicalLayer;
  */
 import ViewLayer.MainFrame;
 import ViewLayer.OrdersPanel;
-import ViewLayer.ReadyMealPanel;
 import com.rits.cloning.Cloner;
 
 import java.io.BufferedReader;
@@ -179,7 +178,7 @@ public class OrdersService {
     public String[][] getOrdersToDisplay(){
         synchronized (orders) {
             String[][] orderList = new String[orders.size()][2];
-            System.out.print("Orders list: ");
+
             for (int i = 0; i < orders.size(); i++) {
                 orderList[i][1] = String.valueOf(orders.get(i).tableNumber);
                 orderList[i][0] = orders.get(i).meal.getName() + " " + orders.get(i).meal.getIngredients();

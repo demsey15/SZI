@@ -6,16 +6,6 @@ import java.util.Calendar;
  * Created by Marta Górska.
  */
 public class Order {
-    /*//numer stolika
-    protected Integer Number;
-    //co zamowiono (numer zamowienia z menu)
-    protected Integer Meal;
-    //metoda zmieniajaca color stolika
-    public void ChangeColor() {};
-    //metoda wrzucajaca zamowienie na liste zamowieñ
-    public void AddOrder() {
-        //zamien numer na wartosc z menu i wrzuæ do wyswietlenia
-    };*/
 
     //------------------------------------------------------------------------------------------------------------------
     //AL 2015-06-06
@@ -56,6 +46,16 @@ public class Order {
     }
     public Meal getMeal(){
         return meal;
+    }
+
+    public boolean equals(Order order){
+        if ((this.tableNumber == order.tableNumber) &&
+                (this.meal.equals(order.meal)) &&
+                (this.orderTime == order.orderTime) &&
+                (this.VIP == order.VIP)) {
+            return true;
+        }
+        return false;
     }
 
 }

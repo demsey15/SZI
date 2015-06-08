@@ -49,4 +49,14 @@ public class Meal {
     public int getTime(){
         return time;
     }
+
+    public boolean equals(Meal meal){
+        if (this.name.equals(meal.getName()) &&
+                this.ingredients.equals(meal.getIngredients()) &&
+                this.type == meal.getType() &&
+                this.temp == meal.getTemp() &&
+                this.area == meal.getArea() &&
+                this.time == meal.getTime() ) return true;
+        return false;
+    }
 }

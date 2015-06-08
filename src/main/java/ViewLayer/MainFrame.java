@@ -1,6 +1,8 @@
 package ViewLayer;
 import bohonos.demski.gorska.limiszewska.mieldzioc.logicalLayer.Control;
 import bohonos.demski.gorska.limiszewska.mieldzioc.logicalLayer.Map;
+import bohonos.demski.gorska.limiszewska.mieldzioc.logicalLayer.OrdersService;
+
 import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -73,12 +75,12 @@ public class MainFrame extends JFrame {
 		this.add(leftPanel, BorderLayout.WEST);
 
 		//utworzenie przykladowej listy zamowien
-		String [][] orderList = {{"Zamowienie 1", "1"}, {"Zamowienie 2", "2"}};
+		String [][] orderList = {{"", ""}};
 		newOrdersPanel = new OrdersPanel(orderList, "Zamowienia:", szerokosc, wysokosc);
 		leftPanel.add(newOrdersPanel);
 
 		//przetestowanie odswie¿alnoœci listy zamowien
-		String [][] orderList2 = {{"Testtowe 1", "1"}, {"Zamowienie 2", "2"}};
+		String [][] orderList2 = {{"", ""}};
 		newOrdersPanel.setOrdersList(orderList2);
 
 		//lista gotowych posilkow
@@ -90,7 +92,13 @@ public class MainFrame extends JFrame {
 		leftPanel.add(handedOnPlatePanel);
 
 		//Menu
-		String [][] listaMenu = {{"Danie 1"}, {"Danie 2"}, {"Danie 3"}, {"Danie 4"}, {"Danie 5"}};
+		String [][] listaMenu = new String[0][];
+		try {
+			listaMenu = OrdersService.getInstance().getMenuToDisplay();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 		menuPanel = new MenuPanel(listaMenu, szerokosc,wysokosc);
 		add(menuPanel, BorderLayout.EAST);
 
