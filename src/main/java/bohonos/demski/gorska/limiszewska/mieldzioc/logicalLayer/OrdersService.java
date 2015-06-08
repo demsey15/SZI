@@ -269,7 +269,16 @@ public class OrdersService {
     }
 
     public String[][] getTrayMealsToDisplay() {
-        throw new UnsupportedOperationException();
+        synchronized (tray) {
+            String[][] trayList = new String[orders.size()][2];
+
+            for (int i = 0; i < tray.size(); i++) {
+                trayList[i][1] = String.valueOf(tray.get(i).tableNumber);
+                trayList[i][0] = tray.get(i).meal.getName() + " " + tray.get(i).meal.getIngredients();
+                System.out.print(trayList[i][0]);
+            }
+            return trayList;
+        }
     }
     /**
      * Inicjalizuje odczyt dañ z pliku tekstowego do menu.
