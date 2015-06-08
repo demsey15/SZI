@@ -15,11 +15,19 @@ public class ShortestPaths {
     private ArrayList<Coordinates> places = new ArrayList<Coordinates>();
     private int[][] graph = new int[17][21];
     private int numberOfTables;
+    private List<Coordinates> listOfTablesCoord;
     
     
-    public ShortestPaths(List<Table> tables) {
+    public ShortestPaths() {
         
-        numberOfTables = tables.size();
+        Control control = Control.getInstance();
+        listOfTablesCoord = control.getAllTablesCoordinates();
+        numberOfTables = listOfTablesCoord.size();
+        
+        places.add(0, new Coordinates(0,0));
+        for (int i=1; i<=numberOfTables; i++) {
+            places.add(i, new Coordinates(control.getCoordinatesForTableNumber(i).getRow()-1, control.getCoordinatesForTableNumber(i).getColumn()-1));
+        }
         
         for (int i=0; i<17; i++) {
             for (int j=0; j<21; j++) {
@@ -27,15 +35,14 @@ public class ShortestPaths {
             }
         }
         
-        places.add(0, new Coordinates(0,0));
         
-        for (int i=0; i<tables.size(); i++) {
-            graph[tables.get(i).getCoords().getRow()][tables.get(i).getCoords().getColumn()] = 0;
-            graph[tables.get(i).getCoords().getRow()-1][tables.get(i).getCoords().getColumn()-1] = 0;
-            graph[tables.get(i).getCoords().getRow()-1][tables.get(i).getCoords().getColumn()+1] = 0;
-            graph[tables.get(i).getCoords().getRow()+1][tables.get(i).getCoords().getColumn()-1] = 0;
-            graph[tables.get(i).getCoords().getRow()+1][tables.get(i).getCoords().getColumn()+1] = 0;
-            places.add(tables.get(i).getTableNumber(), tables.get(i).getSeatCollection().getSeat(0).getCoords());
+        
+        for (int i=1; i<=numberOfTables; i++) {
+            graph[places.get(i).getRow()][places.get(i).getColumn()] = 0;
+            graph[places.get(i).getRow()][places.get(i).getColumn()-1] = 0;
+            graph[places.get(i).getRow()][places.get(i).getColumn()+1] = 0;
+            graph[places.get(i).getRow()-1][places.get(i).getColumn()] = 0;
+            graph[places.get(i).getRow()+1][places.get(i).getColumn()] = 0;
         }
         
         for (int i=0; i<=numberOfTables; i++) {
