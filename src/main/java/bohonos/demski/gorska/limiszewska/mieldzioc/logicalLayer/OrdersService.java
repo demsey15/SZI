@@ -11,6 +11,7 @@ package bohonos.demski.gorska.limiszewska.mieldzioc.logicalLayer;
  */
 import ViewLayer.MainFrame;
 import ViewLayer.OrdersPanel;
+import ViewLayer.ReadyMealPanel;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -104,7 +105,7 @@ public class OrdersService {
      */
     public List<Order> getOrders(){
         synchronized (orders){
-            return null;
+            return null;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         }
     }
 
@@ -179,7 +180,7 @@ public class OrdersService {
             String[][] orderList = new String[orders.size()][2];
             System.out.print("Orders list: ");
             for (int i = 0; i < orders.size(); i++) {
-                orderList[i][1] = Integer.toString(i + 1);
+                orderList[i][1] = String.valueOf(orders.get(i).tableNumber);
                 orderList[i][0] = orders.get(i).meal.getName() + " " + orders.get(i).meal.getIngredients();
                 System.out.print(orderList[i][0]);
             }
@@ -201,6 +202,11 @@ public class OrdersService {
      */
     public void removeReadyMeals(Order food){
         readyMeals.remove(food);
+        MainFrame.getInstance().getReadyMealPanel().setOrdersList(getReadyMealsToDisplay());
+    }
+
+    public String[][] getReadyMealsToDisplay() {
+        throw new UnsupportedOperationException();
     }
 
 
@@ -225,9 +231,13 @@ public class OrdersService {
                     tray.remove(order);
                 }
             }
+            MainFrame.getInstance().getHandedOnPlatePanel().setOrdersList(getTrayMealsToDisplay());
         }
     }
 
+    public String[][] getTrayMealsToDisplay() {
+        throw new UnsupportedOperationException();
+    }
     /**
      * Inicjalizuje odczyt dañ z pliku tekstowego do menu.
      * @throws IOException
