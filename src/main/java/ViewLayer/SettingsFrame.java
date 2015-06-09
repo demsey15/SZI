@@ -61,12 +61,12 @@ public class SettingsFrame extends JPanel {
                     //---------------------------------------------------------------------
                     //takie sobie przyjmuje zalozenie ze mam 5 dzialajacych kucharzy
                     threads.execute(new CurrentCreatingMeal());
-                    threads.execute(new CurrentCreatingMeal());
-                    threads.execute(new CurrentCreatingMeal());
-                    threads.execute(new CurrentCreatingMeal());
-                    threads.execute(new CurrentCreatingMeal());
+                    //threads.execute(new CurrentCreatingMeal());
+                    //threads.execute(new CurrentCreatingMeal());
+                    //threads.execute(new CurrentCreatingMeal());
+                    //threads.execute(new CurrentCreatingMeal());
                     //---------------------------------------------------------------------
-                    threads.execute(new IfWaiterGoThread());
+                    //threads.execute(new IfWaiterGoThread());
                 }
 
             }

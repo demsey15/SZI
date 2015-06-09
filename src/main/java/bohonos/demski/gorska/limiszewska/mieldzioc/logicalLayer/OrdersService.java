@@ -116,12 +116,21 @@ public class OrdersService {
      * @param order
      */
     public void addOrder(Order order){
-        orders.add(order);
+        synchronized (orders){
+            orders.add(order);
+        }
         OrdersPanel orders = MainFrame.getInstance().getNewOrdersPanel();
         orders.setOrdersList(this.getOrdersToDisplay());
     }
-    public void addCurrentCreatingMeal(Order order) {currentCreatingMeals.add(order);}
-    public void removeCurrentCreatingMeal(Order order) {currentCreatingMeals.remove(order);}
+    public void addCurrentCreatingMeal(Order order) {
+        synchronized (currentCreatingMeals){
+            currentCreatingMeals.add(order);
+        }
+    }
+    public void removeCurrentCreatingMeal(Order order) {synchronized (currentCreatingMeals){
+        currentCreatingMeals.remove(order);
+    }
+    }
     public List<Order> getCurrentCreatingMeals(){
         synchronized (currentCreatingMeals){
             return (new Cloner()).deepClone(currentCreatingMeals);
@@ -166,7 +175,7 @@ public class OrdersService {
             long currentTime = cal.getTimeInMillis();
 
             Order order = new Order(menu.get(a), table, currentTime, vip);
-            orders.add(order);
+            addOrder(order);
 
             OrdersPanel orders = MainFrame.getInstance().getNewOrdersPanel();
             orders.setOrdersList(this.getOrdersToDisplay());
@@ -198,13 +207,19 @@ public class OrdersService {
 
     public String[][] getOrdersToDisplay(){
         synchronized (orders) {
-            String[][] orderList = new String[orders.size()][2];
+            if(!orders.isEmpty()) {
+                String[][] orderList = new String[orders.size()][2];
+                synchronized (orders){
+                    for (int i = 0; i < orders.size(); i++) {
+                        orderList[i][1] = String.valueOf(orders.get(i).tableNumber);
+                        orderList[i][0] = orders.get(i).meal.getName() + " " + orders.get(i).meal.getIngredients();
+                    }
+                }
 
-            for (int i = 0; i < orders.size(); i++) {
-                orderList[i][1] = String.valueOf(orders.get(i).tableNumber);
-                orderList[i][0] = orders.get(i).meal.getName() + " " + orders.get(i).meal.getIngredients();
+                return orderList;
             }
-            return orderList;
+            return new String[][]{{"", ""}};
+
         }
     }
 
@@ -234,13 +249,16 @@ public class OrdersService {
     public String[][] getReadyMealsToDisplay() {
 
         synchronized (readyMeals) {
-            String[][] readyMealsList = new String[readyMeals.size()][2];
-
-            for (int i = 0; i < readyMeals.size(); i++) {
-                readyMealsList[i][1] = String.valueOf(readyMeals.get(i).tableNumber);
-                readyMealsList[i][0] = readyMeals.get(i).meal.getName() + " " + readyMeals.get(i).meal.getIngredients();
+            if (!readyMeals.isEmpty()){
+                String[][] readyMealsList = new String[readyMeals.size()][2];
+                for (int i = 0; i < readyMeals.size(); i++) {
+                    readyMealsList[i][1] = String.valueOf(readyMeals.get(i).tableNumber);
+                    readyMealsList[i][0] = readyMeals.get(i).meal.getName() + " " + readyMeals.get(i).meal.getIngredients();
+                }
+                return readyMealsList;
             }
-            return readyMealsList;
+
+            return new String[][]{{"",""}};
         }
     }
 
@@ -273,14 +291,17 @@ public class OrdersService {
 
     public String[][] getTrayMealsToDisplay() {
         synchronized (tray) {
-            String[][] trayList = new String[orders.size()][2];
-
-            for (int i = 0; i < tray.size(); i++) {
-                trayList[i][1] = String.valueOf(tray.get(i).tableNumber);
-                trayList[i][0] = tray.get(i).meal.getName() + " " + tray.get(i).meal.getIngredients();
-                System.out.print(trayList[i][0]);
+            if(!tray.isEmpty()){
+                String[][] trayList = new String[tray.size()][2];
+                for (int i = 0; i < tray.size(); i++) {
+                    trayList[i][1] = String.valueOf(tray.get(i).tableNumber);
+                    trayList[i][0] = tray.get(i).meal.getName() + " " + tray.get(i).meal.getIngredients();
+                    System.out.print(trayList[i][0]);
+                }
+                return trayList;
             }
-            return trayList;
+
+            return new String[][]{{"",""}};
         }
     }
 
