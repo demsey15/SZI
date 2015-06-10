@@ -27,7 +27,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="276" column="0" selection-start-line="276" selection-start-column="0" selection-end-line="286" selection-end-column="5" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -68,7 +70,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="92" column="5" selection-start-line="92" selection-start-column="5" selection-end-line="92" selection-end-column="5" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#798#799#0" expanded="false" />
+                <element signature="e#869#870#0" expanded="false" />
+                <element signature="e#5328#5329#0" expanded="false" />
+                <element signature="e#5369#5370#0" expanded="false" />
+                <element signature="e#5483#5484#0" expanded="false" />
+                <element signature="e#5524#5525#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -83,12 +93,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OrdersService.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="OrdersService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/OrdersService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33333334">
+            <state vertical-scroll-proportion="0.0">
               <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FindBestCircuit.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/FindBestCircuit.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.14786968">
+              <caret line="119" column="63" selection-start-line="119" selection-start-column="63" selection-end-line="119" selection-end-column="63" />
+              <folding>
+                <element signature="e#0#5048#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#1042#1076#0" expanded="true" />
+                <element signature="e#1122#1131#0" expanded="true" />
+                <element signature="e#1177#1186#0" expanded="true" />
+                <element signature="e#1407#1416#0" expanded="true" />
+                <element signature="e#4442#4451#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -113,7 +141,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/FindBestCircuit.java" />
         <option value="$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/neuralNetwork/AcitvationStrategy.java" />
         <option value="$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/neuralNetwork/ActivationStrategy.java" />
         <option value="$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/neuralNetwork/Layer.java" />
@@ -134,6 +161,7 @@
         <option value="$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/OrdersFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/OrdersService.java" />
         <option value="$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/ShortestPaths.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/FindBestCircuit.java" />
       </list>
     </option>
   </component>
@@ -616,7 +644,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="276" column="0" selection-start-line="276" selection-start-column="0" selection-end-line="286" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -651,7 +681,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="92" column="5" selection-start-line="92" selection-start-column="5" selection-end-line="92" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#798#799#0" expanded="false" />
+            <element signature="e#869#870#0" expanded="false" />
+            <element signature="e#5328#5329#0" expanded="false" />
+            <element signature="e#5369#5370#0" expanded="false" />
+            <element signature="e#5483#5484#0" expanded="false" />
+            <element signature="e#5524#5525#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -878,13 +916,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/FindBestCircuit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7058824">
-          <caret line="87" column="29" selection-start-line="87" selection-start-column="29" selection-end-line="87" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/IfWaiterGoThread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -960,7 +991,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="276" column="0" selection-start-line="276" selection-start-column="0" selection-end-line="286" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -968,7 +1001,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="92" column="5" selection-start-line="92" selection-start-column="5" selection-end-line="92" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#798#799#0" expanded="false" />
+            <element signature="e#869#870#0" expanded="false" />
+            <element signature="e#5328#5329#0" expanded="false" />
+            <element signature="e#5369#5370#0" expanded="false" />
+            <element signature="e#5483#5484#0" expanded="false" />
+            <element signature="e#5524#5525#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1001,9 +1042,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/OrdersService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
+        <state vertical-scroll-proportion="0.0">
           <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bohonos/demski/gorska/limiszewska/mieldzioc/logicalLayer/FindBestCircuit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14786968">
+          <caret line="119" column="63" selection-start-line="119" selection-start-column="63" selection-end-line="119" selection-end-column="63" />
+          <folding>
+            <element signature="e#0#5048#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1042#1076#0" expanded="true" />
+            <element signature="e#1122#1131#0" expanded="true" />
+            <element signature="e#1177#1186#0" expanded="true" />
+            <element signature="e#1407#1416#0" expanded="true" />
+            <element signature="e#4442#4451#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
