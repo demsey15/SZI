@@ -1,9 +1,7 @@
 package bohonos.demski.gorska.limiszewska.mieldzioc.logicalLayer;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.io.IOException;
+import java.util.*;
 
 /**
  *
@@ -211,6 +209,19 @@ public class ShortestPaths {
             }
             System.out.println("");
         }
+    }
+
+    public static void main(String[] args) {
+        Control control = Control.getInstance();
+        try {
+            control.prepareMap();
+            ShortestPaths shortestPaths = new ShortestPaths();
+            shortestPaths.printGrapf();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Wyjatek przy tworzeniu mapy.");
+        }
+
     }
     
 }
