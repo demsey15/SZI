@@ -232,7 +232,7 @@ public class PathFinder implements IWalker{
             try {
                 Thread.sleep(3000);
                 try {
-                    OrdersService.getInstance().removeMealForTableFromTray(i);  //zdejmij dostarczone potrawy z listy potraw na tacy kelnera
+                    OrdersService.getInstance().removeMealForTableFromTray(properOrderTabels.get(i));  //zdejmij dostarczone potrawy z listy potraw na tacy kelnera
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

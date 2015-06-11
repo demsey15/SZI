@@ -76,7 +76,7 @@ public class IfWaiterGoThread implements Runnable {
                     }
                     else
                     {
-                        System.out.println("Liczba stolikow: "+stoliki.size());
+                       // System.out.println("Liczba stolikow: "+stoliki.size());
                         pathFinder.goThroughTables(stoliki);
                     }
                 }

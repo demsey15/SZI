@@ -167,8 +167,8 @@ public class MapPanel extends JPanel implements Runnable, OnMoveListener{
         Thread ten=Thread.currentThread();
         while (runner==ten)
         {
-            int bx = calculateHeightPosition(waiterCoordinates.getRow());
-            int by = calculateWidthPosition(waiterCoordinates.getColumn());
+            int bx = calculateWidthPosition(waiterCoordinates.getColumn());
+            int by = calculateHeightPosition(waiterCoordinates.getRow());
 
 
             if ( waiterXpos < bx ) { waiterXpos = waiterXpos + krok; }
