@@ -54,7 +54,7 @@ public class StayOrGo {
         backpropagator.train(trainingDataGenerator, meanError);
     }
     private static double[][] initInputs() throws IOException{
-        double[][] trainingData= new double [12][5];//= new String[10][];
+        double[][] trainingData= new double [21][5];//= new String[10][];
         String FILE_PATH = "danetreningowe.txt";
         FileReader fileReader = new FileReader(FILE_PATH);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -79,7 +79,7 @@ public class StayOrGo {
     }
 
     private static double[][] initOutputs() throws IOException{
-        double[][] labels = new double[12][1] ;//= new String[10][];
+        double[][] labels = new double[21][1] ;//= new String[10][];
         String FILE_PATH = "etykietyklas.txt";
         FileReader fileReader = new FileReader(FILE_PATH);
         BufferedReader bufferedReader = new BufferedReader(fileReader);

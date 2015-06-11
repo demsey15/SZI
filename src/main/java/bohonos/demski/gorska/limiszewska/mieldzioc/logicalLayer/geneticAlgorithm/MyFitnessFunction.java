@@ -1,10 +1,10 @@
 package bohonos.demski.gorska.limiszewska.mieldzioc.logicalLayer.geneticAlgorithm;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.jgap.FitnessFunction;
 import org.jgap.IChromosome;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Dominik on 2015-06-05.

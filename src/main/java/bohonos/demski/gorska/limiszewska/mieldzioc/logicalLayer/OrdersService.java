@@ -17,7 +17,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
-import java.util.Map.Entry;
 
 /**
  *Klasa obs³uguj¹ca zamówienia klientów w restauracji
@@ -235,6 +234,18 @@ public class OrdersService {
             readyMealsPanel.setOrdersList(getReadyMealsToDisplay());
         }
 
+    }
+
+    public List<Order> getReadyMeals(){
+        synchronized (readyMeals){
+            return (new Cloner()).deepClone(readyMeals);
+        }
+    }
+
+    public List<Order> getTray(){
+        synchronized (tray){
+            return (new Cloner()).deepClone(tray);
+        }
     }
 
     /**

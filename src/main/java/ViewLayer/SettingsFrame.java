@@ -8,7 +8,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -66,7 +65,7 @@ public class SettingsFrame extends JPanel {
                     //threads.execute(new CurrentCreatingMeal());
                     //threads.execute(new CurrentCreatingMeal());
                     //---------------------------------------------------------------------
-                    //threads.execute(new IfWaiterGoThread());
+                    threads.execute(new IfWaiterGoThread());
                 }
 
             }
