@@ -64,6 +64,7 @@ public class FindProperOrder {
             Configuration conf = new DefaultConfiguration();
             try {
                 MyFitnessFunction fitnessFunction = new MyFitnessFunction(tablesToGoThrow, distanceMatrix);
+                conf.reset();
                 conf.setFitnessFunction(fitnessFunction);
 
                 int numberOfTablesToGo = tablesToGoThrow.size();
