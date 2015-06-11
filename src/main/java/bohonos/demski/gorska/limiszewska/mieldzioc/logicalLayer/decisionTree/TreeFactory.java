@@ -38,7 +38,7 @@ public class TreeFactory {
 
         while(true){
             try {
-                System.out.println("Aktualny nr to: " + iterator);
+                //System.out.println("Aktualny nr to: " + iterator);
                 tree.get(iterator).visitElem(this);
 
 
@@ -76,7 +76,7 @@ public class TreeFactory {
             //czy mam zamowienie VIP
             OrdersService ordersService = OrdersService.getInstance();
             List<Order> orders = ordersService.getOrders();
-            System.out.println("RootIfVIP");
+            //System.out.println("RootIfVIP");
 
             for (int i = 0; i < orders.size(); i++){
                 if (orders.get(i).isVIP()) return true;
@@ -100,7 +100,7 @@ public class TreeFactory {
         public boolean question() throws IOException {
             OrdersService ordersService = OrdersService.getInstance();
             List<Order> orders = ordersService.getOrders();
-            System.out.println("If more than one VIP");
+            //System.out.println("If more than one VIP");
             int VIPcounter = 0;
             for (int i = 0; i < orders.size(); i++){
                 if (orders.get(i).isVIP()) VIPcounter ++;
@@ -125,7 +125,7 @@ public class TreeFactory {
         public boolean question() throws IOException {
             OrdersService ordersService = OrdersService.getInstance();
             //List<Order> doing = ordersService.getCurrentCreatingMeals();
-            System.out.println("If do more than 3 vip orders");
+            //System.out.println("If do more than 3 vip orders");
             int vipCounter = 0;
             synchronized (OrdersService.getInstance().getCurrentCreatingMeals()){
                 for (Order o : ordersService.getCurrentCreatingMeals()){
@@ -154,7 +154,7 @@ public class TreeFactory {
         public boolean question() throws IOException {
             OrdersService ordersService = OrdersService.getInstance();
             //List<Order> orders = OrdersService.getInstance().getOrders();
-            System.out.print("Do vip order");
+            //System.out.print("Do vip order");
 
             synchronized (OrdersService.getInstance().getOrders()){
                 for (Order o : OrdersService.getInstance().getOrders()) {
@@ -167,11 +167,11 @@ public class TreeFactory {
                         try {
                             TimeUnit.SECONDS.sleep(timeToFinish+TreeFactory.slowDownWorking);
 
-                            System.out.println("After waiting for doing order");
+                            //System.out.println("After waiting for doing order");
                             ordersService.addReadyMeals(doingOrder);
-                            System.out.println("After adding ready meals");
+                            //System.out.println("After adding ready meals");
                             ordersService.removeCurrentCreatingMeal(doingOrder);
-                            System.out.println("After removing current creating meal");
+                            //System.out.println("After removing current creating meal");
                             return true;
 
                         } catch (InterruptedException e) {
@@ -198,7 +198,7 @@ public class TreeFactory {
         public boolean question() throws IOException {
             OrdersService ordersService = OrdersService.getInstance();
             List<Order> orders = ordersService.getOrders();
-            System.out.println("If there are long waited orders");
+            //System.out.println("If there are long waited orders");
 
             for (int i = 0; i < orders.size(); i++){
                 if (orders.get(i).isWaitedLong()) return true;
@@ -220,7 +220,7 @@ public class TreeFactory {
         public boolean question() throws IOException {
             OrdersService ordersService = OrdersService.getInstance();
             //List<Order> orders = OrdersService.getInstance().getOrders();
-            System.out.print("Do long waited order");
+            //System.out.print("Do long waited order");
             synchronized (OrdersService.getInstance().getOrders()){
                 for (Order o: OrdersService.getInstance().getOrders()) {
                     if (o.isWaitedLong()) {
@@ -232,11 +232,11 @@ public class TreeFactory {
                         try {
                             TimeUnit.SECONDS.sleep(timeToFinish+TreeFactory.slowDownWorking);
 
-                            System.out.println("After waiting for doing order");
+                            //System.out.println("After waiting for doing order");
                             ordersService.addReadyMeals(doingOrder);
-                            System.out.println("After adding ready meals");
+                            //System.out.println("After adding ready meals");
                             ordersService.removeCurrentCreatingMeal(doingOrder);
-                            System.out.println("After removing current creating meal");
+                            //System.out.println("After removing current creating meal");
                             return true;
 
                         } catch (InterruptedException e) {
@@ -263,7 +263,7 @@ public class TreeFactory {
         public boolean question() throws IOException {
             OrdersService ordersService = OrdersService.getInstance();
             List<Order> orders = ordersService.getOrders();
-            System.out.println("If there are long waited orders");
+            //System.out.println("If there are long waited orders");
 
             for (int i = 0; i < orders.size(); i++){
                 if (orders.get(i).isLongPreparedTime()) return true;
@@ -286,7 +286,7 @@ public class TreeFactory {
         public boolean question() throws IOException {
             OrdersService ordersService = OrdersService.getInstance();
             List<Order> doing = ordersService.getCurrentCreatingMeals();
-            System.out.println("If do more than 3 long doing orders");
+            //System.out.println("If do more than 3 long doing orders");
             int longPreparedCounter = 0;
             for (Order o : doing){
                 if (o.isVIP()) {
@@ -312,7 +312,7 @@ public class TreeFactory {
         public boolean question() throws IOException {
             OrdersService ordersService = OrdersService.getInstance();
             //List<Order> orders = OrdersService.getInstance().getOrders();
-            System.out.print("Do quick doing order");
+            //System.out.print("Do quick doing order");
             synchronized (OrdersService.getInstance().getOrders()){
                 for (Order o : OrdersService.getInstance().getOrders()) {
                     if (!o.isLongPreparedTime()) {
@@ -324,11 +324,11 @@ public class TreeFactory {
                         try {
                             TimeUnit.SECONDS.sleep(timeToFinish+TreeFactory.slowDownWorking);
 
-                            System.out.println("After waiting for doing order");
+                            //System.out.println("After waiting for doing order");
                             ordersService.addReadyMeals(doingOrder);
-                            System.out.println("After adding ready meals");
+                            //System.out.println("After adding ready meals");
                             ordersService.removeCurrentCreatingMeal(doingOrder);
-                            System.out.println("After removing current creating meal");
+                            //System.out.println("After removing current creating meal");
                             return true;
 
                         } catch (InterruptedException e) {
@@ -368,11 +368,11 @@ public class TreeFactory {
                         try {
                             TimeUnit.SECONDS.sleep(timeToFinish+TreeFactory.slowDownWorking);
 
-                            System.out.println("After waiting for doing order");
+                            //System.out.println("After waiting for doing order");
                             ordersService.addReadyMeals(doingOrder);
-                            System.out.println("After adding ready meals");
+                            //System.out.println("After adding ready meals");
                             ordersService.removeCurrentCreatingMeal(doingOrder);
-                            System.out.println("After removing current creating meal");
+                            //System.out.println("After removing current creating meal");
                             return true;
 
                         } catch (InterruptedException e) {

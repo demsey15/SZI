@@ -24,6 +24,7 @@ public class MapPanel extends JPanel implements Runnable, OnMoveListener{
         //implementacja ruchu
         for (Coordinates c : path){
             waiterCoordinates = c;
+            System.out.println("Coordinates: Row = " + c.getRow() + " Column = " + c.getColumn());
             play();
         }
     }
@@ -147,6 +148,9 @@ public class MapPanel extends JPanel implements Runnable, OnMoveListener{
 
     void play()
     {
+        while(runner != null){
+
+        }
         if (runner==null)
         {
             runner=new Thread(this);
