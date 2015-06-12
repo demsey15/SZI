@@ -13,7 +13,7 @@ public class OrdersFactory implements Runnable {
         int counter = 0;
         while(true/*counter < 3*/){
             try {
-                TimeUnit.SECONDS.sleep(5);
+                TimeUnit.SECONDS.sleep(15);
                 OrdersService ordersService = null;
                 try {
                     ordersService = OrdersService.getInstance();

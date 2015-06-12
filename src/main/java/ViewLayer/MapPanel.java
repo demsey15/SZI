@@ -141,7 +141,7 @@ public class MapPanel extends JPanel implements OnMoveListener{
         //implementacja ruchu
         for (Coordinates c : path){
             waiterCoordinates = c;
-            System.out.println("Coordinates: Row = " + c.getRow() + " Column = " + c.getColumn());
+           // System.out.println("Coordinates: Row = " + c.getRow() + " Column = " + c.getColumn());
             play();
         }
     }
@@ -158,12 +158,12 @@ public class MapPanel extends JPanel implements OnMoveListener{
             if ( waiterYpos < by ) { waiterYpos = waiterYpos + krok; }
             if ( waiterYpos > by ) { waiterYpos = waiterYpos - krok; }
 
-            System.out.println("Pozycja kelnera: " + waiterXpos + " " + waiterYpos);
+           // System.out.println("Pozycja kelnera: " + waiterXpos + " " + waiterYpos);
             try
             {
                 Thread.sleep(10); //ustawianie predkosci ruchu bohatera
                 repaint();
-                System.out.println("Przemalowa³em");
+              //  System.out.println("Przemalowa³em");
             }
             catch (InterruptedException e)
             {
