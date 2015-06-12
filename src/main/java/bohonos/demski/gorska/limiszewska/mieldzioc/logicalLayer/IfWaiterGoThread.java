@@ -31,13 +31,16 @@ public class IfWaiterGoThread implements Runnable {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            //List<Order> readyMeals = ordersService.getReadyMeals();            //a co jak taca nie jest pusta i list gotowych posi³ków te¿ nie  //Popraw
-            if (ordersService.getReadyMeals().size() > 0 && ordersService.getTray().size() == 0) {
+
+                     //a co jak taca nie jest pusta i list gotowych posi³ków te¿ nie  //Popraw
+            if (ordersService.getReadyMeals().size() > 0 ) {
+                List<Order> readyMeals = new ArrayList<Order>(); //pomocnicza lista
                 for (Order o : ordersService.getReadyMeals()) {
                     ordersService.addMealToTray(o);
+                    readyMeals.add(o);
                 }
-                for (Order o : ordersService.getTray()) {
-                    ordersService.removeReadyMeals(o);
+                for (Order o : readyMeals) {
+                    ;ordersService.removeReadyMeals(o);
                 }
             }
 
