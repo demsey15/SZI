@@ -46,10 +46,32 @@
 				\item kombiwojażer = kelner
 			\end{enumerate}
 		\end{frame}
-		\begin{frame}{Algorytm}
+		\begin{frame}{Kolejne elementy algorytmu genetycznego}
 			\begin{alg}
-								
+				\begin{enumerate}
+					\item Populacja
+					\item Ocena osobników
+					\item Selekcja
+					\item Krzyżowanie
+					\item Mutacja
+				\end{enumerate}
 			\end{alg}
 		\end{frame}
-		
+		\begin{frame}{Populacja}
+			\begin{enumerate}
+				\item Rozmiar populacji: 1000
+				\item Ilość ewolucji: 2000
+			\end{enumerate}
+		\end{frame}
+		\begin{frame}{Reprezentacja chromosomu}
+			Pojedynczy chromosom ma reprezentować proponowaną kolejność odwiedzania stolików. Chromosom reprezentuję jako listę pokazująca kolejność pobierania stolików do tworzonej trasy.
+			
+			\begin{przyk}
+					Punktem odniesienia dla tej reprezentacji jest lista kolejnych stolików: 1-2-3-4-5. Pojedynczy osobnik np. 4-4-1-2-1 pokazuje w jakiej kolejności wybierane są kolejno odwiedzane stoliki. Na początku jest czwórka więc pierwszym odwiedzanym stolikiem będzie stolik umieszczony na czwartej pozycji w liście odniesienia, czyli czwórka. Czwórkę tę usuwa się z listy odniesienia (pozostają stoliki 1-2-3-5), natomiast lista odwiedzanych stolików wygląda następująco: 4.
+					Kolejnym elementem osobnika jest ponownie czwórka. W tej chwili na czwartym miejscu listy odniesienia jest piątka, więc kolejnym odwiedzanym stolikiem będzie stolik nr 5, a lista odniesienia będzie wyglądała następująco: 1-2-3.
+			\end{przyk}
+		\end{frame}
+		\begin{frame}{Wady i zalety takiej reprezentacji}
+			Reprezentacja ta wprowadza spore zamieszanie przy przechodzeniu na reprezentację wykorzystywaną przy funcji oceny, jednak kłopoty te rekompensuje przy krzyżowaniu i mutacji. Cechą charakterystyczą tej reprezentacji jest fakt, że na i-tej pozycji jest liczba z przedziału od 1 do n-i+1 (gzie n to liczba wszystkich stolików). Ze względu na to wymiana materiału genetycznego między dwoma osobnikami za pomocą standardowego krzyżowania x-punktowego zawsze da dopuszczalne potomstwo.
+		\end{frame}
 \end{document}

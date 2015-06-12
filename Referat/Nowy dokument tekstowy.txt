@@ -1,0 +1,8 @@
+Prezentacja_SZI.aux
+Prezentacja_SZI.log
+Prezentacja_SZI.nav
+Prezentacja_SZI.out
+Prezentacja_SZI.pdf
+Prezentacja_SZI.snm
+Prezentacja_SZI.synctex.gz
+Prezentacja_SZI.toc
