@@ -71,8 +71,11 @@ public class IfWaiterGoThread implements Runnable {
                 if (v >= 0.5) {
                     List<Integer> stoliki = new ArrayList<Integer>();
                     for(Order o : ordersService.getTray()){
-                        stoliki.add(o.tableNumber);
+                        if(!stoliki.contains(o.tableNumber)) {
+                            stoliki.add(o.tableNumber);
+                        }
                     }
+
                     if (SettingsFrame.getSelectedAlgorithms().equals("Andrzej"))
                     {
 
