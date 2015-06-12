@@ -5,6 +5,7 @@ import bohonos.demski.gorska.limiszewska.mieldzioc.logicalLayer.Coordinates;
 import org.jgap.*;
 import org.jgap.impl.DefaultConfiguration;
 import org.jgap.impl.IntegerGene;
+import org.jgap.impl.WeightedRouletteSelector;
 
 import java.io.IOException;
 import java.util.*;
