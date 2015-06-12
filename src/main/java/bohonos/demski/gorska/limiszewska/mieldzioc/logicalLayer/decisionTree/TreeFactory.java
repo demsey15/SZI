@@ -16,7 +16,7 @@ public class TreeFactory {
 
     public List<TreeElem> tree;
     private int iterator;
-    public static int slowDownWorking = 10;
+    public static int slowDownWorking = 1;
 
     public TreeFactory(){
 

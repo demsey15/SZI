@@ -148,7 +148,8 @@ public class MapPanel extends JPanel implements OnMoveListener{
 
     private void play()
     {
-            int bx = calculateWidthPosition(waiterCoordinates.getColumn());
+    	while(true){
+    		int bx = calculateWidthPosition(waiterCoordinates.getColumn());
             int by = calculateHeightPosition(waiterCoordinates.getRow());
 
 
@@ -160,7 +161,7 @@ public class MapPanel extends JPanel implements OnMoveListener{
             System.out.println("Pozycja kelnera: " + waiterXpos + " " + waiterYpos);
             try
             {
-                Thread.sleep(100); //ustawianie predkosci ruchu bohatera
+                Thread.sleep(10); //ustawianie predkosci ruchu bohatera
                 repaint();
                 System.out.println("Przemalowa³em");
             }
@@ -168,6 +169,10 @@ public class MapPanel extends JPanel implements OnMoveListener{
             {
                 System.out.print("przerwano");
             }
+            
+            if ( waiterXpos == bx && waiterYpos == by) break;
+    	}
+            
 
       //      if ( waiterXpos == bx && waiterYpos == by) { this.stop(); }
 
