@@ -18,16 +18,7 @@ import java.util.List;
 
 //Panel odpowiedzialny za wyœwietlenie mapy
 
-public class MapPanel extends JPanel implements Runnable, OnMoveListener{
-
-    public void onMove(List<Coordinates> path) {
-        //implementacja ruchu
-        for (Coordinates c : path){
-            waiterCoordinates = c;
-            System.out.println("Coordinates: Row = " + c.getRow() + " Column = " + c.getColumn());
-            play();
-        }
-    }
+public class MapPanel extends JPanel implements OnMoveListener{
 
     int szerokosc;
     int wysokosc;
@@ -40,7 +31,7 @@ public class MapPanel extends JPanel implements Runnable, OnMoveListener{
     int waiterXpos, waiterYpos; //pozycja w px
     public Coordinates waiterCoordinates  = new Coordinates(0,0); //pozycja na mapie
 
-    private Thread runner = null;
+   // private Thread runner = null;
     private int krok = 1;
 
 
@@ -146,9 +137,41 @@ public class MapPanel extends JPanel implements Runnable, OnMoveListener{
         }
     }
 
-    void play()
+    public void onMove(List<Coordinates> path) {
+        //implementacja ruchu
+        for (Coordinates c : path){
+            waiterCoordinates = c;
+            System.out.println("Coordinates: Row = " + c.getRow() + " Column = " + c.getColumn());
+            play();
+        }
+    }
+
+    private void play()
     {
-        while(runner != null){
+            int bx = calculateWidthPosition(waiterCoordinates.getColumn());
+            int by = calculateHeightPosition(waiterCoordinates.getRow());
+
+
+            if ( waiterXpos < bx ) { waiterXpos = waiterXpos + krok; }
+            if ( waiterXpos > bx ) { waiterXpos = waiterXpos - krok; }
+            if ( waiterYpos < by ) { waiterYpos = waiterYpos + krok; }
+            if ( waiterYpos > by ) { waiterYpos = waiterYpos - krok; }
+
+            System.out.println("Pozycja kelnera: " + waiterXpos + " " + waiterYpos);
+            try
+            {
+                Thread.sleep(100); //ustawianie predkosci ruchu bohatera
+                repaint();
+                System.out.println("Przemalowa³em");
+            }
+            catch (InterruptedException e)
+            {
+                System.out.print("przerwano");
+            }
+
+      //      if ( waiterXpos == bx && waiterYpos == by) { this.stop(); }
+
+        /*while(runner != null){
 
         }
         if (runner==null)
@@ -156,8 +179,9 @@ public class MapPanel extends JPanel implements Runnable, OnMoveListener{
             runner=new Thread(this);
             runner.start();
         }
+        */
     }
-
+/*
     void stop()
     {
         if (runner!=null)
@@ -165,8 +189,8 @@ public class MapPanel extends JPanel implements Runnable, OnMoveListener{
             runner=null;
         }
     }
-
-
+*/
+/*
     public void run() {
         Thread ten=Thread.currentThread();
         while (runner==ten)
@@ -193,13 +217,6 @@ public class MapPanel extends JPanel implements Runnable, OnMoveListener{
 
             if ( waiterXpos == bx && waiterYpos == by) { this.stop(); }
         }
-
+*/
 
     }
-
-
-
-
-
-
-}

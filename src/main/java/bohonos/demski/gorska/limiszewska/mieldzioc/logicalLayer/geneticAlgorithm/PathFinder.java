@@ -16,6 +16,7 @@ public class PathFinder implements IWalker{
     private Control control = Control.getInstance();
 
     public void goThroughTables(List<Integer> tablesToGoThrow){
+       System.out.println("Wywołano algorytm dominika z listą stołów: " + Arrays.toString(tablesToGoThrow.toArray()));
         List<Integer> properOrderTabels = properOrderFinder.findProperOrder(tablesToGoThrow);
 
 
@@ -224,11 +225,11 @@ public class PathFinder implements IWalker{
                 }
                 */
             }
-            monitor.callListenersOnMove(path);
             if(i < properOrderTabels.size())
-            System.out.println("Idę do stolika nr: " + properOrderTabels.get(i));
+                System.out.println("Idę do stolika nr: " + properOrderTabels.get(i));
             else  System.out.println("Wracam do (0, 0)");
             System.out.println("Sciezka: " + Arrays.toString(path.toArray()));
+            monitor.callListenersOnMove(path);
             try {
                 Thread.sleep(3000);
                 try {
