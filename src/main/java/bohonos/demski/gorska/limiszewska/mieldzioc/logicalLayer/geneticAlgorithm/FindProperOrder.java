@@ -35,14 +35,14 @@ public class FindProperOrder {
                 }
             });
 
-            for(int i = 0; i < allTables.size(); i++){
+            for(int i = 0; i < allTables.size(); i++){  //odleg³oœci stolików od punktu postoju kelnera
                 Coordinates coordinates = allTables.get(i);
                 double distance = Math.abs(coordinates.getColumn()) + Math.abs(coordinates.getRow());
                 distanceMatrix[0][i + 1] = distance;
                 distanceMatrix[i + 1][0] = distance;
             }
 
-            for(int i = 1; i <= allTables.size(); i++){
+            for(int i = 1; i <= allTables.size(); i++){ //odleg³oœci pomiêdzy wszystkimi stolikami
                 Coordinates first = allTables.get(i - 1);
                 for(int j = i; j <= allTables.size(); j++){
                     Coordinates second = allTables.get(j - 1);
