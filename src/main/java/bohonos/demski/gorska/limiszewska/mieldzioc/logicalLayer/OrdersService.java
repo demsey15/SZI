@@ -33,7 +33,7 @@ public class OrdersService {
     private final List<Order> orders = Collections.synchronizedList(new ArrayList<Order>()); //lista zamówieñ - zrobione przez Dominika
     private final List<Order> readyMeals = Collections.synchronizedList(new ArrayList<Order>()); // zrobione posi³ki przez kuchniê - zrobione przez Dominika
     private final List<Order> currentCreatingMeals = Collections.synchronizedList(new ArrayList<Order>()); // aktualnie przygotowywane posi³ki
-    private final List<Order> tray = new ArrayList<Order>(); //taca z posi³kami kelnera - zrobione przez Dominika
+    private final List<Order> tray = Collections.synchronizedList(new ArrayList<Order>()); //taca z posi³kami kelnera - zrobione przez Dominika
 
     private OrdersService() throws IOException{
         initList();
@@ -287,13 +287,26 @@ public class OrdersService {
      * Wywo³ywana po dostarczeniu odpowiedniego posi³ku do odpowiedniego stolika.
      * @param tableNumber numer stolika, dla którego potrawy z tacy maj¹ zostaæ usuniête.
      */
-    public void removeMealForTableFromTray(int tableNumber){
-            for(Order order : tray){
-                if(order.tableNumber == tableNumber){
-                    tray.remove(order);
+    public synchronized void removeMealForTableFromTray(int tableNumber){
+            synchronized (tray) {
+               /* for (Order order : tray) {
+                    if (order.tableNumber == tableNumber) {
+                        tray.remove(order);
+                    }
                 }
+                */
+                for(int i = 0; i < tray.size(); i++)
+                {
+                    Order order = tray.get(i);
+                    synchronized (order){
+                        if(order.tableNumber == tableNumber){
+                            tray.remove(i);
+                        }
+                    }
+                }
+                MainFrame.getInstance().getHandedOnPlatePanel().setOrdersList(getTrayMealsToDisplay());
             }
-            MainFrame.getInstance().getHandedOnPlatePanel().setOrdersList(getTrayMealsToDisplay());
+        //System.out.print("Wywolalem");
     }
 
     public String[][] getTrayMealsToDisplay() {
