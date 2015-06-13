@@ -13,6 +13,6 @@ public class CurrentCreatingMeal implements Runnable{
 
 
     public void run() {
-        TreeFactory tree = new TreeFactory();
+        Tree tree = new Tree();
     }
 }

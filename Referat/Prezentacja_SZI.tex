@@ -137,4 +137,49 @@
 			\pgfdeclareimage[width=12cm,height=7cm]{chromosom}{eksperyment1000.png}
 			\pgfuseimage{chromosom}
 		\end{frame}
+
+		
+
+		\section{Drzewa decyzyjne}
+		\begin{frame}{Drzewa decyzyjne jako model klasyfikacji}
+			Przez drzewo decyzyjne rozumiemy strukturę, która ma zwykłe właściwości drzewa w znaczeniu, jaki temu słowu nadaje się w informatyce, jest więc strukturą złożoną z węzłów, z których wychodzą gałęzie prowadzące do innych węzłów lub liści, oraz z liści, z których nie wychodzą żadne gałęzie. Węzły 			odpowiadają testom przeprowadzanym na wartościach atrybutów przykładów, gałęzie odpowiadają możliwym wynikom tych testów, liście zaś etykietom kategorii.
+		\end{frame}
+
+		\begin{frame}{Implementacja}
+			\pgfdeclareimage[width=11.18cm,height=3.82cm]{treeClass}{treeClass.png}
+			\pgfuseimage{treeClass}
+			
+		\end{frame}
+		
+		
+
+		\begin{frame}{Do czego wykorzystujemy drzewa decyzyjne?}
+			Zamówienia są generowane w sposób losowy. Przyjęłam założenie, że mamy 5 równolegle pracujących kucharzy, a każdy z nich podejmuje decyzję o wyborze potrawy do przygotowania. Każdy z nich stosuje te same kryteria wyboru, sposób ich rozumowania jest przedstawiony w postaci drzewa. 
+		\end{frame}
+		
+		\begin{frame}{Schemat drzewa decyzyjnego}
+			\pgfdeclareimage[width=10.875cm,height=7cm]{treeDiagram}{treeDiagram.png}
+			\pgfuseimage{treeDiagram}
+		\end{frame}
+
+		\begin{frame}{Zalety drzew decyzyjnych}
+			Drzewa decyzyjne: 
+				\begin{itemize}
+						\item{Mogą reprezentować dowolnie złożone pojęcia pojedyncze lub wielokrotne, jeśli tylko ich definicje  da się wyrazić w zależności od atrybutów}
+						\item{Są efektywne obliczeniowo, w najgorszym wypadku proces identyfikacji kategorii wymaga jednokrotnego przetestowania wszystkich atrybutów}
+						\item {Forma reprezentacji jest czytelna dla człowieka}
+						\item {Łatwo można przejść od reprezentacji drzewiastej do reprezentacji regułowej}
+						\end{itemize}
+		\end{frame}
+
+		\begin{frame}{Wady drzew decyzyjnych}
+			\begin{itemize}
+				\item{Testuje się wartość jednego atrybutu na raz, co powoduje niepotrzebny rozrost drzewa dla danych, gdzie poszczególne atrybuty zależą od pozostałych}
+				\item{Kosztowna reprezentacja alternatyw pomiędzy atrybutami - znaczny rozrost drzewa (w przeciwieństwi do reprezentacji koniunkcji, która jest zapisywana jako pojedyńcza "ścieżka")}
+				\item{Drzewa decyzyjne nie stwarzają łatwej możliwości do ich inkrementacyjnego aktualizowania, algorytmy udoskonalające gotowe już drzewa poprzez zestaw nowych przykładów są bardzo złożone i zazwyczaj wynikiem jest drzewo gorszej jakości niż drzewo budowane od początku z kompletnym zestawem przykładów.}
+			\end{itemize}
+		\end{frame}
+		
+
+		
 \end{document}
