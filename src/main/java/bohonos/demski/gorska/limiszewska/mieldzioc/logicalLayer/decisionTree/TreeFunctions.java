@@ -5,10 +5,10 @@ import java.io.IOException;
 /**
  * Created by Agnieszka on 2015-06-06.
  */
-public interface TreeElemFunction {
+public interface TreeFunctions {
 
     public boolean question() throws IOException;
-    public void visitElem(TreeFactory tree) throws IOException;
-    public void yes(TreeFactory tree);
-    public void no(TreeFactory tree);
+    public void visitElem(Tree tree) throws IOException;
+    public void yes(Tree tree);
+    public void no(Tree tree);
 }

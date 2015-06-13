@@ -12,13 +12,13 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by Agnieszka on 2015-06-06.
  */
-public class TreeFactory {
+public class Tree {
 
     public List<TreeElem> tree;
     private int iterator;
     public static int slowDownWorking = 8;
 
-    public TreeFactory(){
+    public Tree(){
 
         tree = new ArrayList<TreeElem>();
         iterator = 0;
@@ -62,7 +62,7 @@ public class TreeFactory {
     }
 
     //------------------------------------------------------------------------------------------------------------------
-    private class RootIfVIP extends TreeElem implements TreeElemFunction{
+    private class RootIfVIP extends TreeElem implements TreeFunctions{
 
         public RootIfVIP(){
             try {
@@ -85,10 +85,10 @@ public class TreeFactory {
             return  false;
         }
 
-        public void yes(TreeFactory tree){
+        public void yes(Tree tree){
             tree.setIterator(1);
         }
-        public void no(TreeFactory tree){
+        public void no(Tree tree){
             tree.setIterator(2);
         }
 
@@ -110,11 +110,11 @@ public class TreeFactory {
             return  false;
         }
 
-        public void yes(TreeFactory tree) {
+        public void yes(Tree tree) {
             tree.setIterator(3);
         }
 
-        public void no(TreeFactory tree) {
+        public void no(Tree tree) {
             tree.setIterator(4);
         }
     }
@@ -139,11 +139,11 @@ public class TreeFactory {
             return false;
         }
 
-        public void yes(TreeFactory tree) {
+        public void yes(Tree tree) {
             tree.setIterator(2);
         }
 
-        public void no(TreeFactory tree) {
+        public void no(Tree tree) {
             tree.setIterator(4);
         }
     }
@@ -165,7 +165,7 @@ public class TreeFactory {
                         //orders.remove(doingOrder);
                         ordersService.removeOrder(doingOrder);
                         try {
-                            TimeUnit.SECONDS.sleep(timeToFinish+TreeFactory.slowDownWorking);
+                            TimeUnit.SECONDS.sleep(timeToFinish+Tree.slowDownWorking);
 
                             //System.out.println("After waiting for doing order");
                             ordersService.addReadyMeals(doingOrder);
@@ -184,11 +184,11 @@ public class TreeFactory {
 
         }
 
-        public void yes(TreeFactory tree) {
+        public void yes(Tree tree) {
             tree.setIterator(0);
         }
 
-        public void no(TreeFactory tree) {
+        public void no(Tree tree) {
             tree.setIterator(0);
         }
     }
@@ -206,11 +206,11 @@ public class TreeFactory {
             return false;
         }
 
-        public void yes(TreeFactory tree) {
+        public void yes(Tree tree) {
             tree.setIterator(5);
         }
 
-        public void no(TreeFactory tree) {
+        public void no(Tree tree) {
             tree.setIterator(6);
         }
     }
@@ -230,7 +230,7 @@ public class TreeFactory {
                         //orders.remove(doingOrder);
                         ordersService.removeOrder(doingOrder);
                         try {
-                            TimeUnit.SECONDS.sleep(timeToFinish+TreeFactory.slowDownWorking);
+                            TimeUnit.SECONDS.sleep(timeToFinish+Tree.slowDownWorking);
 
                             //System.out.println("After waiting for doing order");
                             ordersService.addReadyMeals(doingOrder);
@@ -249,11 +249,11 @@ public class TreeFactory {
 
         }
 
-        public void yes(TreeFactory tree) {
+        public void yes(Tree tree) {
             tree.setIterator(0);
         }
 
-        public void no(TreeFactory tree) {
+        public void no(Tree tree) {
             tree.setIterator(0);
         }
     }
@@ -271,11 +271,11 @@ public class TreeFactory {
             return false;
         }
 
-        public void yes(TreeFactory tree) {
+        public void yes(Tree tree) {
             tree.setIterator(7);
         }
 
-        public void no(TreeFactory tree) {
+        public void no(Tree tree) {
             tree.setIterator(8);
         }
 
@@ -297,11 +297,11 @@ public class TreeFactory {
             return false;
         }
 
-        public void yes(TreeFactory tree) {
+        public void yes(Tree tree) {
             tree.setIterator(8);
         }
 
-        public void no(TreeFactory tree) {
+        public void no(Tree tree) {
             tree.setIterator(9);
         }
 
@@ -322,7 +322,7 @@ public class TreeFactory {
                         //orders.remove(doingOrder);
                         ordersService.removeOrder(doingOrder);
                         try {
-                            TimeUnit.SECONDS.sleep(timeToFinish+TreeFactory.slowDownWorking);
+                            TimeUnit.SECONDS.sleep(timeToFinish+Tree.slowDownWorking);
 
                             //System.out.println("After waiting for doing order");
                             ordersService.addReadyMeals(doingOrder);
@@ -341,11 +341,11 @@ public class TreeFactory {
             return false;
         }
 
-        public void yes(TreeFactory tree) {
+        public void yes(Tree tree) {
             tree.setIterator(0);
         }
 
-        public void no(TreeFactory tree) {
+        public void no(Tree tree) {
             tree.setIterator(0);
         }
     }
@@ -366,7 +366,7 @@ public class TreeFactory {
                         //orders.remove(doingOrder);
                         ordersService.removeOrder(doingOrder);
                         try {
-                            TimeUnit.SECONDS.sleep(timeToFinish+TreeFactory.slowDownWorking);
+                            TimeUnit.SECONDS.sleep(timeToFinish+Tree.slowDownWorking);
 
                             //System.out.println("After waiting for doing order");
                             ordersService.addReadyMeals(doingOrder);
@@ -385,11 +385,11 @@ public class TreeFactory {
             return false;
         }
 
-        public void yes(TreeFactory tree) {
+        public void yes(Tree tree) {
             tree.setIterator(0);
         }
 
-        public void no(TreeFactory tree) {
+        public void no(Tree tree) {
             tree.setIterator(0);
         }
     }
