@@ -3,9 +3,7 @@ package bohonos.demski.gorska.limiszewska.mieldzioc.logicalLayer.neuralNetwork;
 /**
  * Created by Delirus on 2015-06-09.
  */
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -27,7 +25,7 @@ public class Backprop {
     public void train(TrainingData generator, double errorThreshold) {
 
         double error;
-        double sum = 0.0;         //Pamiêtaj, ¿e tu trzeba pozmieniaæ trochê
+        double sum = 0.0;
         double average = 1.0;
         int epoch = 0;
         int samples = 21;
@@ -45,7 +43,7 @@ public class Backprop {
                 average = error / samples;
             }
 
-            //System.out.println("Error for epoch " + epoch + ": " + error + " Average: "+ average + (characteristicTime > 0 ? " Learning rate: " + learningRate / (1 + (currentEpoch / characteristicTime)): ""));
+            System.out.println("Error for epoch " + epoch + ": " + error + " Average: "+ average + (characteristicTime > 0 ? " Learning rate: " + learningRate / (1 + (currentEpoch / characteristicTime)): ""));
             epoch++;
             currentEpoch = epoch;
         } while(average > errorThreshold);
@@ -56,8 +54,18 @@ public class Backprop {
         double error = 0;
 
         Map<Synapse, Double> synapseNeuronDeltaMap = new HashMap<Synapse, Double>();
+        List<Integer> samples = new ArrayList<Integer>();
 
-        for (int i = 0; i < inputs.length; i++) {
+        while (samples.size() < inputs.length) {
+
+            Random r = new Random();
+            int i = r.nextInt(inputs.length);
+
+            while(samples.contains(i)){
+                i=r.nextInt(inputs.length);
+            }
+
+            samples.add(i);
 
             double[] input = inputs[i];
             double[] expectedOutput = expectedOutputs[i];
@@ -67,8 +75,6 @@ public class Backprop {
             neuralNetwork.setInputs(input);
             double[] output = neuralNetwork.getOutput();
 
-            //First step of the backpropagation algorithm. Backpropagate errors from the output layer all the way up
-            //to the first hidden layer
             for (int j = layers.size() - 1; j > 0; j--) {
                 Layer layer = layers.get(j);
 
@@ -77,8 +83,6 @@ public class Backprop {
                     double neuronError = 0;
 
                     if (layer.isOutputLayer()) {
-                        //the order of output and expected determines the sign of the delta. if we have output - expected, we subtract the delta
-                        //if we have expected - output we add the delta.
                         neuronError = neuron.getDerivative() * (output[k] - expectedOutput[k]);
                     } else {
                         neuronError = neuron.getDerivative();
@@ -108,8 +112,6 @@ public class Backprop {
                 }
             }
 
-            //Second step of the backpropagation algorithm. Using the errors calculated above, update the weights of the
-            //network
             for(int j = layers.size() - 1; j > 0; j--) {
                 Layer layer = layers.get(j);
 

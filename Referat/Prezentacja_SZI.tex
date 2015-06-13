@@ -180,6 +180,81 @@
 			\end{itemize}
 		\end{frame}
 		
-
 		
+		\section{Sieci neuronowe}
+		
+		\begin{frame}
+			\textbf{Sztuczna (symulowana) sieć neuronowa} to połączona grupa sztucznych komórek nerwowych, która wykorzystuje model matematyczny w celu przetwarzania informacji. Inspiracją do rozpoczęcia badań nad sztucznymi sieciami neuronowymi było działanie ludzkiego mózgu i próba odtworzenia jego niezwykłej mocy obliczeniowej. Sieci neuronowe składają się ze sztucznych neuronów, które są tutaj odpowiednikami ludzkiej komórki nerwowej. Sztuczne sieci neuronowe mają bardzo szerokie zastosowania od ekonomii począwszy, przez medycynę do techniki.
+		
+		\end{frame}
+		\begin{frame}{Zastosowania sieci neuronowych}
+				\begin{itemize}
+					\item{Klasyfikacja i rozpoznawanie wzorców (np. pisma),}
+					\item{Kojarzenia danych,}
+					\item{Synteza mowy,}
+					\item{Aproksymacja i prognozowanie.}
+				\end{itemize}
+		\end{frame}
+		\begin{frame}
+			Jest wiele różnych rodzajów sieci neuronowych i sposobów ich uczenia. W swoim projekcie zastosowałem wielowarstwową sieć neuronową. Jest to sieć jednokierunkowa (sygnał płynie od warstwy wejściowej do warstwy wyjściowej), która składa się z trzech warstw (warstwa - zbiór neuronów między którymi nie ma żadnych połączeń). Do uczenia sieci użyłem \textbf{algorytmu wstecznej propagacji błędu z członem momentum}. Jest to jeden z najpopularniejszych sposobów uczenia sieci.
+		\end{frame}
+		\begin{frame}{Algorytm wstecznej propagacji błędu}
+			Działanie algorytmu uczenia opiera się na obliczeniu wyjścia sieci, a później propagowaniu błędów wstecz (od warstwy wyjściowej do warstwy wejściowej), ponieważ nie znamy błędów sieci w warstwach ukrytych.\\
+			 Podstawą matematyczną optymalizacji wektora wag jest \textbf{metoda największego spadku}, która ma za zadanie minimalizację poniższej funkcji błędu:
+			\begin{center}
+				$Q(\mathbf{w}(t))=\sum_{i=1}^{N_{L}}(d_{i}^{(L)}-y_{i}^{(L)}(t))^{2}$, gdzie
+			\end{center}
+			\begin{itemize}
+				\item{$\mathbf{w}(t)$ - wektor wag,}
+				\item{$d_i$ - wartość $i$-tego indeksu wektora wzorcowego pochodzącego ze zbioru uczącego,}
+				\item{$y_i$ - wyjście sieci $i$-tego neuronu warstwy wyjściowej,}
+				\item{$N_L$ - liczba neuronów wyjściowych.}
+			\end{itemize}
+		\end{frame}
+		\begin{frame}
+			Poprawa wektora wag odbywa się według następującej formuły:
+			\begin{center}
+				$\mathbf{w}(t+1)=\mathbf{w}(t)-\eta \nabla [Q(\mathbf{w})(t)]$, 
+			\end{center}
+			gdzie $\eta$ to współczynnik uczenia. Powtarzamy obliczanie:  wyjścia sieci dla obserwacji uczącej, wartość funkcji błędu dla tej obserwacji i poprawiamy wektor wag. Wykonujemy powyższe działania dla każdej obserwacji ze zbioru uczącego. Wykonujemy powyższe procedury aż do momentu, w którym skumulowana wartość funkcji błędu osiągnie satysfakcjonujący dla nas poziom.
+		\end{frame}
+		\begin{frame}{Wady i zalety algorytmu wstecznej propagacji błędu}
+			Zalety:
+			\begin{itemize}
+				\item jest łatwy do zrozumienia, przez co zdobył zaufanie użytkowników,
+				\item ma przewagę nad innymi algorytmami, gdy założenia niezbędne do ich działania są trudne do zrealizowania lub zweryfikowania,
+				\item jest metodą powolną, ale w miarę pewną - używając tego algorytmu można prosto rozwiązać prawie każde zadanie, inne algorytmy mogą rozwiązywać zadanie bardzo szybko albo całkowicie zawodzić. 
+			\end{itemize}
+		\end{frame}
+		\begin{frame}
+			Wady:
+			\begin{itemize}
+			\item duża liczba iteracji potrzebna do osiągnięcia minimum,
+			\item konieczność wybrania dobrego współczynnika uczenia - zbyt mały spowalnia proces uczenia, a zbyt duży może prowadzić do oscylacji,
+			\item wrażliwość na występowanie minimów lokalnych.
+			\end{itemize}
+		\end{frame}
+		\begin{frame}{Momentum}
+			W celu przyspieszenia procesu uczenia stosuje się \emph{momentową metodę wstecznej propagacji błędu}. Umożliwia ona bezpieczne zwiększenie efektywnego tempa uczenia oraz stabilność samego procesu. Istotą tej modyfikacji jest wprowadzenie do procesu uaktualniania wagi współczynnika bezwładności, tzw. ,,momentu'', proporcjonalnego do zmiany tej wagi w poprzedniej iteracji. Modyfikacja wag odbywa się wtedy zgodnie z niżej podanym wyrażeniem:
+			\begin{center}
+				$\mathbf{w}(t+1)=\mathbf{w}(t)-\eta \nabla [Q(\mathbf{w})(t)] -\alpha(\mathbf{w}(t)-\mathbf{w}(t-1)),$
+			\end{center}
+			gdzie $\alpha$ to wspominany współczynnik momentum. 
+		\end{frame}
+		\begin{frame}{Implementacja}
+				\pgfdeclareimage[width=10cm,height=8cm]{BP}{Backprop1.png}
+				\pgfuseimage{BP}
+		\end{frame}
+		\begin{frame}
+			\pgfdeclareimage[width=10cm,height=8cm]{BP}{Backprop2.png}
+			\pgfuseimage{BP}
+		\end{frame}
+		\begin{frame}
+			\pgfdeclareimage[width=10cm,height=8cm]{BP}{Backprop3.png}
+			\pgfuseimage{BP}
+		\end{frame}
+		\begin{frame}
+			\pgfdeclareimage[width=10cm,height=8cm]{BP}{Backprop4.png}
+			\pgfuseimage{BP}
+		\end{frame}
 \end{document}

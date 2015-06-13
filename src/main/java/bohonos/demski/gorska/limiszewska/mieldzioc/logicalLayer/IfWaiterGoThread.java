@@ -16,7 +16,7 @@ public class IfWaiterGoThread implements Runnable {
 
         StayOrGo stayOrGo = null;
         try {
-            stayOrGo = new StayOrGo(0.2, 0.6, 0.13);
+            stayOrGo = new StayOrGo(0.2, 0.6, 0.1);
         } catch (IOException e) {
             e.printStackTrace();
         }
