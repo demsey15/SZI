@@ -258,7 +258,7 @@
 			\pgfuseimage{BP}
 		\end{frame}
 		\begin{frame}{Eksperyment}
-			Dla danych uczących i sieci neuronowej o 5 neuronach wejściowych, 13 neuronach ukrytych i 1 neuronie wyjściowym. Algorytm kończył działanie, gdy błąd średniokwadratowy jet mniejszy od $0.01$. Otrzymałem następujące wyniki.
+			Przeprowadziłem eksperyment dla zbioru uczącego i sieci neuronowej o 5 neuronach wejściowych, 13 neuronach ukrytych i 1 neuronie wyjściowym. Algorytm kończył działanie, gdy błąd średniokwadratowy był mniejszy od $0.1$. Otrzymałem następujące wyniki:
 		\end{frame}
 		\begin{frame}
 			\begin{center}		
@@ -267,10 +267,10 @@
 			\end{center}
 		\end{frame}
 		\begin{frame}{Wnioski z eksperymentu}
-			Z przeprowadzonych testów można wysnuć następujące wniosek, że wartość funkcji błedu oscyluje cały czas koło tej samej liczby. Świadczy to o tym, że znaleźliśmy się w minimum lokalnym.
+			Z przeprowadzonych testów można wysnuć następujące wnioski, że wartość funkcji błedu oscyluje cały czas wokół tej samej liczby. Świadczy to o tym, że znaleźliśmy się w minimum lokalnym.
 			\begin{itemize}
 			 \item Przyczyną tego stanu rzeczy mogą być duże różnice wartości w zbiorze uczącym. Dlatego należy zawsze w tej sytuacji znormalizować dane uczące!
-			\item Innym powodem może być za mały zbiór uczący, który nie odzwierciedla za dobrze własności, których pragniemy w uczonej przez nas sieci neurowej. Należy pamiętać, żeby zbiór uczący był zawsze odpowiednio duży!
+			\item Innym powodem może być za mały zbiór uczący, który nie odzwierciedla za dobrze własności, których wymagamy od uczonej przez nas sieci neurowej. Należy pamiętać, żeby zbiór uczący był zawsze odpowiednio duży!
 			\end{itemize}
 			Pomimo wszystko błąd sieci na poziomie około $10\%$ jest akceptowalnym wynikiem. W wielu przypadkach taki poziom wystarcza do poprawnego działania sieci.
 		\end{frame}
