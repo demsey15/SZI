@@ -33,6 +33,17 @@
 			\tableofcontents
 		\end{frame}
 		
+		\section{Opis projektu}
+		\begin{frame}
+			Celem naszego projektu jest zasymulowanie działania kelnera pracującego w restauracji. Kelner realizuje następujące zadania:
+			\begin{itemize}
+				\item ustala kolejność przygotowania zamówionych posiłków,
+				\item układa gotowe dania na tacy, 
+				\item decyduje kiedy ma iść roznieść zamówione posiłki,
+				\item wybiera najbardziej optymalną ścieżkę rozdania tych posiłków. 
+			\end{itemize}
+		\end{frame}
+		
 		\section{Algorytmy genetyczne}
 		\begin{frame}{Do czego zastosowałem algorytmy genetyczne?}
 			Skorzystałem z biblioteki JGAP.
@@ -256,6 +267,9 @@
 		\begin{frame}
 			\pgfdeclareimage[width=10cm,height=8cm]{BP}{Backprop4.png}
 			\pgfuseimage{BP}
+		\end{frame}
+		\begin{frame}{Zastosowanie sieci neuronowej w projekcie Inteligenty kelner}
+			Stworzona sieć neuronowa odpowiada za wydawanie decyzji czy inteligenty kelner ma iść roznosić posiłki zamówione przez klientów czy poczekać, aż zostanie zrealizowane przez kuchnię kolejne zamówienie.  
 		\end{frame}
 		\begin{frame}{Eksperyment}
 			Przeprowadziłem eksperyment dla zbioru uczącego i sieci neuronowej o 5 neuronach wejściowych, 13 neuronach ukrytych i 1 neuronie wyjściowym. Algorytm kończył działanie, gdy błąd średniokwadratowy był mniejszy od $0.1$. Otrzymałem następujące wyniki:

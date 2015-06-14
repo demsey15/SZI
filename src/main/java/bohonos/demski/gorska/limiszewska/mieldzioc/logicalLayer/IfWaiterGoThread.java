@@ -22,6 +22,8 @@ public class IfWaiterGoThread implements Runnable {
         }
 
         PathFinder pathFinder = new PathFinder();
+        ShortestPaths shortestPaths = new ShortestPaths();
+        GoThroughTables throughTables = new GoThroughTables();
 
         while (true) {
             double[] x = new double[5];
@@ -78,7 +80,7 @@ public class IfWaiterGoThread implements Runnable {
 
                     if (SettingsFrame.getSelectedAlgorithms().equals("Andrzej"))
                     {
-
+                        throughTables.goTables(shortestPaths, stoliki);
                     }
                     else
                     {
