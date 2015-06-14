@@ -28,7 +28,7 @@ public class Backprop {
         double sum = 0.0;
         double average = 1.0;
         int epoch = 0;
-        int samples = 21;
+        int samples = 30;
         double[] errors = new double[samples];
 
         do {

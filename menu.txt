@@ -1,7 +1,22 @@
 Kotlet schabowy;kotlet schabowy, ziemniaki, surówka;2;2;300;15
 Zupa pomidorowa;zupa pomidorowa;0;3;200;10
-Rosó³;rosó³;0;3;200;10
+Zupa;rosó³;0;3;200;10
 Shoarma;miêso z kurczaka, frytki, surówka, zestaw sosów;2;2;300;20
+Frytki;frytki, dodatki;2;2;150;10
+Pizza;wybrane sk³adniki;2;3;500;18
+Zupa;pomidorowa;0;3;200;11
+£osoœ z grilla;³osoœ, grillowane warzywa, frytki;2;3;400;22
+Karkówka z grilla;karkówka, dodatki;2;3;300;15
+Kie³basa z grilla; kie³basa, dodatki;2;3;250;13
+Mieszanka szpitalna;nie wiadomoc co tam jest;2;1;250;8
+Grillowany kurczak;kurczak, dodatki;2;3;340;21
+Fasolka po bretoñsku;fasola, kie³basa, sos pomidorowy;2;2;200;10
+Mieszanka akademicka;filety z piersi kurczaka, ry¿, pomidory, kukurydza, fasola;2;3;300;13
+Spaghetti;miêso mielone, sos, makaron;2;2;280;14
+Ma³¿e;ma³¿e, dodatki;2;1;240;10
+Tortilla al horno;warzywa, kurczak, ciasto, sos;2;1;320;16
+Naleœniki;ciasto, ser;2;1;230;9
+Jajka w sosie tatarskim;jajka, sos;2;1;200;10
 Wódka;Wyborowa;0;0;4;1
 Wódka;Dêbowa;0;0;4;1
 Wódka;Absolut;0;0;4;1
