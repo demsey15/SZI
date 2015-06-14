@@ -5,6 +5,7 @@ import bohonos.demski.gorska.limiszewska.mieldzioc.logicalLayer.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -16,8 +17,12 @@ public class PathFinder implements IWalker{
     private Control control = Control.getInstance();
 
     public void goThroughTables(List<Integer> tablesToGoThrow){
-       System.out.println("Wywołano algorytm dominika z listą stołów: " + Arrays.toString(tablesToGoThrow.toArray()));
-        List<Integer> properOrderTabels = properOrderFinder.findProperOrder(tablesToGoThrow);
+        List<Integer> tablesToGo = new ArrayList<Integer>();
+        for(Integer i : tablesToGoThrow){
+            if(!tablesToGo.contains(i)) tablesToGo.add(i);
+        }
+       System.out.println("Wywołano algorytm dominika z listą stołów: " + Arrays.toString(tablesToGo.toArray()));
+        List<Integer> properOrderTabels = properOrderFinder.findProperOrder(tablesToGo);
 
 
         Coordinates currentPosition = new Coordinates(0, 0);   //zaczynamy od współrzędnych (0, 0)
