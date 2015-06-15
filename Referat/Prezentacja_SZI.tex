@@ -33,6 +33,73 @@
 			\tableofcontents
 		\end{frame}
 		
+		\section{Opis projektu}
+		\begin{frame}
+			Celem naszego projektu jest zasymulowanie działania kelnera pracującego w restauracji. Kelner realizuje następujące zadania:
+			\begin{itemize}
+				\item ustala kolejność przygotowania zamówionych posiłków,
+				\item układa gotowe dania na tacy, 
+				\item decyduje kiedy ma iść roznieść zamówione posiłki,
+				\item wybiera najbardziej optymalną ścieżkę rozdania tych posiłków. 
+			\end{itemize}
+		\end{frame}
+		\begin{frame}{Podział pracy}
+			\begin{itemize}
+				\item Agnieszka - ustalanie kolejności przygotowywania posiłków (drzewa decyzyjne),
+				\item Adam - decydowanie o momencie roznoszenia posiłków przez kelnera (sieci neuronowe),
+				\item Andrzej - znajdowanie najefektywniejszej ścieżki podczas roznoszenia posiłków (przeszukiwanie przestrzeni stanów),
+				\item Dominik - znajdowanie najefektywniejszej ścieżki podczas roznoszenia posiłków (algorytmy genetyczne).
+			\end{itemize}
+		\end{frame}
+		\begin{frame}{Przyjęte założenia}
+			\begin{itemize}
+				\item Mapa o wymiarach $21\times17$ składająca się z kwadratowych pól. 
+				\item Pole może reprezentować pojedynczy stolik, krzesło lub puste miejsce.
+				\item Każdy stolik posiada unikalny numer.
+				\item Przy każdym uruchomieniu losowana jest jedna z trzech map.
+				\item Zamówienia są składane losowo na podstawie przygotowanego menu.
+				\item Kelner odbiera przygotowane posiłki w lewym górnym rogu planszy.
+				\item Kelner realizując zamówienie podchodzi do jednego z cztrech rogów stolika.
+				
+			\end{itemize}
+		\end{frame}
+		
+		\begin{frame}{Reprezentacja wiedzy - system ram}
+			Stworzenie systemu ram zrealizowaliśmy za pomocą paradygmatu programowania obiektowego. Instancje poszczególnych klas odpowiadają obiektom świata rzeczywistego.
+		\end{frame}
+		\begin{frame}{Reprezentacja wiedzy o posiłkach}
+			Klasa Meal - reprezentuje posiłek znajdujący się w menu:
+			\begin{itemize}
+				\item name - nazwa posiłku,
+				\item ingredients - składniki posiłku,
+				\item type - konsystencja,
+				\item temp - temperatura podania posiłku,
+				\item area - pole powierzchni zajmowanej na tacy,
+				\item time - czas przygotowania. 
+			\end{itemize}
+		\end{frame}
+		\begin{frame}{Reprezentacja wiedzy o zamówieniach}
+			Klasa Order - reprezentuje zamówienie złożone przez klienta:
+			\begin{itemize}
+				\item meal - zamawiany posiłek,
+				\item tableNumber - numer stolika, który złożył zamówienie,
+				\item orderTime - czas od złożenia zamówienia,
+				\item prepareTime - czas przygotowania posiłku,
+				\item VIP - priorytet zamówienia,
+				\item liquid - czy zamówionym posiłkiem jest napój.
+			\end{itemize}
+		\end{frame}
+		\begin{frame}{Zarządzanie zamówieniami}
+			Klasa OrderService - przechowuje informacje o zamówieniach:
+			\begin{itemize}
+				\item menu - lista posiłków,
+				\item orders - lista złożonych zamówień,
+				\item currentCreatingMeals - lista zamówień przygotowywanych przez kuchnię,
+				\item readyMeals - lista gotowych zamówień,
+				\item tray - lista zamówień znajdujących się na tacy kelnera.
+			\end{itemize}
+		\end{frame}
+		
 		\section{Algorytmy genetyczne}
 		\begin{frame}{Do czego zastosowałem algorytmy genetyczne?}
 			Skorzystałem z biblioteki JGAP.
@@ -257,8 +324,11 @@
 			\pgfdeclareimage[width=10cm,height=8cm]{BP}{Backprop4.png}
 			\pgfuseimage{BP}
 		\end{frame}
+		\begin{frame}{Zastosowanie sieci neuronowej w projekcie Inteligenty kelner}
+			Stworzona sieć neuronowa odpowiada za wydawanie decyzji czy inteligenty kelner ma iść roznosić posiłki zamówione przez klientów czy poczekać, aż zostanie zrealizowane przez kuchnię kolejne zamówienie.  
+		\end{frame}
 		\begin{frame}{Eksperyment}
-			Dla danych uczących i sieci neuronowej o 5 neuronach wejściowych, 13 neuronach ukrytych i 1 neuronie wyjściowym. Algorytm kończył działanie, gdy błąd średniokwadratowy jet mniejszy od $0.01$. Otrzymałem następujące wyniki.
+			Przeprowadziłem eksperyment dla zbioru uczącego i sieci neuronowej o 5 neuronach wejściowych, 13 neuronach ukrytych i 1 neuronie wyjściowym. Algorytm kończył działanie, gdy błąd średniokwadratowy był mniejszy od $0.1$. Współczynnik uczenia oraz człon momentu miały odpowiednio wartości: $0.2$ i $0.6$. Otrzymałem następujące wyniki:
 		\end{frame}
 		\begin{frame}
 			\begin{center}		
@@ -267,10 +337,10 @@
 			\end{center}
 		\end{frame}
 		\begin{frame}{Wnioski z eksperymentu}
-			Z przeprowadzonych testów można wysnuć następujące wniosek, że wartość funkcji błedu oscyluje cały czas koło tej samej liczby. Świadczy to o tym, że znaleźliśmy się w minimum lokalnym.
+			Z przeprowadzonych testów można wysnuć następujące wnioski, że wartość funkcji błedu oscyluje cały czas wokół tej samej liczby. Świadczy to o tym, że znaleźliśmy się w minimum lokalnym.
 			\begin{itemize}
 			 \item Przyczyną tego stanu rzeczy mogą być duże różnice wartości w zbiorze uczącym. Dlatego należy zawsze w tej sytuacji znormalizować dane uczące!
-			\item Innym powodem może być za mały zbiór uczący, który nie odzwierciedla za dobrze własności, których pragniemy w uczonej przez nas sieci neurowej. Należy pamiętać, żeby zbiór uczący był zawsze odpowiednio duży!
+			\item Innym powodem może być za mały zbiór uczący, który nie odzwierciedla za dobrze własności, których wymagamy od uczonej przez nas sieci neurowej. Należy pamiętać, żeby zbiór uczący był zawsze odpowiednio duży!
 			\end{itemize}
 			Pomimo wszystko błąd sieci na poziomie około $10\%$ jest akceptowalnym wynikiem. W wielu przypadkach taki poziom wystarcza do poprawnego działania sieci.
 		\end{frame}
