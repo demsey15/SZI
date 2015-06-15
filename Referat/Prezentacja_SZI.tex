@@ -48,7 +48,7 @@
 				\item Agnieszka - ustalanie kolejności przygotowywania posiłków (drzewa decyzyjne),
 				\item Adam - decydowanie o momencie roznoszenia posiłków przez kelnera (sieci neuronowe),
 				\item Andrzej - znajdowanie najefektywniejszej ścieżki podczas roznoszenia posiłków (przeszukiwanie przestrzeni stanów),
-				\item Dominik - znajdowanie najefektywniejszej ścieżki podczas roznoszenia posiłków (algorytmy genetyczne).
+				\item Dominik - znajdowanie najefektywniejszej kolejności odwiedzania stolików przez kelnera podczas roznoszenia posiłków (algorytmy genetyczne).
 			\end{itemize}
 		\end{frame}
 		\begin{frame}{Przyjęte założenia}
@@ -59,7 +59,7 @@
 				\item Przy każdym uruchomieniu losowana jest jedna z trzech map.
 				\item Zamówienia są składane losowo na podstawie przygotowanego menu.
 				\item Kelner odbiera przygotowane posiłki w lewym górnym rogu planszy.
-				\item Kelner realizując zamówienie podchodzi do jednego z cztrech rogów stolika.
+				\item Kelner, realizując zamówienie, podchodzi do jednego z cztrech rogów stolika.
 				
 			\end{itemize}
 		\end{frame}
@@ -143,12 +143,12 @@
 		\begin{frame}{Wady i zalety takiej reprezentacji}
 			Reprezentacja ta wprowadza spore zamieszanie przy przechodzeniu na reprezentację wykorzystywaną przy funcji oceny, jednak kłopoty te rekompensuje przy krzyżowaniu i mutacji. Cechą charakterystyczą tej reprezentacji jest fakt, że na i-tej pozycji jest liczba z przedziału od 0 do n-i-1 (gzie n to liczba wszystkich stolików, np. na miejscu zerowym wszystkie miejsca są jeszcze do wybrania, jest więc n - 0 możliwości, należy odjąć 1, bo lista numerowana jest od zera). Ze względu na to wymiana materiału genetycznego między dwoma osobnikami za pomocą standardowego krzyżowania x-punktowego zawsze da dopuszczalne potomstwo.
 		\end{frame}
-		\begin{frame}{Kod}
+		\begin{frame}[plain]{Kod}
 			\pgfdeclareimage[width=10cm,height=8cm]{chromosom}{przykladowyChromosom.png}
 			\pgfuseimage{chromosom}
 		\end{frame}
 		\begin{frame}{Kod}
-			\pgfdeclareimage[width=9cm,height=6cm]{chromosom}{zamianaNaChromosom.png}
+			\pgfdeclareimage[width=9cm,height=5cm]{chromosom}{zamianaNaChromosom.png}
 			\pgfuseimage{chromosom}
 		\end{frame}
 	
@@ -167,15 +167,15 @@
 					\end{equation}
 				\end{defi}
 			\end{frame}
-			\begin{frame}
+			\begin{frame}[plain]
 				\pgfdeclareimage[width=11cm,height=8cm]{chromosom}{mapa.png}
 				\pgfuseimage{chromosom}
 			\end{frame}
-			\begin{frame}
+			\begin{frame}[plain]
 				\pgfdeclareimage[width=11cm,height=8cm]{chromosom}{macierzOdleglosci.png}
 				\pgfuseimage{chromosom}
 			\end{frame}
-			\begin{frame}{Ocena osobników}
+			\begin{frame}[plain]{Ocena osobników}
 				\pgfdeclareimage[width=10cm,height=8cm]{chromosom}{funkcjaDopasowania.png}
 				\pgfuseimage{chromosom}
 			\end{frame}
@@ -191,15 +191,15 @@
 					\item Uruchomię mój algorytm 10 razy z takimi samymi ustawieniami, jakie są zaimplementowane w aplikacji Inteligentny kelner (rozmiar populacji - 1000, 2000 ewolucji).
 				\end{enumerate}
 			\end{frame}
-		\begin{frame}{Wyniki doświadczenia}
+		\begin{frame}[plain]{Wyniki doświadczenia}
 			\pgfdeclareimage[width=12cm,height=7cm]{chromosom}{eksperymentDD.png}
 			\pgfuseimage{chromosom}
 		\end{frame}
-		\begin{frame}{Wyniki doświadczenia - 100 powtórzeń}
+		\begin{frame}[plain]{Wyniki doświadczenia - 100 powtórzeń}
 		\pgfdeclareimage[width=11cm,height=8cm]{chromosom}{eksperyment100.png}
 		\pgfuseimage{chromosom}
 		\end{frame}
-		\begin{frame}{Wyniki doświadczenia - 1000 powtórzeń}
+		\begin{frame}[plain]{Wyniki doświadczenia - 1000 powtórzeń}
 			Algorytm wykonywał się 1, 5 godziny.
 			\pgfdeclareimage[width=12cm,height=7cm]{chromosom}{eksperyment1000.png}
 			\pgfuseimage{chromosom}
