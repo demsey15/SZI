@@ -39,7 +39,7 @@
 			\begin{itemize}
 				\item ustala kolejność przygotowania zamówionych posiłków,
 				\item układa gotowe dania na tacy, 
-				\item decyduje kiedy ma iść roznieść zamówione posiłki,
+				\item decyduje, kiedy ma iść roznieść zamówione posiłki,
 				\item wybiera najbardziej optymalną ścieżkę rozdania tych posiłków. 
 			\end{itemize}
 		\end{frame}
@@ -48,7 +48,7 @@
 				\item Agnieszka - ustalanie kolejności przygotowywania posiłków (drzewa decyzyjne),
 				\item Adam - decydowanie o momencie roznoszenia posiłków przez kelnera (sieci neuronowe),
 				\item Andrzej - znajdowanie najefektywniejszej ścieżki podczas roznoszenia posiłków (przeszukiwanie przestrzeni stanów),
-				\item Dominik - znajdowanie najefektywniejszej kolejności odwiedzania stolików przez kelnera podczas roznoszenia posiłków (algorytmy genetyczne).
+				\item Dominik - znajdowanie najefektywniejszej ścieżki podczas roznoszenia posiłków (algorytmy genetyczne).
 			\end{itemize}
 		\end{frame}
 		\begin{frame}{Przyjęte założenia}
@@ -59,7 +59,7 @@
 				\item Przy każdym uruchomieniu losowana jest jedna z trzech map.
 				\item Zamówienia są składane losowo na podstawie przygotowanego menu.
 				\item Kelner odbiera przygotowane posiłki w lewym górnym rogu planszy.
-				\item Kelner, realizując zamówienie, podchodzi do jednego z cztrech rogów stolika.
+				\item Kelner realizując zamówienie podchodzi do jednego z cztrech rogów stolika.
 				
 			\end{itemize}
 		\end{frame}
@@ -143,12 +143,12 @@
 		\begin{frame}{Wady i zalety takiej reprezentacji}
 			Reprezentacja ta wprowadza spore zamieszanie przy przechodzeniu na reprezentację wykorzystywaną przy funcji oceny, jednak kłopoty te rekompensuje przy krzyżowaniu i mutacji. Cechą charakterystyczą tej reprezentacji jest fakt, że na i-tej pozycji jest liczba z przedziału od 0 do n-i-1 (gzie n to liczba wszystkich stolików, np. na miejscu zerowym wszystkie miejsca są jeszcze do wybrania, jest więc n - 0 możliwości, należy odjąć 1, bo lista numerowana jest od zera). Ze względu na to wymiana materiału genetycznego między dwoma osobnikami za pomocą standardowego krzyżowania x-punktowego zawsze da dopuszczalne potomstwo.
 		\end{frame}
-		\begin{frame}[plain]{Kod}
+		\begin{frame}{Kod}
 			\pgfdeclareimage[width=10cm,height=8cm]{chromosom}{przykladowyChromosom.png}
 			\pgfuseimage{chromosom}
 		\end{frame}
 		\begin{frame}{Kod}
-			\pgfdeclareimage[width=9cm,height=5cm]{chromosom}{zamianaNaChromosom.png}
+			\pgfdeclareimage[width=9cm,height=6cm]{chromosom}{zamianaNaChromosom.png}
 			\pgfuseimage{chromosom}
 		\end{frame}
 	
@@ -167,15 +167,15 @@
 					\end{equation}
 				\end{defi}
 			\end{frame}
-			\begin{frame}[plain]
+			\begin{frame}
 				\pgfdeclareimage[width=11cm,height=8cm]{chromosom}{mapa.png}
 				\pgfuseimage{chromosom}
 			\end{frame}
-			\begin{frame}[plain]
+			\begin{frame}
 				\pgfdeclareimage[width=11cm,height=8cm]{chromosom}{macierzOdleglosci.png}
 				\pgfuseimage{chromosom}
 			\end{frame}
-			\begin{frame}[plain]{Ocena osobników}
+			\begin{frame}{Ocena osobników}
 				\pgfdeclareimage[width=10cm,height=8cm]{chromosom}{funkcjaDopasowania.png}
 				\pgfuseimage{chromosom}
 			\end{frame}
@@ -191,15 +191,15 @@
 					\item Uruchomię mój algorytm 10 razy z takimi samymi ustawieniami, jakie są zaimplementowane w aplikacji Inteligentny kelner (rozmiar populacji - 1000, 2000 ewolucji).
 				\end{enumerate}
 			\end{frame}
-		\begin{frame}[plain]{Wyniki doświadczenia}
+		\begin{frame}{Wyniki doświadczenia}
 			\pgfdeclareimage[width=12cm,height=7cm]{chromosom}{eksperymentDD.png}
 			\pgfuseimage{chromosom}
 		\end{frame}
-		\begin{frame}[plain]{Wyniki doświadczenia - 100 powtórzeń}
+		\begin{frame}{Wyniki doświadczenia - 100 powtórzeń}
 		\pgfdeclareimage[width=11cm,height=8cm]{chromosom}{eksperyment100.png}
 		\pgfuseimage{chromosom}
 		\end{frame}
-		\begin{frame}[plain]{Wyniki doświadczenia - 1000 powtórzeń}
+		\begin{frame}{Wyniki doświadczenia - 1000 powtórzeń}
 			Algorytm wykonywał się 1, 5 godziny.
 			\pgfdeclareimage[width=12cm,height=7cm]{chromosom}{eksperyment1000.png}
 			\pgfuseimage{chromosom}
@@ -251,8 +251,11 @@
 		\section{Sieci neuronowe}
 		
 		\begin{frame}
-			\textbf{Sztuczna (symulowana) sieć neuronowa} to połączona grupa sztucznych komórek nerwowych, która wykorzystuje model matematyczny w celu przetwarzania informacji. Inspiracją do rozpoczęcia badań nad sztucznymi sieciami neuronowymi było działanie ludzkiego mózgu i próba odtworzenia jego niezwykłej mocy obliczeniowej. Sieci neuronowe składają się ze sztucznych neuronów, które są tutaj odpowiednikami ludzkiej komórki nerwowej. Sztuczne sieci neuronowe mają bardzo szerokie zastosowania od ekonomii począwszy, przez medycynę do techniki.
-		
+			\begin{defi}
+				\textbf{Sztuczna (symulowana) sieć neuronowa} to połączona grupa sztucznych komórek nerwowych, która wykorzystuje model matematyczny w celu przetwarzania informacji.
+			\end{defi}
+			 Inspiracją do rozpoczęcia badań nad sztucznymi sieciami neuronowymi było działanie ludzkiego mózgu i próba odtworzenia jego niezwykłej mocy obliczeniowej. Sieci neuronowe składają się ze sztucznych neuronów, które są tutaj odpowiednikami ludzkiej komórki nerwowej. Sztuczne sieci neuronowe mają bardzo szerokie zastosowania od ekonomii począwszy, przez medycynę do techniki.
+			
 		\end{frame}
 		\begin{frame}{Zastosowania sieci neuronowych}
 				\begin{itemize}
@@ -343,5 +346,255 @@
 			\item Innym powodem może być za mały zbiór uczący, który nie odzwierciedla za dobrze własności, których wymagamy od uczonej przez nas sieci neurowej. Należy pamiętać, żeby zbiór uczący był zawsze odpowiednio duży!
 			\end{itemize}
 			Pomimo wszystko błąd sieci na poziomie około $10\%$ jest akceptowalnym wynikiem. W wielu przypadkach taki poziom wystarcza do poprawnego działania sieci.
+		\end{frame}
+		\section{Przeszukiwanie przestrzeni stanów}
+		\begin{frame}{Problem poruszania się kelnera po mapie}
+			Zakładamy, że kelner przygotował już tacę z zamówieniami i musi roznieść posiłki do odpowiednich stolików. Jego celem jest wybranie najkrótszej ścieżki przechodzącej przez wszystkie stoliki.
+			\begin{enumerate}
+				\item Problem pierwszy: znalezienie najkrótszych ścieżek pomiędzy poszczególnymi stolikami.
+				\item Problem drugi: znalezienie optymalnej kolejności stolików.
+			\end{enumerate}
+			Rozwiązaniem jest zaimplementowanie dwóch przestrzeni stanów (na różnym poziomie abstrakcji).
+		\end{frame}
+		\begin{frame}{Pierwsza przestrzeń stanów}
+			Pierwsza przestrzeń stanów będzie odpowiadać za odnajdywanie najkrótszej ścieżki pomiędzy dwoma stolikami.
+			\begin{enumerate}
+				\item Stany - pojedyncze pola, na których może stać kelner.
+				\item Przejścia pomiędzy stanami - przemieszczenie się kelnera na sąsiednie pole. Zakładamy, że każde takie przejście ma taki sam koszt.
+			\end{enumerate}
+			Rozwiązujemy problem najkrótszej ścieżki w grafie.
+		\end{frame}
+		\begin{frame}{Algorytm znajdowania najkrótszej ścieżki}
+			Definiujemy $3$ zbiory pól:
+			\begin{itemize}
+				\item Sprawdzone
+				\item DoSprawdzenia
+				\item KolejneDoSprawdzenia
+			\end{itemize}
+			Wybieramy pole początkowe. Zmiennej $dystans$ przypisujemy wartość $0$.
+		\end{frame}
+		\begin{frame}{Algorytm znajdowania najkrótszej ścieżki}
+			\begin{alg}
+				\begin{enumerate}
+					\item Dodajemy pole poczętkowe do zbioru DoSprawdzenia
+					\item Przypisujemy mu wartość $0$
+					\item Dopóki zbiór DoSprawdzenia nie jest pusty:
+					\begin{itemize}
+						\item zwiększamy zmienną $dystans$ o $1$
+						\item wszystkim polom, które nie należą do zbiorów Sprawdzone lub DoSprawdzenia, a które sąsiadują z polami ze zbioru DoSprawdzenia przypisujemy wartość $dystans$
+						\item dodajemy te pola do zbioru KolejneDoSprawdzenia
+						\item do zbioru Sprawdzone dodajemy pola ze zbioru DoSprawdzenia
+						\item zbiór DoSprawdzenia zastępujemy zbiorem KolejneDoSprawdzenia
+						\item usuwamy wszystkie elementy ze zbioru KolejneDoSprawdzenia
+					\end{itemize}
+				\end{enumerate}
+			\end{alg}
+		\end{frame}
+		\begin{frame}{Kod algorytmu przypisywania odległości}
+			\pgfdeclareimage[width=9cm,height=7cm]{BP}{kody/kod_odleglosci.png}
+			\pgfuseimage{BP}
+		\end{frame}
+		\begin{frame}{Przebieg działania algorytmu - przypisywanie odległości}
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroki/krok0.png}
+			\pgfuseimage{BP}
+		\end{frame}
+		\begin{frame}{Przebieg działania algorytmu - przypisywanie odległości}
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroki/krok1.png}
+			\pgfuseimage{BP}
+		\end{frame}
+		\begin{frame}{Przebieg działania algorytmu - przypisywanie odległości}
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroki/krok2.png}
+			\pgfuseimage{BP}
+		\end{frame}
+		\begin{frame}{Przebieg działania algorytmu - przypisywanie odległości}
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroki/krok3.png}
+			\pgfuseimage{BP}
+		\end{frame}
+		\begin{frame}{Przebieg działania algorytmu - przypisywanie odległości}
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroki/krok4.png}
+			\pgfuseimage{BP}
+		\end{frame}
+		\begin{frame}{Przebieg działania algorytmu - przypisywanie odległości}
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroki/krok5.png}
+			\pgfuseimage{BP}
+		\end{frame}
+		\begin{frame}{Przebieg działania algorytmu - przypisywanie odległości}
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroki/krok6.png}
+			\pgfuseimage{BP}
+		\end{frame}
+		\begin{frame}{Przebieg działania algorytmu - przypisywanie odległości}
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroki/krok7.png}
+			\pgfuseimage{BP}
+		\end{frame}
+		\begin{frame}{Przebieg działania algorytmu - przypisywanie odległości}
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroki/krok8.png}
+			\pgfuseimage{BP}
+		\end{frame}
+		\begin{frame}{Przebieg działania algorytmu - przypisywanie odległości}
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroki/krok9.png}
+			\pgfuseimage{BP}
+		\end{frame}
+		\begin{frame}{Przebieg działania algorytmu - przypisywanie odległości}
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroki/krok10.png}
+			\pgfuseimage{BP}
+		\end{frame}
+		\begin{frame}{Przebieg działania algorytmu - przypisywanie odległości}
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroki/krok11.png}
+			\pgfuseimage{BP}
+		\end{frame}
+		\begin{frame}{Przebieg działania algorytmu - przypisywanie odległości}
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroki/krok12.png}
+			\pgfuseimage{BP}
+		\end{frame}
+		\begin{frame}{Przebieg działania algorytmu - przypisywanie odległości}
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroki/krok13.png}
+			\pgfuseimage{BP}
+		\end{frame}
+		\begin{frame}{Algorytm znajdowania najkrótszej ścieżki}
+			Aby odczytać najkrótszą ścieżkę z pola początkowego do wybranego pola wykonujemy następującą procedurę:
+			\begin{alg}
+				\begin{enumerate}
+					\item Odczytujemy wartość wybranego pola
+					\item Dodajemy wybrane pole do ścieżki
+					\item Dla $i$ od wartości wybranego pola do $1$:
+					\begin{itemize}
+						\item ustawiamy bierzące pole na sąsiednie pole o wartości $i-1$
+						\item dopisujemy bierzące pole do ścieżki
+					\end{itemize}
+					\item Odwracamy kolejność pól na ścieżce
+				\end{enumerate}
+			\end{alg}
+		\end{frame}
+		\begin{frame}{Kod algorytmu odnajdowania ścieżki}
+			\pgfdeclareimage[width=9cm,height=7cm]{BP}{kody/kod_sciezka.png}
+			\pgfuseimage{BP}
+		\end{frame}
+		\begin{frame}{Przebieg działania algorytmu - odnajdowanie ścieżki}
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroki/krok14.png}
+			\pgfuseimage{BP}
+		\end{frame}
+		\begin{frame}{Przebieg działania algorytmu - odnajdowanie ścieżki}
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroki/krok15.png}
+			\pgfuseimage{BP}
+		\end{frame}
+		\begin{frame}{Przebieg działania algorytmu - odnajdowanie ścieżki}
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroki/krok16.png}
+			\pgfuseimage{BP}
+		\end{frame}
+		\begin{frame}{Przebieg działania algorytmu - odnajdowanie ścieżki}
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroki/krok17.png}
+			\pgfuseimage{BP}
+		\end{frame}
+		\begin{frame}{Przebieg działania algorytmu - odnajdowanie ścieżki}
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroki/krok18.png}
+			\pgfuseimage{BP}
+		\end{frame}
+		\begin{frame}{Przebieg działania algorytmu - odnajdowanie ścieżki}
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroki/krok19.png}
+			\pgfuseimage{BP}
+		\end{frame}
+		\begin{frame}{Przebieg działania algorytmu - odnajdowanie ścieżki}
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroki/krok20.png}
+			\pgfuseimage{BP}
+		\end{frame}
+		\begin{frame}{Pierwsza przestszeń stanów - wielkość danych}
+			Dla $n$ stolików mamy $n+1$ wyróżnionych pól (łącznie z polem w lewym górnym rogu mapy). Mamy zatem $n \times (n+1) = n^2 + n$ wszystkich ścieżek. Tak obliczone ścieżki mogą być wielokrotnie wykorzystywane. Możemy zatem dokonać obliczenia wszstkich najkrótszych ścieżek pomiędzy wyróżnionymi polami na samym początku działania programu (w ramach obliczeń wstępnych).
+		\end{frame}
+		\begin{frame}{Druga przestrzeń stanów}
+			Druga przestrzeń stanów będzie odpowiadać za znajdowanie najlepszej kolejności stolików.
+			\begin{enumerate}
+				\item Stany - pola przy stolikach, do których powinien podejść kelner oraz pole startowe w lewym górnym rogu mapy.
+				\item Przejścia pomiędzy stanami - najkrótsze ścieżki pomiędzy stolikami, które odwiedza kelner. Koszt takiego przejścia jest równy długości ścieżki.
+			\end{enumerate}
+			Rozwiązujemy problem komiwojażera w grafie pełnym.
+		\end{frame}
+		\begin{frame}{Problem komiwojażera}
+			Problem komiwojażera jest problemem NP-trudnym. Oznacza to, że nie jest znany algorytm wielomianowy, który go rozwiązuje. Istnieją jednak metody działające w czasie wielomianowym, które dają wynik zbliżony do optymalnego. W naszej metodzie wykorzystamy algorytm Prima, służący do wyznaczania minimalnego drzewa rozpiętego w grafie.
+		\end{frame}
+		\begin{frame}{Algorytm Prima}
+			\begin{alg}
+				\begin{enumerate}
+					\item Tworzymy drzewo zawierające pojedynczy wierzchołek
+					\item Spośród wszystkich krawędzi wychodzących z naszego drzewa wybieramy tą o najmniejszej wadze i dołączamy ją do drzewa (wraz z wierzchołkiem leżącym na końcu tej krawędzi)
+					\item Poprzedni krok powtarzamy tak długo, aż wszystkie wierzchołki grafu nie znajdą się w drzewie
+				\end{enumerate}
+			\end{alg}
+		\end{frame}	
+		\begin{frame}{Przebieg działania algorytmu Prima}
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroczki/graf0.png}
+			\pgfuseimage{BP}
+		\end{frame}	
+		\begin{frame}{Przebieg działania algorytmu Prima}
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroczki/graf1.png}
+			\pgfuseimage{BP}
+		\end{frame}	
+		\begin{frame}{Przebieg działania algorytmu Prima}
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroczki/graf2.png}
+			\pgfuseimage{BP}
+		\end{frame}	
+		\begin{frame}{Przebieg działania algorytmu Prima}
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroczki/graf3.png}
+			\pgfuseimage{BP}
+		\end{frame}	
+		\begin{frame}{Przebieg działania algorytmu Prima}
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroczki/graf4.png}
+			\pgfuseimage{BP}
+		\end{frame}	
+		\begin{frame}{Przebieg działania algorytmu Prima}
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroczki/graf5.png}
+			\pgfuseimage{BP}
+		\end{frame}	
+		\begin{frame}{Przebieg działania algorytmu Prima}
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroczki/graf6.png}
+			\pgfuseimage{BP}
+		\end{frame}	
+		\begin{frame}{Przebieg działania algorytmu Prima}
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroczki/graf7.png}
+			\pgfuseimage{BP}
+		\end{frame}	
+		\begin{frame}{Przebieg działania algorytmu Prima}
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroczki/graf8.png}
+			\pgfuseimage{BP}
+		\end{frame}	
+		\begin{frame}{Przebieg działania algorytmu Prima}
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroczki/graf9.png}
+			\pgfuseimage{BP}
+		\end{frame}	
+		\begin{frame}{Przebieg działania algorytmu Prima}
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroczki/graf10.png}
+			\pgfuseimage{BP}
+		\end{frame}	
+		\begin{frame}{Przebieg działania algorytmu Prima}
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroczki/graf11.png}
+			\pgfuseimage{BP}
+		\end{frame}
+		\begin{frame}{Minimalne drzewo rozpięte}
+			\begin{uw}
+				Załóżmy, że wagi krawędzi w naszym grafie są dodatnie. Zauważmy, że jeżeli cykl $\{v_0, v_1\} , \{v_1, v_2\} , ... , \{v_{n-1}, v_n\} , \{v_n, v_0\}$ jest rozwiązaniem problemu komiwojażera, to ścieżka $\{v_0, v_1\} , \{v_1, v_2\} , ... , \{v_{n-1}, v_n\}$ jest drzewem rozpiętym. Zatem minimalne drzewo rozpięte ma mniejszą sumę wag krawędzi niż rozwiązanie problemu komiwojażera.
+			\end{uw}
+		\end{frame}
+		\begin{frame}{Rozwiązanie przybliżone}
+			Rozpatrzmy następujące drzewo rozpięte:
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroczki/drzewo0.png}
+			\pgfuseimage{BP}
+		\end{frame}
+		\begin{frame}{Rozwiązanie przybliżone}
+			Przechodzimy przez całe drzewo i wracamy do wierzchołka $0$ (każdą krawędź przechodzimy dwa razy).
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroczki/drzewo1.png}
+			\pgfuseimage{BP}
+		\end{frame}
+		\begin{frame}{Rozwiązanie przybliżone}
+			Pomijamy powtarzające się wierzchołki (skracamy drogę).
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroczki/drzewo2.png}
+			\pgfuseimage{BP}
+		\end{frame}
+		\begin{frame}{Rozwiązanie przybliżone}
+			Otrzymaliśmy rozwiązanie co najwyżej dwa razy gorsze od optymalnego.
+			\pgfdeclareimage[width=6cm,height=6cm]{BP}{kroczki/drzewo2.png}
+			\pgfuseimage{BP}
+		\end{frame}
+		\begin{frame}{Kod algorytmu wyznaczania kolejności stolików}
+			\pgfdeclareimage[width=11cm,height=7cm]{BP}{kody/kod_kolejnosc.png}
+			\pgfuseimage{BP}
 		\end{frame}
 \end{document}
