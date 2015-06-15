@@ -295,13 +295,17 @@ public class OrdersService {
                     }
                 }
                 */
-                for(int i = 0; i < tray.size(); i++)
+                int size = tray.size();
+                int i = 0;
+               while(i < size)
                 {
                     Order order = tray.get(i);
                     synchronized (order){
                         if(order.tableNumber == tableNumber){
                             tray.remove(i);
+                            size = tray.size();
                         }
+                        else i++;
                     }
                 }
                 MainFrame.getInstance().getHandedOnPlatePanel().setOrdersList(getTrayMealsToDisplay());

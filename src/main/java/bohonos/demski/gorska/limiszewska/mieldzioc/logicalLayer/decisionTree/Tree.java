@@ -16,7 +16,7 @@ public class Tree {
 
     public List<TreeElem> tree;
     private int iterator;
-    public static int slowDownWorking = 8;
+    public static int slowDownWorking = 5;
 
     public Tree(){
 
