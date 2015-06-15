@@ -39,7 +39,7 @@
 			\begin{itemize}
 				\item ustala kolejność przygotowania zamówionych posiłków,
 				\item układa gotowe dania na tacy, 
-				\item decyduje, kiedy ma iść roznieść zamówione posiłki,
+				\item decyduje, kiedy ma rozpocząć roznoszenie zamówionych posiłków,
 				\item wybiera najbardziej optymalną ścieżkę rozdania tych posiłków. 
 			\end{itemize}
 			Projekt został stworzony w języku Java.
@@ -60,7 +60,7 @@
 				\item Przy każdym uruchomieniu losowana jest jedna z trzech map.
 				\item Zamówienia są składane losowo na podstawie przygotowanego menu.
 				\item Kelner odbiera przygotowane posiłki w lewym górnym rogu planszy.
-				\item Kelner realizując zamówienie podchodzi do jednego z cztrech rogów stolika.
+				\item Kelner realizując zamówienie podchodzi do jednego z czterech rogów stolika.
 				
 			\end{itemize}
 		\end{frame}
@@ -87,7 +87,8 @@
 				\item orderTime - czas od złożenia zamówienia,
 				\item prepareTime - czas przygotowania posiłku,
 				\item VIP - priorytet zamówienia,
-				\item liquid - czy zamówionym posiłkiem jest napój.
+				\item liquid - czy zamówionym posiłkiem jest napój,
+				\item isLongPreparedTime() - metoda mówiąca o tym czy posiłek jest już długo przygotowywany.
 			\end{itemize}
 		\end{frame}
 		\begin{frame}{Zarządzanie zamówieniami}
