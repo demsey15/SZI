@@ -28,7 +28,7 @@ public class Backprop {
         double sum = 0.0;
         double average = 1.0;
         int epoch = 0;
-        int samples = 21;
+        int samples = 30;
         double[] errors = new double[samples];
 
         do {
@@ -43,7 +43,7 @@ public class Backprop {
                 average = error / samples;
             }
 
-       //     System.out.println("Error for epoch " + epoch + ": " + error + " Average: "+ average + (characteristicTime > 0 ? " Learning rate: " + learningRate / (1 + (currentEpoch / characteristicTime)): ""));
+            //System.out.println("Error for epoch " + epoch + ": " + error + " Average: "+ average + (characteristicTime > 0 ? " Learning rate: " + learningRate / (1 + (currentEpoch / characteristicTime)): ""));
             epoch++;
             currentEpoch = epoch;
         } while(average > errorThreshold);
