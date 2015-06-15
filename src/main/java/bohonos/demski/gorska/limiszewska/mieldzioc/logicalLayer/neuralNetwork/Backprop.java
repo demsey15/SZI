@@ -75,6 +75,7 @@ public class Backprop {
             neuralNetwork.setInputs(input);
             double[] output = neuralNetwork.getOutput();
 
+            //Ustalenie błędów dla poszczególnych neuronów z warstw ukrytych
             for (int j = layers.size() - 1; j > 0; j--) {
                 Layer layer = layers.get(j);
 
@@ -112,6 +113,7 @@ public class Backprop {
                 }
             }
 
+            //Używająć wyżej obliczonych błędów dla każdego neuronu uaktualniamy wagi sieci
             for(int j = layers.size() - 1; j > 0; j--) {
                 Layer layer = layers.get(j);
 
